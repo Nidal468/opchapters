@@ -1,37 +1,20 @@
 const Boruto = {
   name: 'manga',
   title: 'Boruto',
-  type:'document',
-  fields:[
+  type: 'document',
+  fields: [
     {
-      name: 'name',
-      title: 'Name',
-      type: 'string'
+      name: 'title',
+      title: 'title',
+      type: 'string',
     },
     {
-      name: 'image',
-      title: 'Image',
+      name: 'imagesGallery',
+      title: 'Images gallery',
       type: 'array',
-      of: [
-        {
-          type: 'image',
-          fields: [
-            {
-              name: 'alt',
-              title: 'Alt',
-              type: 'string'
-            }
-          ]
-        }
-      ]
-    },
-    {
-      name: 'url',
-      title: 'Url',
-      type: 'url'
+      of: [{ type: 'image' }]
     }
-  ]
-}
+  ],
+};
 
-export default Boruto
-
+export default Boruto;

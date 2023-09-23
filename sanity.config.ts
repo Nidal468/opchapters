@@ -1,6 +1,6 @@
 import { defineConfig } from "sanity";
 import { deskTool} from "sanity/desk";
-import {schemaTypes} from './schemas/index'
+import schemaTypes from "./schemas/index";
 
 const config = defineConfig({
     projectId: "qtb4sill",
