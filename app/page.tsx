@@ -11,13 +11,8 @@ export default async function Home() {
 
   const assets = await getAssets();
   const mangas = await getManga();
-  const boruto = await getBoruto();
   const soon = await getSoon();
-  const link = `./${mangas.to}`
-  console.log('Fetched assets:', assets);
-  console.log('Fetched mangas:', mangas);
-  console.log('Fetched boruto:', boruto);
-  console.log('Fetched soon:', soon);
+  
   return (
     <div className={styles.body}>
       <div className={styles.frame1}>
@@ -42,7 +37,7 @@ export default async function Home() {
         </div>
         <div className={styles.cards}>
           {mangas.map((manga: any) => (
-            <Link href={link} key={manga._id}>
+            <Link href={`./${manga.name}`} key={manga._id}>
                <div className={styles.card}>
               <div className={styles.image}>
               <Image src={manga.location} alt={manga.name} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>

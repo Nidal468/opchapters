@@ -1,6 +1,8 @@
 import styles from "../../styles/page.module.css";
 import Nav from "../../components/nav";
 import Footer from '../../components/footer'
+import Link from 'next/link'
+
 export default function Home(){
     return(
         <div className={styles.body}>
@@ -15,10 +17,18 @@ export default function Home(){
                 <h1>Chapter List</h1>
             </div>
             <div className={styles.selection}>
+                <Link href={"./boruto-chapter?param=1"}>
                 <div className={styles.list}>
                     <h1>Chapter 2 - <i>The Tree</i></h1>
                     <p>September 13,2023</p>
                 </div>
+                </Link>
+                <Link href={"./one-piece-chapter?param=1"}>
+                <div className={styles.list}>
+                    <h1>Chapter 2 - <i>The Tree</i></h1>
+                    <p>September 13,2023</p>
+                </div>
+                </Link>
             </div>
             <Footer/>
         </div>
