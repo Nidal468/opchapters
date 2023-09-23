@@ -35,7 +35,8 @@ export async function getAssets() {
           name,
           person,
           number,
-          location
+          location,
+          to
       }`
     );
   } 
