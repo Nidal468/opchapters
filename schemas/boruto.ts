@@ -1,5 +1,5 @@
 const Boruto = {
-  name: 'manga',
+  name: 'boruto',
   title: 'Boruto',
   type: 'document',
   fields: [

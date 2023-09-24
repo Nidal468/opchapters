@@ -12,7 +12,8 @@ export default async function Home() {
   const assets = await getAssets();
   const mangas = await getManga();
   const soon = await getSoon();
-  
+  const boruto = await getBoruto();
+  console.log(boruto)
   return (
     <div className={styles.body}>
       <div className={styles.frame1}>

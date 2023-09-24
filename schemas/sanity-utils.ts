@@ -10,7 +10,7 @@ const client = createClient({
 export async function getBoruto() {
   
   return client.fetch(
-    groq`*[_type == "manga"]{
+    groq`*[_type == "boruto"]{
       _id, 
       title,
       "images": imagesGallery[].asset->url
