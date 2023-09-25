@@ -7,6 +7,7 @@ export default function Nav(props: any) {
         <div className={styles.nav}>
           <img src='/images/pscans.Webp' alt='opscans'/>
           <div className={styles.filters}>
+            <Filter/>
           </div>
         </div>
     )

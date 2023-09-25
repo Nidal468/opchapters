@@ -40,11 +40,16 @@ export default function Home(props: any) {
         return <div></div>;
     }
 
+    // Calculate previous and next chapter numbers
+    const prevChapter = parseInt(param) - 1;
+    const nextChapter = parseInt(param) + 1;
+    const maxChapter = chapters.length;
+
     return (
         <div className={styles.body}>
             <Nav/>
             <div className={styles.image}>
-            <Image src={`/images/${isData}.Webp`} fill={true} alt={isData}/>
+                <Image src={`/images/${isData}.Webp`} fill={true} alt={isData} priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
             </div>
             <div className={styles.frame1}>
                 <h1>Boruto</h1>
@@ -55,23 +60,32 @@ export default function Home(props: any) {
                 <h1>Chapter {param}</h1>
             </div>
             <div className={styles.page}>
-            {chapters.length > 0 && (
-              <div key={chapters[parseInt(param) - 1]._id}>
-                {chapters[parseInt(param) - 1].images.map((imageUrl: string, index: number) => (
-                  <div className={styles.pageimage} key={index}>
-                  <Image
-                    fill={true}
-                    src={imageUrl}
-                    alt={`Chapter ${chapters[0].title} - Image ${index}`}
-                  />
-                  </div>
-                ))}
-              </div>
-            )}
+                {chapters.length > 0 && (
+                    <div key={chapters[parseInt(param) - 1]._id}>
+                        {chapters[parseInt(param) - 1].images.map((imageUrl: string, index: number) => (
+                            <div className={styles.pageimage} key={index}>
+                                <Image
+                                    fill={true}
+                                    src={imageUrl}
+                                    alt={`Chapter ${chapters[0].title} - Image ${index}`}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
             <div className={styles.pageChange}>
-              <div className={styles.button}><Link href={`./${page}?param=${parseInt(param) - 1}`}>Preivious Chapter</Link></div>
-              <div className={styles.button}><Link href={`./${page}?param=${parseInt(param) + 1}`}>Next Chapter</Link></div>
+                <div className={styles.button}>
+                    {prevChapter > 0 && (
+                        <Link href={`./${page}?param=${prevChapter}`}>Previous Chapter</Link>
+                    )}
+                </div>
+                <div className={styles.button}>
+                    {nextChapter <= maxChapter && (
+                        <Link href={`./${page}?param=${nextChapter}`}>Next Chapter</Link>
+                    )}
+                </div>
             </div>
             <Footer />
         </div>

@@ -6,7 +6,7 @@ import Footer from '../../components/footer'
 import Link from 'next/link'
 import { useState, useEffect } from "react";
 import {getLinks} from '../../schemas/sanity-utils'
-
+import Image from 'next/image'
 export default function Home(){
     const [isData, setData] = useState([])
     useEffect(() =>{
@@ -20,7 +20,9 @@ export default function Home(){
     return(
         <div className={styles.body}>
             <Nav/>
-            <img src="/images/boruto.Webp" className={styles.image}/>
+            <div className={styles.image}>
+                <Image src="/images/boruto.Webp" fill={true} alt="boruto image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
+            </div>
             <div className={styles.frame1}>
                     <h1>Boruto</h1>
                     <h2>Mahashi Kishimoto</h2>

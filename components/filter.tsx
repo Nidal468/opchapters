@@ -11,7 +11,7 @@ export function Filter() {
   };
     return(
         <>
-         {['One Piece', 'Boruto', 'Jujutsu Kaisen', 'Kagura bachi', 'Join Us'].map((filter) => (
+         {['Home','One Piece', 'Boruto', 'Jujutsu Kaisen', 'Kagura bachi', 'Join Us'].map((filter) => (
               <div
                 key={filter}
                 className={filter === activeFilter ? styles.activefilter : styles.filter}

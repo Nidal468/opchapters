@@ -1,4 +1,5 @@
 import styles from "../styles/styles.module.css";
+import Image from 'next/image'
 export default function Footer() {
     return(
         <div className={styles.footer}>
@@ -17,7 +18,9 @@ export default function Footer() {
           <div className="CopyrightOpscansComAllRightsReserved text-center text-white text-opacity-60 text-[10px] font-normal font-['SF Pro Text'] leading-tight">Copyright © opscans.com. All Rights Reserved</div>
         </div>
         <div className={styles.effect}></div>
-        <img src="/images/footer.Webp"/>
+        <div className={styles.footerImage}>
+        <Image src="/images/footer.Webp" fill={true} alt={"footer image"} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={50}/>
+        </div>
       </div>
     )
 }
