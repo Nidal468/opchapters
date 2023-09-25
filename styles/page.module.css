@@ -1,6 +1,5 @@
 .body{
     width: 100%;
-    cursor: pointer;
     background: linear-gradient(180deg, #414141 0%, #2A2A2A 60.13%, #050505 100%);
     color: #fff;
     display: flex;

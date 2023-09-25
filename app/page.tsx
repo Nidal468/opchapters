@@ -29,7 +29,7 @@ export default async function Home() {
       </div>
       <div className={styles.frame2}>
         <div className={styles.bar}>
-          <div className={styles.title}><MenuIcon/><h1>Manga List</h1></div>
+          <div className={styles.title}><h1>Manga List</h1></div>
           <div className={styles.buttons}>
           </div>
         </div>

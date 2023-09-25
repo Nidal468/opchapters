@@ -21,6 +21,7 @@
 }
 .nav{
     width: 100%;
+    min-height: 30px;
     background: rgba(128, 128, 128, 0.3);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
@@ -28,7 +29,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 1vw 2vw;
-    cursor: pointer;
     position: fixed;
     top: 0;
     z-index: 999;
@@ -64,7 +64,6 @@
     gap: 1vw;
     border-radius: 100vh;
     background: rgba(89, 89, 89, 0.30);
-    cursor: pointer;
     box-shadow: 1px 1.5px 4px 0px rgba(0, 0, 0, 0.10) inset, 1px 1.5px 4px 0px rgba(0, 0, 0, 0.08) inset, 0px -0.5px 1px 0px rgba(255, 255, 255, 0.25) inset, 0px -0.5px 1px 0px rgba(255, 255, 255, 0.30) inset;
 }
 .activefilter{
@@ -219,7 +218,7 @@
     font-size: 32px;
 }
 #small{
-    font-size: 10px;
+    font-size: 14px;
 }
 .effect{
     width: 100%;
@@ -230,12 +229,18 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
+.menu{
+    display: none;
+}
+.menuicon{
+    display: none;
+}
 @media only screen and (max-width: 768px) {
     .imageContainer{
-        height: 200px;
+        height: 300px;
     }
     .frame1{
-        height: 200px;
+        height: 300px;
     }
     .bot{
         width: 100%;
@@ -246,11 +251,12 @@
     }
     .bot h1{
         color: #e3e3e3;
-        font-size: 1vw;
+        font-size: 10px;
     }
     .button{
         display: flex;
         padding: 0.7vw 2.5vw;
+        font-size: 10px;
     }
     .frame2{
         display: flex;
@@ -267,7 +273,7 @@
     }
     .fade{
         width: 100%;
-        height: 200px;
+        height: 300px;
     }
     .buttons{
         gap: 20px;
@@ -319,34 +325,47 @@
         height: 150px;
     }
     .filters{
+        display: none;
+    }
+    .clicked{
+        display: none;
+    }
+    .unclicked{
+        display: none;
+    }
+    .menu{
+        width: 150px;
+        height: 100vh;
+        position: fixed;
+        background: rgba(39, 39, 39, 0.5);
+        top: 0;
+        right: 0;
         display: flex;
-        padding: 0.4vw;
-        justify-content: center;
-        align-items: center;
-        gap: 1vw;
-        border-radius: 100vh;
-        background: rgba(89, 89, 89, 0.30);
-        box-shadow: 1px 1.5px 4px 0px rgba(0, 0, 0, 0.10) inset, 1px 1.5px 4px 0px rgba(0, 0, 0, 0.08) inset, 0px -0.5px 1px 0px rgba(255, 255, 255, 0.25) inset, 0px -0.5px 1px 0px rgba(255, 255, 255, 0.30) inset;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        z-index: 999;
+        padding: 10px 10px;
+        transition: 0.5s;
         font-size: 8px;
     }
-    .activefilter{
-        display: flex;
-        min-width: 7vw;
-        padding: 0.5vw 1.5vw;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20vw;
-        background: linear-gradient(0deg, rgba(184, 184, 184, 0.1) 0%, rgba(184, 184, 184, 0.4) 100%), rgba(255, 255, 255, 0.06);
-        background-blend-mode: color-dodge, lighten;
-        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10);
+    .menuicon{
+        display: block;
+        position: absolute;
+        z-index: 999;
+        right: 1px;
+        top: 1px;
     }
-    .filter{
-        display: flex;
-        min-width: 7vw;
-        padding: 0.5vw 1.5vw;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20vw;
-        color: rgba(255, 255, 255, 0.60);
+    .menuItems{
+        width: 100%;
+        margin: 20px 0px;
+        background: rgba(39, 39, 39, 0.5);
+        padding: 10px;
+        min-height: 500px;
+        border-radius: 10px;
     }
+    .menuItems li{
+        margin: 10px 0px;
+    }
+    
   }
