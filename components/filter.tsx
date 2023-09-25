@@ -9,19 +9,31 @@ export function Filter() {
   const handleFilterClick = (filter: any) => {
     setActiveFilter(filter);
   };
-    return(
-        <>
-         {['Home','One Piece', 'Boruto', 'Jujutsu Kaisen', 'Kagura bachi', 'Join Us'].map((filter) => (
-              <div
-                key={filter}
-                className={filter === activeFilter ? styles.activefilter : styles.filter}
-                onClick={() => handleFilterClick(filter)}>
-                <h1>{filter}</h1>
-              </div>
-            ))}
-        </>
-    )
+
+  return (
+    <>
+      {[
+        { name: 'Home', link: '/' },
+        { name: 'One Piece', link: '/one-piece' },
+        { name: 'Boruto', link: '/boruto' },
+        { name: 'Jujutsu Kaisen', link: '/jujutsu-kaisen' },
+        { name: 'Kagura bachi', link: '/kagura-bachi' },
+        { name: 'Join Us', link: '/join-us' },
+      ].map((item) => (
+        <div
+          key={item.name}
+          className={item.name === activeFilter ? styles.activefilter : styles.filter}
+          onClick={() => handleFilterClick(item.name)}
+        >
+          <a href={item.link}>
+            <h1>{item.name}</h1>
+          </a>
+        </div>
+      ))}
+    </>
+  );
 }
+
 export function NewFilter(){
   const [activeFilter, setActiveFilter] = useState('All Mangas');
 
