@@ -1,9 +1,26 @@
+'use client'
+
 import styles from "../../styles/page.module.css";
 import Nav from "../../components/nav";
 import Footer from '../../components/footer'
 import Link from 'next/link'
+import { useState, useEffect } from "react";
+import {getLinks} from '../../schemas/sanity-utils'
+
+interface Data{
+
+}
 
 export default function Home(){
+const [isData, setData] = useState([])
+useEffect(() =>{
+    async function fetchData(){
+        const data = await getLinks();
+        setData(data)
+    }
+    fetchData()
+},[])
+
     return(
         <div className={styles.body}>
             <Nav/>
@@ -17,18 +34,17 @@ export default function Home(){
                 <h1>Chapter List</h1>
             </div>
             <div className={styles.selection}>
-                <Link href={"./boruto-chapter?param=1"}>
-                <div className={styles.list}>
-                    <h1>Chapter 2 - <i>The Tree</i></h1>
-                    <p>September 13,2023</p>
+            {isData.map((data: any) => (
+                <div className={styles.list} key={data._id}>
+                    <Link href={`./boruto-chapter?param=${data.number}`}>
+                        <div className="w-full flex items-center justify-start">
+                            <h1>{data.name} -</h1>
+                            <h1>--<i>{data.title}</i></h1>
+                        </div>
+                        <p>{data.date}</p>
+                    </Link>
                 </div>
-                </Link>
-                <Link href={"./one-piece-chapter?param=1"}>
-                <div className={styles.list}>
-                    <h1>Chapter 2 - <i>The Tree</i></h1>
-                    <p>September 13,2023</p>
-                </div>
-                </Link>
+                ))}
             </div>
             <Footer/>
         </div>

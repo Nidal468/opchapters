@@ -52,3 +52,15 @@ export async function getAssets() {
       }`
     );
   } 
+  export async function getLinks() {
+    
+    return client.fetch(
+      groq`*[_type == "links"] {
+          _id, 
+          name,
+          title,
+          date,
+          number
+      }`
+    );
+  } 

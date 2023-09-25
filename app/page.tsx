@@ -6,6 +6,7 @@ import Nav from '../components/nav'
 import Footer from '../components/footer'
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link'
+
 export default async function Home() {
   console.log('Home component rendered');
 
@@ -38,7 +39,7 @@ export default async function Home() {
         </div>
         <div className={styles.cards}>
           {mangas.map((manga: any) => (
-            <Link href={`./${manga.name}`} key={manga._id}>
+           <Link href={`./${manga.name.toLowerCase()}`} key={manga._id}>
                <div className={styles.card}>
               <div className={styles.image}>
               <Image src={manga.location} alt={manga.name} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
