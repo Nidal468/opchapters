@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styles from '../styles/styles.module.css';
-
+import Link from "next/link";
 export function Filter() {
   const [activeFilter, setActiveFilter] = useState('');
 
@@ -14,20 +14,20 @@ export function Filter() {
     <>
       {[
         { name: 'Home', link: '/' },
-        { name: 'One Piece', link: '/one-piece' },
+        { name: 'One Piece', link: '/one' },
         { name: 'Boruto', link: '/boruto' },
-        { name: 'Jujutsu Kaisen', link: '/jujutsu-kaisen' },
-        { name: 'Kagura bachi', link: '/kagura-bachi' },
-        { name: 'Join Us', link: '/join-us' },
+        { name: 'Jujutsu Kaisen', link: '/jujutsu' },
+        { name: 'Kagura bachi', link: '/kagura' },
+        { name: 'Join Us', link: '/discord.gg/opscans' },
       ].map((item) => (
         <div
           key={item.name}
           className={item.name === activeFilter ? styles.activefilter : styles.filter}
           onClick={() => handleFilterClick(item.name)}
         >
-          <a href={item.link}>
+          <Link href={item.link}>
             <h1>{item.name}</h1>
-          </a>
+          </Link>
         </div>
       ))}
     </>

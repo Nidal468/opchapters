@@ -4,7 +4,7 @@ import {Filter} from './filter'
 import styles from '../styles/styles.module.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import {useState} from 'react'
-
+import Link from "next/link";
 
 export default function Nav() {
 
@@ -24,11 +24,11 @@ export default function Nav() {
           <MenuIcon onClick={HandleClick} className={styles.menuicon} />
           <div className={styles.menu} style={{transform: isActive? 'translateX(0px)': 'translateX(200px)'}}>
             <ul className={styles.menuItems}>
-                <li>One Piece</li>
-                <li>Boruto</li>
-                <li>Jujutsu Kaisen</li>
-                <li>Kagura bachi</li>
-                <li>Join Us</li>
+                <li><Link href="/one">One Piece</Link></li>
+                <li><Link href="/boruto">Boruto</Link></li>
+                <li><Link href="/jujutsu">Jujutsu Kaisen</Link></li>
+                <li><Link href="kagura">Kagura bachi</Link></li>
+                <li><Link href="discord.gg/opscans">Join Us</Link></li>
             </ul>
         </div>
         </div>

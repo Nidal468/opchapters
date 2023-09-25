@@ -297,12 +297,12 @@
         gap: 10px;
     }
     .card{
-        width: 140px;
-        height: 220px;
+        width: 160px;
+        height: 260px;
     }
     .image{
         width: 100%;
-        height: 180px;
+        height: 240px;
     }
     .info{
         font-size: 10px;
