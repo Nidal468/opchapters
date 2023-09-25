@@ -14,7 +14,7 @@ export default function Footer() {
             <div className="DevelopedBy text-center text-white font-normal font-['SF Pro Text'] leading-tight" id={styles.small}>Developed by</div>
             <div className="AbuSaleh text-center text-white font-normal font-['SF Pro Text'] leading-tight" id={styles.small}>Abu Saleh</div>
           </div>
-          <div className="CopyrightOpscansComAllRightsReserved text-center text-white text-opacity-60 text-base font-normal font-['SF Pro Text'] leading-tight">Copyright © opscans.com. All Rights Reserved</div>
+          <div className="CopyrightOpscansComAllRightsReserved text-center text-white text-opacity-60 text-[10px] font-normal font-['SF Pro Text'] leading-tight">Copyright © opscans.com. All Rights Reserved</div>
         </div>
         <div className={styles.effect}></div>
         <img src="/images/footer.Webp"/>
