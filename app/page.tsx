@@ -15,12 +15,10 @@ export default async function Home() {
   return (
     <div className={styles.body}>
       <div className={styles.frame1}>
-        {assets.map((asset: any) => (
-          <div key={asset._id} className={styles.imageContainer}>
+          <div className={styles.imageContainer}>
             <div className={styles.fade}></div>
-            <img src={asset.images} alt={asset.name}/>
+            <Image src='/images/borutom.Webp' alt='boruto' fill={true} priority={true}/>
           </div>
-        ))}
         <Nav/>
         <div className={styles.bot}>
           <div className={styles.button}>Read Now</div>
