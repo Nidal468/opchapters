@@ -24,11 +24,12 @@ export default function Nav() {
           <MenuIcon onClick={HandleClick} className={styles.menuicon} />
           <div className={styles.menu} style={{transform: isActive? 'translateX(0px)': 'translateX(200px)'}}>
             <ul className={styles.menuItems}>
+                <li><Link href="/">Home</Link></li>
                 <li><Link href="/one">One Piece</Link></li>
                 <li><Link href="/boruto">Boruto</Link></li>
                 <li><Link href="/jujutsu">Jujutsu Kaisen</Link></li>
                 <li><Link href="kagura">Kagura bachi</Link></li>
-                <li><Link href="discord.gg/opscans">Join Us</Link></li>
+                <li><Link href="https://discord.com/invite/opscans">Join Us</Link></li>
             </ul>
         </div>
         </div>

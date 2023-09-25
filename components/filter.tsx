@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import styles from '../styles/styles.module.css';
 import Link from "next/link";
 export function Filter() {
-  const [activeFilter, setActiveFilter] = useState('');
+  const [activeFilter, setActiveFilter] = useState('Home');
 
   const handleFilterClick = (filter: any) => {
     setActiveFilter(filter);
@@ -18,7 +18,7 @@ export function Filter() {
         { name: 'Boruto', link: '/boruto' },
         { name: 'Jujutsu Kaisen', link: '/jujutsu' },
         { name: 'Kagura bachi', link: '/kagura' },
-        { name: 'Join Us', link: '/discord.gg/opscans' },
+        { name: 'Join Us', link: 'https://discord.com/invite/opscans' },
       ].map((item) => (
         <div
           key={item.name}
