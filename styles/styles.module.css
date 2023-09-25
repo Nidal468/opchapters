@@ -21,7 +21,7 @@
 }
 .nav{
     width: 100%;
-    min-height: 30px;
+    min-height: 40px;
     background: rgba(128, 128, 128, 0.3);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
@@ -169,7 +169,7 @@
     gap: 20px;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 .card{
     width: 200px;
@@ -267,9 +267,9 @@
         font-size: 1vw;
     }
     .bar{
-        padding: 1vw;
+        padding: 0;
         border-bottom: 2px solid #FFF;
-        height: 25px;
+        height: 30px;
     }
     .fade{
         width: 100%;
@@ -287,9 +287,7 @@
         gap: 0vw;
     }
     .title{
-        display: flex;
-        font-size: 1.5vw;
-        gap: 10px;
+        font-size: 15px;
     }
     .cards{
         width: 100%;
@@ -347,14 +345,14 @@
         z-index: 999;
         padding: 10px 10px;
         transition: 0.5s;
-        font-size: 8px;
+        font-size: 12px;
     }
     .menuicon{
         display: block;
         position: absolute;
         z-index: 999;
-        right: 1px;
-        top: 1px;
+        right: 10px;
+        top: 10px;
     }
     .menuItems{
         width: 100%;
@@ -363,6 +361,7 @@
         padding: 10px;
         min-height: 500px;
         border-radius: 10px;
+        font-size: 16px;
     }
     .menuItems li{
         margin: 10px 0px;
