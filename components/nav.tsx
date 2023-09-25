@@ -22,7 +22,7 @@ export default function Nav() {
             <Filter/>
           </div>
           <MenuIcon onClick={HandleClick} className={styles.menuicon} />
-          <div className={styles.menu} style={{transform: isActive? 'translateX(0px)': 'translateX(200px)'}}>
+          <div className={styles.menu} style={{display: isActive? 'flex': 'none'}}>
             <ul className={styles.menuItems}>
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/one">One Piece</Link></li>

@@ -336,19 +336,19 @@
     }
     .menu{
         width: 150px;
-        height: 100vh;
         position: fixed;
         background: rgba(39, 39, 39, 0.8);
-        top: 40px;
-        right: 0;
+        top: 50px;
+        right: 10px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
         z-index: 999;
-        padding: 10px 10px;
+        padding: 10px;
         transition: 0.5s;
         font-size: 12px;
+        border-radius: 10px;
     }
     .menuicon{
         display: block;
