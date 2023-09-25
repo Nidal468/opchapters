@@ -19,7 +19,6 @@ export default function Home(props: any) {
     const { param } = props.searchParams;
     const [isData, setData] = useState('');
     const [chapters, setChapters] = useState<Chapter[]>([]);
-    console.log(param)
     useEffect(() => {
         async function fetchData() {
             if (page === 'boruto-chapter') {
@@ -43,8 +42,10 @@ export default function Home(props: any) {
 
     return (
         <div className={styles.body}>
-            <Nav />
-            <img src={`/images/${isData}.Webp`} className={styles.image} />
+            <Nav/>
+            <div className={styles.image}>
+            <Image src={`/images/${isData}.Webp`} fill={true} alt={isData}/>
+            </div>
             <div className={styles.frame1}>
                 <h1>Boruto</h1>
                 <h2>Masashi Kishimoto</h2>
@@ -57,20 +58,20 @@ export default function Home(props: any) {
             {chapters.length > 0 && (
               <div key={chapters[parseInt(param) - 1]._id}>
                 {chapters[parseInt(param) - 1].images.map((imageUrl: string, index: number) => (
+                  <div className={styles.pageimage} key={index}>
                   <Image
-                    key={index}
-                    width={784}
-                    height={1145}
+                    fill={true}
                     src={imageUrl}
                     alt={`Chapter ${chapters[0].title} - Image ${index}`}
                   />
+                  </div>
                 ))}
               </div>
             )}
             </div>
             <div className={styles.pageChange}>
               <div className={styles.button}><Link href={`./${page}?param=${parseInt(param) - 1}`}>Preivious Chapter</Link></div>
-              <div className={styles.button} style={{background: "#fff", color: "#444"}}><Link href={`./${page}?param=${parseInt(param) + 1}`}>Next Chapter</Link></div>
+              <div className={styles.button}><Link href={`./${page}?param=${parseInt(param) + 1}`}>Next Chapter</Link></div>
             </div>
             <Footer />
         </div>

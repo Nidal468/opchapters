@@ -7,19 +7,15 @@ import Link from 'next/link'
 import { useState, useEffect } from "react";
 import {getLinks} from '../../schemas/sanity-utils'
 
-interface Data{
-
-}
-
 export default function Home(){
-const [isData, setData] = useState([])
-useEffect(() =>{
-    async function fetchData(){
-        const data = await getLinks();
-        setData(data)
-    }
-    fetchData()
-},[])
+    const [isData, setData] = useState([])
+    useEffect(() =>{
+        async function fetchData(){
+            const data = await getLinks();
+            setData(data)
+        }
+        fetchData()
+    },[])
 
     return(
         <div className={styles.body}>

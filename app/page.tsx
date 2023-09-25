@@ -8,13 +8,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link'
 
 export default async function Home() {
-  console.log('Home component rendered');
-
   const assets = await getAssets();
   const mangas = await getManga();
   const soon = await getSoon();
   const boruto = await getBoruto();
-  console.log(boruto)
   return (
     <div className={styles.body}>
       <div className={styles.frame1}>
@@ -34,7 +31,6 @@ export default async function Home() {
         <div className={styles.bar}>
           <div className={styles.title}><MenuIcon/><h1>Manga List</h1></div>
           <div className={styles.buttons}>
-            <NewFilter/>
           </div>
         </div>
         <div className={styles.cards}>
