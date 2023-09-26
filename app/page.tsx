@@ -9,6 +9,11 @@ import Footer from '../components/footer'
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link'
 import { useState , useEffect} from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination, Autoplay } from 'swiper/modules';
+
 export default function Home() {
   const [isManga, setIsManga] = useState([])
   const [isSoon, setIsSoon] = useState([])
@@ -28,7 +33,22 @@ export default function Home() {
       <div className={styles.frame1}>
           <div className={styles.imageContainer}>
             <div className={styles.fade}></div>
-            <Image src='/images/borutom.Webp' alt='boruto' fill={true} priority={true}/>
+            <Swiper
+              pagination={{
+                dynamicBullets: true,
+              }}
+              spaceBetween={30}
+              centeredSlides={true}
+              autoplay={{
+                disableOnInteraction: false,
+              }}
+              modules={[Pagination, Autoplay]}
+              loop={true}
+              className={styles.swiper}
+              >
+            <SwiperSlide><Image src='/images/borutom.Webp' alt='boruto' fill={true} priority={true}/></SwiperSlide>
+            <SwiperSlide><Image src='/images/op.Webp' alt='op' fill={true} priority={true}/></SwiperSlide>
+            </Swiper>
           </div>
         <div className={styles.bot}>
           <div className={styles.button}><Link href='#bar'>Read Now</Link></div>
