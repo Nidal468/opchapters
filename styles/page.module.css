@@ -88,8 +88,8 @@
     padding: 40px;
 }
 .pageimage{
-    width: 400px;
-    height: 600px;
+    width: 700px;
+    height: 1022px;
     position: relative;
 }
 .card{
@@ -175,7 +175,7 @@
         font-size: 12px;
     }
     .pageimage{
-        width: 325px;
-        height: 475px;
+        width: 364px;
+        height: 532px;
     }
 }
