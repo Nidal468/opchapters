@@ -79,7 +79,7 @@ export default function Home(props: any) {
             <div className={styles.image}>
                 <Image src={`/images/${isData}.Webp`} fill={true} alt={isData} priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
             </div>
-            <div className={styles.frame1}>
+            <div className={styles.frame1} style={{display: 'none'}}>
                 <h1>{json[isJson].name}</h1>
                 <h2>{json[isJson].author}</h2>
                 <p>{json[isJson].info}</p>

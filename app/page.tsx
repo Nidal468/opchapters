@@ -31,12 +31,12 @@ export default function Home() {
           </div>
         <Nav/>
         <div className={styles.bot}>
-          <div className={styles.button}>Read Now</div>
-          <h1>Years have passed since Naruto and Sasuke teamed up to defeat Kaguya, the progenitor of chakra and the greatest threat the ninja world has ever faced. Times are now peaceful and the new generation of shinobi has not experienced the same hardships as its parents. Perhaps that is why Boruto would rather play video games than train. However, one passion does burn deep in this ninja boys heart, and that is the desire to defeat his father!</h1>
+          <div className={styles.button}><Link href='#bar'>Read Now</Link></div>
+          <h1>Hey everybody we are glad tht you enjoy our scanlations but, dont forget to support the official version of our chapters or any other offical publishing site!<br/> We value your suggestions so feel free to join our Discord server and give us feedback!<br/>for now just sit back,relax and enjoy some quality manga</h1>
         </div>
       </div>
       <div className={styles.frame2}>
-        <div className={styles.bar}>
+        <div className={styles.bar} id="bar">
           <div className={styles.title}><h1>Manga List</h1></div>
           <div className={styles.buttons}>
           </div>
