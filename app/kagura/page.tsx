@@ -5,13 +5,13 @@ import Nav from "../../components/nav";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { useState, useEffect } from "react";
-import {getLinks} from '../../schemas/sanity-utils'
+import {getKaguraLinks} from '../../schemas/sanity-utils'
 import Image from 'next/image'
 export default function Home(){
     const [isData, setData] = useState([])
     useEffect(() =>{
         async function fetchData(){
-            const data = await getLinks();
+            const data = await getKaguraLinks();
             setData(data)
         }
         fetchData()
@@ -34,7 +34,7 @@ export default function Home(){
             <div className={styles.selection}>
             {isData.map((data: any) => (
                 <div className={styles.list} key={data._id}>
-                    <Link href={`./boruto-chapter?param=${data.number}`}>
+                    <Link href={`./kagura-chapter?param=${data.number}`}>
                         <div className="w-full flex items-center justify-start">
                             <h1>{data.name} -</h1>
                             <h1>--<i>{data.title}</i></h1>

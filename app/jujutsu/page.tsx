@@ -5,13 +5,13 @@ import Nav from "../../components/nav";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { useState, useEffect } from "react";
-import {getLinks} from '../../schemas/sanity-utils'
+import {getJJKLinks} from '../../schemas/sanity-utils'
 import Image from 'next/image'
 export default function Home(){
     const [isData, setData] = useState([])
     useEffect(() =>{
         async function fetchData(){
-            const data = await getLinks();
+            const data = await getJJKLinks();
             setData(data)
         }
         fetchData()
@@ -21,7 +21,7 @@ export default function Home(){
         <div className={styles.body}>
             <Nav/>
             <div className={styles.image}>
-                <Image src="/images/gojo.Webp" fill={true} alt="boruto image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
+                <Image src="/images/gojo.Webp" fill={true} alt="gojo image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
             </div>
             <div className={styles.frame1}>
                     <h1>Jujutsu Kaisen</h1>
@@ -34,7 +34,7 @@ export default function Home(){
             <div className={styles.selection}>
             {isData.map((data: any) => (
                 <div className={styles.list} key={data._id}>
-                    <Link href={`./boruto-chapter?param=${data.number}`}>
+                    <Link href={`./jujutsu-chapter?param=${data.number}`}>
                         <div className="w-full flex items-center justify-start">
                             <h1>{data.name} -</h1>
                             <h1>--<i>{data.title}</i></h1>

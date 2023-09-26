@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image';
 import styles from '../styles/styles.module.css';
 import { getBoruto, getAssets, getManga, getSoon} from '../schemas/sanity-utils';
@@ -6,12 +8,20 @@ import Nav from '../components/nav'
 import Footer from '../components/footer'
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link'
-
-export default async function Home() {
-  const assets = await getAssets();
-  const mangas = await getManga();
-  const soon = await getSoon();
-  const boruto = await getBoruto();
+import { useState , useEffect} from 'react'
+export default function Home() {
+  const [isManga, setIsManga] = useState([])
+  const [isSoon, setIsSoon] = useState([])
+  useEffect(() =>{
+    async function fetchData(){
+        const mangas = await getManga();
+        const soon = await getSoon();
+        setIsManga(mangas)
+        setIsSoon(soon)
+    }
+    fetchData()
+},[])
+  
   return (
     <div className={styles.body}>
       <div className={styles.frame1}>
@@ -32,8 +42,8 @@ export default async function Home() {
           </div>
         </div>
         <div className={styles.cards}>
-          {mangas.map((manga: any) => (
-           <Link href={`./${manga.name.toLowerCase()}`} key={manga._id}>
+          {isManga.map((manga: any) => (
+           <Link href={`./${manga.to.toLowerCase()}`} key={manga._id}>
                <div className={styles.card}>
               <div className={styles.image}>
               <Image src={manga.location} alt={manga.name} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
@@ -54,7 +64,7 @@ export default async function Home() {
           <div className={styles.title}><h1>Coming Soon</h1></div>
         </div>
         <div className={styles.cards}>
-          {soon.map((so: any) => (
+          {isSoon.map((so: any) => (
             <div className={styles.card} key={so._id}>
               <div className={styles.image}>
               <Image fill={true} src={so.location} alt={so.name} sizes="(max-width: 768px) 140px, (max-width: 1200px) 200px, 300px"/>

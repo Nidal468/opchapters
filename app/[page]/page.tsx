@@ -5,7 +5,7 @@ import Nav from "../../components/nav";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getBoruto, getOP } from "../../schemas/sanity-utils";
+import { getBoruto, getOP, getJJK , getKagura} from "../../schemas/sanity-utils";
 import { useState, useEffect } from "react";
 import json from '../../public/data/data.json'
 interface Chapter {
@@ -40,9 +40,27 @@ export default function Home(props: any) {
                 } catch (error) {
                     console.error("Error fetching data:", error);
                 }
+            } else if (page === 'jujutsu-chapter') {
+                setData('gojo')
+                setIsJson(2)
+                try {
+                    const data = await getJJK();
+                    setChapters(data);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
+            }
+            else if (page === 'kagura-chapter') {
+                setData('kagura')
+                setIsJson(3)
+                try {
+                    const data = await getKagura();
+                    setChapters(data);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
             }
         }
-
         fetchData();
     }, [page]);
 

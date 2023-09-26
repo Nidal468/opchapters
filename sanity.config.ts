@@ -1,6 +1,8 @@
 import { defineConfig } from "sanity";
 import { deskTool} from "sanity/desk";
+
 import schemaTypes from "./schemas/index";
+import { media } from "sanity-plugin-media";
 
 const config = defineConfig({
     projectId: "qtb4sill",
@@ -8,7 +10,7 @@ const config = defineConfig({
     title: "OPSCANS Admin Panel",
     apiVersion: "2023-09-21",
     basePath: "/admin",
-    plugins: [deskTool( )],
+    plugins: [deskTool( ), media( )],
     schema: {
         types: schemaTypes,
       }

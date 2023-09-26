@@ -30,7 +30,7 @@ export async function getAssets() {
   export async function getManga() {
     
     return client.fetch(
-      groq`*[_type == "mangalist"] {
+      groq`*[_type == "mangalist1"] {
           _id, 
           name,
           person,
@@ -78,6 +78,50 @@ export async function getAssets() {
     
     return client.fetch(
       groq`*[_type == "oplinks"] {
+          _id, 
+          name,
+          title,
+          date,
+          number
+      }`
+    );
+  } 
+  export async function getJJK() {
+  
+    return client.fetch(
+      groq`*[_type == "jjk"]{
+        _id, 
+        title,
+        "images": imagesGallery[].asset->url
+    }`
+  );
+  }
+  export async function getJJKLinks() {
+    
+    return client.fetch(
+      groq`*[_type == "jjklinks"] {
+          _id, 
+          name,
+          title,
+          date,
+          number
+      }`
+    );
+  } 
+  export async function getKagura() {
+  
+    return client.fetch(
+      groq`*[_type == "kagura"]{
+        _id, 
+        title,
+        "images": imagesGallery[].asset->url
+    }`
+  );
+  }
+  export async function getKaguraLinks() {
+    
+    return client.fetch(
+      groq`*[_type == "Klinks"] {
           _id, 
           name,
           title,

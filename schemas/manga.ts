@@ -1,5 +1,5 @@
 const Mangas = {
-  name: 'mangalist',
+  name: 'mangalist1',
   title: 'mangalist',
   type: 'document',
   fields: [
