@@ -357,6 +357,7 @@
         z-index: 999;
         right: 10px;
         top: 10px;
+        opacity: 1;
     }
     .menuItems{
         width: 100%;
