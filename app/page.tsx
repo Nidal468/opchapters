@@ -67,7 +67,7 @@ export default function Home() {
            <Link href={`./${manga.to.toLowerCase()}`} key={manga._id}>
                <div className={styles.card}>
               <div className={styles.image}>
-              <img src={manga.image} alt={manga.name}/>
+              <Image src={manga.image} alt={manga.name} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority={true}/>
               </div>
               <div className={styles.info}>
                 <div>
