@@ -46,8 +46,9 @@ export default function Home() {
               loop={true}
               className={styles.swiper}
               >
-            <SwiperSlide><Image src='/images/borutom.Webp' alt='boruto' fill={true} priority={true}/></SwiperSlide>
-            <SwiperSlide><Image src='/images/op.Webp' alt='op' fill={true} priority={true}/></SwiperSlide>
+                <SwiperSlide><img src='/images/sgojo.Webp' alt='boruto' /></SwiperSlide>
+                <SwiperSlide><Image src='/images/borutom.Webp' alt='boruto' fill={true} priority={true}/></SwiperSlide>
+                <SwiperSlide><Image src='/images/op.Webp' alt='op' fill={true} priority={true}/></SwiperSlide>
             </Swiper>
           </div>
         <div className={styles.bot}>
