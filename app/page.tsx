@@ -29,10 +29,9 @@ export default function Home() {
             <div className={styles.fade}></div>
             <Image src='/images/borutom.Webp' alt='boruto' fill={true} priority={true}/>
           </div>
-        <Nav/>
         <div className={styles.bot}>
           <div className={styles.button}><Link href='#bar'>Read Now</Link></div>
-          <h1>Hey everybody we are glad tht you enjoy our scanlations but, dont forget to support the official version of our chapters or any other offical publishing site!<br/> We value your suggestions so feel free to join our Discord server and give us feedback!<br/>for now just sit back,relax and enjoy some quality manga</h1>
+          <h1>Hey everybody we are glad that you enjoy our scanlations but, don't forget to support the official version of our chapters or any other official publishing site! We value your suggestions so feel free to join our Discord server and give us feedback! for now just sit back,relax and enjoy some quality manga</h1>
         </div>
       </div>
       <div className={styles.frame2}>

@@ -19,7 +19,6 @@ export default function Home(){
 
     return(
         <div className={styles.body}>
-            <Nav/>
             <div className={styles.image}>
                 <Image src="/images/one.Webp" fill={true} alt="one piece image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
             </div>
