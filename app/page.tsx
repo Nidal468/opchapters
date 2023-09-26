@@ -45,7 +45,7 @@ export default function Home() {
            <Link href={`./${manga.to.toLowerCase()}`} key={manga._id}>
                <div className={styles.card}>
               <div className={styles.image}>
-              <Image src={manga.location} alt={manga.name} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
+              <Image src={manga.location} alt={manga.name} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority={true}/>
               </div>
               <div className={styles.info}>
                 <div>
@@ -66,7 +66,7 @@ export default function Home() {
           {isSoon.map((so: any) => (
             <div className={styles.card} key={so._id}>
               <div className={styles.image}>
-              <Image fill={true} src={so.location} alt={so.name} sizes="(max-width: 768px) 140px, (max-width: 1200px) 200px, 300px"/>
+              <Image fill={true} src={so.location} alt={so.name} sizes="(max-width: 768px) 140px, (max-width: 1200px) 200px, 300px" priority={true}/>
               </div>
               <div className={styles.info}>
                 <div>
