@@ -46,7 +46,7 @@ export default function Home() {
               loop={true}
               className={styles.swiper}
               >
-                <SwiperSlide><img src='/images/sgojo.Webp' alt='boruto' /></SwiperSlide>
+                <SwiperSlide><Image src='/images/sgojo.Webp' alt='boruto' fill={true} priority={true}/></SwiperSlide>
                 <SwiperSlide><Image src='/images/borutom.Webp' alt='boruto' fill={true} priority={true}/></SwiperSlide>
                 <SwiperSlide><Image src='/images/op.Webp' alt='op' fill={true} priority={true}/></SwiperSlide>
             </Swiper>
@@ -67,7 +67,7 @@ export default function Home() {
            <Link href={`./${manga.to.toLowerCase()}`} key={manga._id}>
                <div className={styles.card}>
               <div className={styles.image}>
-              <Image src={manga.image} alt={manga.name} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority={true}/>
+              <img src={manga.image} alt={manga.name}/>
               </div>
               <div className={styles.info}>
                 <div>
