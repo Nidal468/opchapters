@@ -35,8 +35,8 @@ export async function getAssets() {
           name,
           person,
           number,
-          location,
-          to
+          to,
+          "image": imagesUrl.asset->url
       }`
     );
   } 

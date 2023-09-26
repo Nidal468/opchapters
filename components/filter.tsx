@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import styles from '../styles/styles.module.css';
 import Link from "next/link";
 export function Filter() {
-  const [activeFilter, setActiveFilter] = useState('');
+  const [activeFilter, setActiveFilter] = useState('Home');
 
   const handleFilterClick = (filter: any) => {
     setActiveFilter(filter);

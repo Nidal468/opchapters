@@ -19,11 +19,6 @@ const Mangas = {
       type:'string'
     },
     {
-      name: 'location',
-      title:'url of the image',
-      type:'string'
-    },
-    {
       name: 'to',
       title:'navigate to where?',
       type:'string'
