@@ -14,7 +14,6 @@ export default function Nav() {
         setIsActive(current => ! current);
     }
 
-
     return(
         <div className={styles.nav}>
           <img src='/images/pscans.Webp' alt='opscans'/>
@@ -23,7 +22,7 @@ export default function Nav() {
           </div>
           <MenuIcon onClick={HandleClick} className={styles.menuicon} />
           <div className={styles.menu} style={{display: isActive? 'flex': 'none'}}>
-            <ul className={styles.menuItems}>
+            <ul className={styles.menuItems} style={{display: isActive? 'block': 'none'}}>
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/one">One Piece</Link></li>
                 <li><Link href="/boruto">Boruto</Link></li>

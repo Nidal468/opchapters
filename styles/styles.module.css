@@ -35,7 +35,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.5vw 2vw;
-    position: fixed;
+    position: absolute;
     top: 0;
     z-index: 999;
     color: #fff;
@@ -352,7 +352,7 @@
     }
     .menu{
         width: 150px;
-        position: fixed;
+        position: absolute;
         background: rgba(39, 39, 39, 0.8);
         top: 50px;
         right: 10px;
