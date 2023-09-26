@@ -1,6 +1,6 @@
-const Links = {
-    name: 'links',
-    title: 'Boruto list',
+const Assets = {
+    name: 'oplinks',
+    title: 'One Piece list',
     type: 'document',
     fields: [
       {
@@ -26,5 +26,5 @@ const Links = {
     ],
   };
   
-  export default Links;
+  export default Assets;
   

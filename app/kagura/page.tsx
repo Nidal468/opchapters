@@ -5,13 +5,13 @@ import Nav from "../../components/nav";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { useState, useEffect } from "react";
-import {getOPLinks} from '../../schemas/sanity-utils'
+import {getLinks} from '../../schemas/sanity-utils'
 import Image from 'next/image'
 export default function Home(){
     const [isData, setData] = useState([])
     useEffect(() =>{
         async function fetchData(){
-            const data = await getOPLinks();
+            const data = await getLinks();
             setData(data)
         }
         fetchData()
@@ -21,12 +21,12 @@ export default function Home(){
         <div className={styles.body}>
             <Nav/>
             <div className={styles.image}>
-                <Image src="/images/one.Webp" fill={true} alt="one piece image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
+                <Image src="/images/kagura.Webp" fill={true} alt="kagura image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
             </div>
             <div className={styles.frame1}>
-                    <h1>One Piece</h1>
-                    <h2 style={{color: "red"}}>EIICHIRO ODA</h2>
-                    <p>As a child, Monkey D. Luffy was inspired to become a pirate by listening to the tales of the buccaneer "Red-Haired" Shanks. But Luffy's life changed when he accidentally ate the Gum-Gum Devil Fruit and gained the power to stretch like rubber...at the cost of never being able to swim again! Years later, still vowing to become the king of the pirates, Luffy sets out on his adventure...one guy alone in a rowboat, in search of the legendary "One Piece," said to be the greatest treasure in the world...</p>
+                    <h1>Kagurabachi</h1>
+                    <h2>TAKERU HOKAZONO</h2>
+                    <p>Young Chihiro spends his days training under his famous swordsmith father. One day he hopes to become a great sword-maker himself. The goofy father and the serious son--they thought these days would last forever. But suddenly, tragedy strikes. A dark day soaked in blood. Chihiro and his blade now live only for revenge. Epic sword battle action!</p>
             </div>
             <div className={styles.title}>
                 <h1>Chapter List</h1>
@@ -34,7 +34,7 @@ export default function Home(){
             <div className={styles.selection}>
             {isData.map((data: any) => (
                 <div className={styles.list} key={data._id}>
-                    <Link href={`./one-piece-chapter?param=${data.number}`}>
+                    <Link href={`./boruto-chapter?param=${data.number}`}>
                         <div className="w-full flex items-center justify-start">
                             <h1>{data.name} -</h1>
                             <h1>--<i>{data.title}</i></h1>

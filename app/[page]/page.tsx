@@ -5,9 +5,9 @@ import Nav from "../../components/nav";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getBoruto } from "../../schemas/sanity-utils";
+import { getBoruto, getOP } from "../../schemas/sanity-utils";
 import { useState, useEffect } from "react";
-
+import json from '../../public/data/data.json'
 interface Chapter {
   _id: string,
   images: any,
@@ -19,6 +19,7 @@ export default function Home(props: any) {
     const { param } = props.searchParams;
     const [isData, setData] = useState('');
     const [chapters, setChapters] = useState<Chapter[]>([]);
+    const [isJson, setIsJson] = useState(0)
     useEffect(() => {
         async function fetchData() {
             if (page === 'boruto-chapter') {
@@ -26,10 +27,19 @@ export default function Home(props: any) {
                 try {
                     const data = await getBoruto();
                     setChapters(data);
+                    setIsJson(0)
                 } catch (error) {
                     console.error("Error fetching data:", error);
                 }
             } else if (page === 'one-piece-chapter') {
+                setData('one')
+                setIsJson(1)
+                try {
+                    const data = await getOP();
+                    setChapters(data);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
             }
         }
 
@@ -52,9 +62,9 @@ export default function Home(props: any) {
                 <Image src={`/images/${isData}.Webp`} fill={true} alt={isData} priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
             </div>
             <div className={styles.frame1}>
-                <h1>Boruto</h1>
-                <h2>Masashi Kishimoto</h2>
-                <p>Years have passed since Naruto and Sasuke teamed up to defeat Kaguya, the progenitor of chakra and the greatest threat the ninja world has ever faced. Times are now peaceful and the new generation of shinobi has not experienced the same hardships as its parents. Perhaps that is why Boruto would rather play video games than train. However, one passion does burn deep in this ninja boy's heart, and that is the desire to defeat his father!</p>
+                <h1>{json[isJson].name}</h1>
+                <h2>{json[isJson].author}</h2>
+                <p>{json[isJson].info}</p>
             </div>
             <div className={styles.title}>
                 <h1>Chapter {param}</h1>

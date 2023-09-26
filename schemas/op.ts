@@ -1,6 +1,6 @@
-const Boruto = {
-  name: 'boruto',
-  title: 'Boruto chapters',
+const OP = {
+  name: 'onep',
+  title: 'One Piece chapters',
   type: 'document',
   fields: [
     {
@@ -17,4 +17,4 @@ const Boruto = {
   ],
 };
 
-export default Boruto;
+export default OP;

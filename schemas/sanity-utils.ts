@@ -64,3 +64,25 @@ export async function getAssets() {
       }`
     );
   } 
+  export async function getOP() {
+  
+    return client.fetch(
+      groq`*[_type == "onep"]{
+        _id, 
+        title,
+        "images": imagesGallery[].asset->url
+    }`
+  );
+  }
+  export async function getOPLinks() {
+    
+    return client.fetch(
+      groq`*[_type == "oplinks"] {
+          _id, 
+          name,
+          title,
+          date,
+          number
+      }`
+    );
+  } 
