@@ -1,7 +1,6 @@
 'use client'
 
 import styles from "../../styles/page.module.css";
-import Nav from "../../components/nav";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -84,7 +83,7 @@ export default function Home(props: any) {
                 <p>{json[isJson].info}</p>
             </div>
             <div className={styles.title}>
-                <h1>Chapter {param}</h1>
+                <h1>{chapters[0].title}</h1>
             </div>
             <div className={styles.page}>
                 {chapters.length > 0 && (
@@ -108,6 +107,7 @@ export default function Home(props: any) {
                         <Link href={`./${page}?param=${prevChapter}`}>Previous Chapter</Link>
                     )}
                 </div>
+                <h1 >{param}</h1>
                 <div className={styles.button}>
                     {nextChapter <= maxChapter && (
                         <Link href={`./${page}?param=${nextChapter}`}>Next Chapter</Link>

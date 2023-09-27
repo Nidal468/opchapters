@@ -190,9 +190,10 @@
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
-    border-radius: 0.8vw;
+    border-radius: 0.6vw;
     background: rgba(255, 255, 255, 0.10);
     backdrop-filter: blur(25px);
+    overflow: hidden;
 }
 .card img{
     width: 100%;
