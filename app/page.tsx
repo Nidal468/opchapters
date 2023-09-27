@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
+import Script from 'next/script';
 
 export default function Home() {
   const [isManga, setIsManga] = useState([])
@@ -52,10 +53,26 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.frame2}>
+      <Script>
+          {`window.pubfuturetag = window.pubfuturetag || [];
+            window.pubfuturetag.push({
+              unit: '649a799104b327003ffaa324',
+              id: 'pf-4702-1',
+            })`}
+        </Script>
         <div className={styles.bar} id="bar">
           <div className={styles.title}><h1>Manga List</h1></div>
           <div className={styles.buttons}>
           </div>
+        </div>
+        <div id="pf-4702-1">
+        <Script>
+          {`window.pubfuturetag = window.pubfuturetag || [];
+            window.pubfuturetag.push({
+              unit: '649a799104b327003ffaa324',
+              id: 'pf-4702-1',
+            })`}
+        </Script>
         </div>
         <div className={styles.cards}>
         <Link href={`./boruto`}>

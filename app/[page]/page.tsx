@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { getBoruto, getOP, getJJK , getKagura} from "../../schemas/sanity-utils";
 import { useState, useEffect } from "react";
 import json from '../../public/data/data.json'
+import Script from 'next/script';
 interface Chapter {
   _id: string,
   images: any,
@@ -77,7 +78,7 @@ export default function Home(props: any) {
             <div className={styles.image}>
                 <Image src={`/images/${isData}.Webp`} fill={true} alt={isData} priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
             </div>
-            <div className={styles.frame1} style={{display: 'none'}}>
+            <div className={styles.frame1}>
                 <h1>{json[isJson].name}</h1>
                 <h2>{json[isJson].author}</h2>
                 <p>{json[isJson].info}</p>
@@ -101,6 +102,15 @@ export default function Home(props: any) {
                     </div>
                 )}
             </div>
+            <div id="pf-4702-1">
+            <Script>
+            {`window.pubfuturetag = window.pubfuturetag || [];
+                window.pubfuturetag.push({
+                unit: '649a799104b327003ffaa324',
+                id: 'pf-4702-1',
+                })`}
+            </Script>
+        </div>
             <div className={styles.pageChange}>
                 <div className={styles.button}>
                     {prevChapter > 0 && (
