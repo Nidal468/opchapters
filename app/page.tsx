@@ -3,10 +3,7 @@
 import Image from 'next/image';
 import styles from '../styles/styles.module.css';
 import { getBoruto, getAssets, getManga, getSoon} from '../schemas/sanity-utils';
-import {NewFilter} from '../components/filter';
-import Nav from '../components/nav'
 import Footer from '../components/footer'
-import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link'
 import { useState , useEffect} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,17 +14,15 @@ import { Pagination, Autoplay } from 'swiper/modules';
 export default function Home() {
   const [isManga, setIsManga] = useState([])
   const [isSoon, setIsSoon] = useState([])
-  useEffect(() =>{
-    async function fetchData(){
-        const mangas = await getManga();
-        const soon = await getSoon();
-        setIsManga(mangas)
-        setIsSoon(soon)
-        console.log(mangas)
+  useEffect(() => {
+    async function fetchData() {
+      const mangas = await getManga();
+      const soon = await getSoon();
+      setIsManga(mangas);
+      setIsSoon(soon);
     }
-    fetchData()
-},[])
-  
+    fetchData();
+  }, []);
   return (
     <div className={styles.body}>
       <div className={styles.frame1}>
@@ -53,7 +48,7 @@ export default function Home() {
           </div>
         <div className={styles.bot}>
           <div className={styles.button}><Link href='#bar'>Read Now</Link></div>
-          <h1>Hey everybody we are glad that you enjoy our scanlations but, don't forget to support the official version of our chapters or any other official publishing site! We value your suggestions so feel free to join our Discord server and give us feedback! for now just sit back,relax and enjoy some quality manga</h1>
+          <h1>Hey everybody we are glad that you enjoy our scanlations but, don't forget to support the official version of our chapters or any other official publishing site! We value your suggestions so feel free to join our Discord server and give us feedback! for now just sit back, relax and enjoy some quality manga</h1>
         </div>
       </div>
       <div className={styles.frame2}>
@@ -63,23 +58,78 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.cards}>
-          {isManga.map((manga: any) => (
-           <Link href={`./${manga.to.toLowerCase()}`} key={manga._id}>
-               <div className={styles.card}>
-              <div className={styles.image}>
-              <Image src={manga.image} alt={manga.name} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority={true}/>
-              </div>
-              <div className={styles.info}>
-                <div>
-                  <h1>{manga.name}</h1>
-                  <h2>{manga.person}</h2>
-                </div>
-                <h1>{manga.number}</h1>
+        <Link href={`./boruto`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/borutoCover.jpg"
+                alt="boruto"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>Boruto</h1>
+                <h2>Masashi Kishimoto</h2>
               </div>
             </div>
-            </Link>
-           
-          ))}
+          </div>
+        </Link>
+        <Link href={`./boruto`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/borutoCover.jpg"
+                alt="boruto"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>One Piece</h1>
+                <h2>EIICHIRO ODA</h2>
+              </div>
+            </div>
+          </div>
+        </Link>
+        <Link href={`./boruto`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/borutoCover.jpg"
+                alt="boruto"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>Jujutsu Kaisen</h1>
+                <h2>GEGE AKUTAMI</h2>
+              </div>
+            </div>
+          </div>
+        </Link>
+        <Link href={`./boruto`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/borutoCover.jpg"
+                alt="boruto"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>Kagurabachi</h1>
+                <h2>TAKERU HOKAZONO</h2>
+              </div>
+            </div>
+          </div>
+        </Link>
         </div>
         <div className={styles.bar} style={{alignItems: "flex-start"}}>
           <div className={styles.title}><h1>Coming Soon</h1></div>
