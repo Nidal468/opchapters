@@ -19,8 +19,8 @@ export default function Nav() {
           <img src='/images/pscans.Webp' alt='opscans'/>
           <div className={styles.filters}>
             <Filter/>
-            <MenuIcon onClick={HandleClick} className={styles.menuicon} />
           </div>
+          <MenuIcon onClick={HandleClick} className={styles.menuicon} />
           <div className={styles.menu} style={{display: isActive? 'flex': 'none'}}>
             <ul className={styles.menuItems} style={{display: isActive? 'block': 'none'}}>
                 <li><Link href="/">Home</Link></li>
