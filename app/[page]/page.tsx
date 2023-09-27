@@ -86,31 +86,41 @@ export default function Home(props: any) {
             <div className={styles.title}>
                 <h1>{chapters[0].title}</h1>
             </div>
+            <div id="pf-4545-1">
+            <Script>
+                {`window.pubfuturetag = window.pubfuturetag || [];
+                window.pubfuturetag.push({
+                    unit: '647eba0aac8efb003f768eac',
+                    id: 'pf-4545-1',
+                })`}
+            </Script>
+            </div>
             <div className={styles.page}>
                 {chapters.length > 0 && (
                     <div key={chapters[parseInt(param) - 1]._id}>
                         {chapters[parseInt(param) - 1].images.map((imageUrl: string, index: number) => (
                             <div className={styles.pageimage} key={index}>
                                 <Image
-                                    fill={true}
+                                    width={1427}
+                                    height={2048}
                                     src={imageUrl}
                                     alt={`Chapter ${chapters[0].title} - Image ${index}`}
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                             </div>
                         ))}
                     </div>
                 )}
             </div>
-            <div id="pf-4702-1">
+            <div id="pf-4499-1">
             <Script>
-            {`window.pubfuturetag = window.pubfuturetag || [];
+                {`window.pubfuturetag = window.pubfuturetag || [];
                 window.pubfuturetag.push({
-                unit: '649a799104b327003ffaa324',
-                id: 'pf-4702-1',
+                    unit: '6475cb8abb5c49003e9b86b5',
+                    id: 'pf-4499-1',
                 })`}
             </Script>
-        </div>
+            </div>
+
             <div className={styles.pageChange}>
                 <div className={styles.button}>
                     {prevChapter > 0 && (

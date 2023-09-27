@@ -53,26 +53,19 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.frame2}>
+      <div id="pf-4545-1">
       <Script>
-          {`window.pubfuturetag = window.pubfuturetag || [];
-            window.pubfuturetag.push({
-              unit: '649a799104b327003ffaa324',
-              id: 'pf-4702-1',
-            })`}
-        </Script>
+        {`window.pubfuturetag = window.pubfuturetag || [];
+          window.pubfuturetag.push({
+            unit: '647eba0aac8efb003f768eac',
+            id: 'pf-4545-1',
+          })`}
+      </Script>
+      </div>
         <div className={styles.bar} id="bar">
           <div className={styles.title}><h1>Manga List</h1></div>
           <div className={styles.buttons}>
           </div>
-        </div>
-        <div id="pf-4702-1">
-        <Script>
-          {`window.pubfuturetag = window.pubfuturetag || [];
-            window.pubfuturetag.push({
-              unit: '649a799104b327003ffaa324',
-              id: 'pf-4702-1',
-            })`}
-        </Script>
         </div>
         <div className={styles.cards}>
         <Link href={`./boruto`}>
@@ -147,6 +140,15 @@ export default function Home() {
             </div>
           </div>
         </Link>
+        </div>
+        <div id="pf-4702-1">
+        <Script>
+          {`window.pubfuturetag = window.pubfuturetag || [];
+            window.pubfuturetag.push({
+              unit: '649a799104b327003ffaa324',
+              id: 'pf-4702-1',
+            })`}
+        </Script>
         </div>
       </div>
       <Footer/>

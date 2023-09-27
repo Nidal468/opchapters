@@ -29,6 +29,14 @@ export default function RootLayout({
         strategy="afterInteractive"
         src="https://cdn.pubfuture-ad.com/v2/unit/pt.js"
       />
+      <Script
+        strategy="afterInteractive"
+        src="https://cdn.pubfuture-ad.com/v2/unit/pt.js"
+      />
+      <Script
+        strategy="afterInteractive"
+        src="https://cdn.pubfuture-ad.com/v2/unit/pt.js"
+      />
         <body className={inter.className}>
           <Nav/>
           {children}
