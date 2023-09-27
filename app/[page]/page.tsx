@@ -101,8 +101,8 @@ export default function Home(props: any) {
                         {chapters[parseInt(param) - 1].images.map((imageUrl: string, index: number) => (
                             <div className={styles.pageimage} key={index}>
                                 <Image
-                                    width={1427}
-                                    height={2048}
+                                    width={713}
+                                    height={1024}
                                     src={imageUrl}
                                     alt={`Chapter ${chapters[0].title} - Image ${index}`}
                                 />

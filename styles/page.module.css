@@ -94,6 +94,10 @@
     background-color: #fff;
     position: relative;
 }
+.pageimage image{
+    width: auto;
+    height: auto;
+}
 .card{
     width: 95%;
     height: 1147px;
