@@ -76,11 +76,11 @@ export default function Home() {
             </div>
           </div>
         </Link>
-        <Link href={`./boruto`}>
+        <Link href={`./one`}>
           <div className={styles.card}>
             <div className={styles.image}>
               <Image
-                src="/images/borutoCover.jpg"
+                src="/images/opCover.jpg"
                 alt="boruto"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -94,11 +94,11 @@ export default function Home() {
             </div>
           </div>
         </Link>
-        <Link href={`./boruto`}>
+        <Link href={`./jujutsu`}>
           <div className={styles.card}>
             <div className={styles.image}>
               <Image
-                src="/images/borutoCover.jpg"
+                src="/images/jjkCover.jpg"
                 alt="boruto"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -112,11 +112,11 @@ export default function Home() {
             </div>
           </div>
         </Link>
-        <Link href={`./boruto`}>
+        <Link href={`./kagura`}>
           <div className={styles.card}>
             <div className={styles.image}>
               <Image
-                src="/images/borutoCover.jpg"
+                src="/images/kaguraCover.jpg"
                 alt="boruto"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -130,25 +130,6 @@ export default function Home() {
             </div>
           </div>
         </Link>
-        </div>
-        <div className={styles.bar} style={{alignItems: "flex-start"}}>
-          <div className={styles.title}><h1>Coming Soon</h1></div>
-        </div>
-        <div className={styles.cards}>
-          {isSoon.map((so: any) => (
-            <div className={styles.card} key={so._id}>
-              <div className={styles.image}>
-              <Image fill={true} src={so.location} alt={so.name} sizes="(max-width: 768px) 140px, (max-width: 1200px) 200px, 300px" priority={true}/>
-              </div>
-              <div className={styles.info}>
-                <div>
-                  <h1>{so.name}</h1>
-                  <h2>{so.person}</h2>
-                </div>
-                <h1>{so.number}</h1>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
       <Footer/>
