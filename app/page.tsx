@@ -140,6 +140,78 @@ export default function Home() {
             </div>
           </div>
         </Link>
+        <Link href={`./next`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/boruto-next.jpg"
+                alt="boruto next"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>Boruto: Naruto Next Generations</h1>
+                <h2>Masashi Kishimoto</h2>
+              </div>
+            </div>
+          </div>
+        </Link>
+        <Link href={`./opraw`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/opraw.jpg"
+                alt="op raw"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>One piece raws</h1>
+                <h2>EIICHIRO ODA</h2>
+              </div>
+            </div>
+          </div>
+        </Link>
+        <Link href={`./opcolored`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/opcol.jpg"
+                alt="op raw"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>One piece colored</h1>
+                <h2>EIICHIRO ODA</h2>
+              </div>
+            </div>
+          </div>
+        </Link>
+        <Link href={`./jjkraw`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/jjkraw.jpg"
+                alt="boruto"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>Jujutsu Kaisen Raw</h1>
+                <h2>GEGE AKUTAMI</h2>
+              </div>
+            </div>
+          </div>
+        </Link>
         </div>
         <div id="pf-4702-1">
         <Script>

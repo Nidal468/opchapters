@@ -4,7 +4,7 @@ import styles from "../../styles/page.module.css";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getBoruto, getOP, getJJK , getKagura} from "../../schemas/sanity-utils";
+import { getBoruto, getOP, getJJK , getKagura, getBorutoN, getJjkraw, getOpcol, getOpraw} from "../../schemas/sanity-utils";
 import { useState, useEffect } from "react";
 import json from '../../public/data/data.json'
 import Script from 'next/script';
@@ -19,6 +19,7 @@ export default function Home(props: any) {
     const { param } = props.searchParams;
     const [isData, setData] = useState('');
     const [chapters, setChapters] = useState<Chapter[]>([]);
+    const [isTitle, setIsTitle] = useState('')
     const [isJson, setIsJson] = useState(0)
     useEffect(() => {
         async function fetchData() {
@@ -28,6 +29,7 @@ export default function Home(props: any) {
                     const data = await getBoruto();
                     setChapters(data);
                     setIsJson(0)
+                    setIsTitle('Boruto Two Blue Vortex')
                 } catch (error) {
                     console.error("Error fetching data:", error);
                 }
@@ -37,12 +39,15 @@ export default function Home(props: any) {
                 try {
                     const data = await getOP();
                     setChapters(data);
+                    setIsJson(1)
+                    setIsTitle('One Piece')
                 } catch (error) {
                     console.error("Error fetching data:", error);
                 }
             } else if (page === 'jujutsu-chapter') {
                 setData('gojo')
                 setIsJson(2)
+                setIsTitle('Jujutsu Kaisen')
                 try {
                     const data = await getJJK();
                     setChapters(data);
@@ -53,8 +58,64 @@ export default function Home(props: any) {
             else if (page === 'kagura-chapter') {
                 setData('kagura')
                 setIsJson(3)
+                setIsTitle('Kagurabachi')
                 try {
                     const data = await getKagura();
+                    setChapters(data);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
+            }
+            else if (page === 'one-piece-raw-chapter') {
+                setData('one')
+                setIsJson(1)
+                setIsTitle('One Piece Raw')
+                try {
+                    const data = await getOpraw();
+                    setChapters(data);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
+            }
+            else if (page === 'one-piece-chapter-colored') {
+                setData('one')
+                setIsJson(3)
+                setIsTitle('One Piece Colored')
+                try {
+                    const data = await getOpcol();
+                    setChapters(data);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
+            }
+            else if (page === 'one-piece-chapter-colored') {
+                setData('one')
+                setIsJson(3)
+                setIsTitle('One Piece Colored')
+                try {
+                    const data = await getOpcol();
+                    setChapters(data);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
+            }
+            else if (page === 'boruto-chapter-next') {
+                setData('boruto')
+                setIsJson(0)
+                setIsTitle('Boruto: Naruto Next Generations')
+                try {
+                    const data = await getBorutoN();
+                    setChapters(data);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
+            }
+            else if (page === 'jujutsu-chapter-raw') {
+                setData('gojo')
+                setIsJson(2)
+                setIsTitle('Jujutsu Kaisen Raw')
+                try {
+                    const data = await getBorutoN();
                     setChapters(data);
                 } catch (error) {
                     console.error("Error fetching data:", error);
@@ -84,7 +145,8 @@ export default function Home(props: any) {
                 <p>{json[isJson].info}</p>
             </div>
             <div className={styles.title}>
-                <h1>{chapters[0].title}</h1>
+
+                <h1><i>{isTitle}</i></h1>
             </div>
             <div id="pf-4545-1">
             <Script>

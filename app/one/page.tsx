@@ -20,7 +20,7 @@ export default function Home(){
     return(
         <div className={styles.body}>
             <div className={styles.image}>
-                <Image src="/images/one.Webp" fill={true} alt="one piece image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
+                <Image src="/images/one.Webp" fill={true} alt="one piece image" priority={true}/>
             </div>
             <div className={styles.frame1}>
                     <h1>One Piece</h1>
@@ -32,15 +32,15 @@ export default function Home(){
             </div>
             <div className={styles.selection}>
             {isData.map((data: any) => (
-                <div className={styles.list} key={data._id}>
-                    <Link href={`./one-piece-chapter?param=${data.number}`}>
+                <Link href={`./one-piece-chapter?param=${data.number}`} key={data._id} id={styles.link}>
+                <div className={styles.list}>
                         <div className="w-full flex items-center justify-start">
                             <h1>{data.name} -</h1>
                             <h1>--<i>{data.title}</i></h1>
                         </div>
                         <p>{data.date}</p>
-                    </Link>
                 </div>
+                </Link>
                 ))}
             </div>
             <Footer/>

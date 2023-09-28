@@ -4,13 +4,13 @@ import styles from "../../styles/page.module.css";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { useState, useEffect } from "react";
-import {getLinks} from '../../schemas/sanity-utils'
+import {getBorutoNLinks} from '../../schemas/sanity-utils'
 import Image from 'next/image'
 export default function Home(){
     const [isData, setData] = useState([])
     useEffect(() =>{
         async function fetchData(){
-            const data = await getLinks();
+            const data = await getBorutoNLinks();
             setData(data)
         }
         fetchData()
@@ -31,7 +31,7 @@ export default function Home(){
             </div>
             <div className={styles.selection}>
             {isData.map((data: any) => (
-                <Link href={`./boruto-chapter?param=${data.number}`} key={data._id} id={styles.link}>
+                <Link href={`./boruto-chapter-next?param=${data.number}`} key={data._id} id={styles.link}>
                 <div className={styles.list}>
                         <div className="w-full flex items-center justify-start">
                             <h1>{data.name} -</h1>

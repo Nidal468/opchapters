@@ -1,7 +1,12 @@
 import Boruto from './boruto'
-import Assets from './assets'
-import Mangas from './manga'
-import Soon from './soon'
+import JJKraw from './jjk raw'
+import JJKrawlinks from './jjkrawLinks'
+import Opcol from './op col'
+import Opcollinks from './opcolLinks'
+import Opraw from './op raw'
+import Oprawlinks from './oprawLinks'
+import BorutoN from './boruto next'
+import LinksN from './links next'
 import Links from './links'
 import OPLinks from './opLinks'
 import OP from './op'
@@ -9,5 +14,5 @@ import JJK from './jjk'
 import JJKLinks from './jjkLinks'
 import Kagura from './kagura'
 import KaguraLinks from './kaguraLinks'
-export const schemaTypes = [Boruto, Assets, Mangas, Soon, Links, OP, OPLinks, JJK, JJKLinks, Kagura, KaguraLinks]
+export const schemaTypes = [Boruto, Links, OP, OPLinks, JJK, JJKLinks, Kagura, KaguraLinks, JJKraw, JJKrawlinks, Opcol, Opcollinks, Opraw, Oprawlinks, BorutoN, LinksN]
 export default schemaTypes;

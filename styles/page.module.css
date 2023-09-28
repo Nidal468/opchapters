@@ -5,13 +5,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     font-size: 1vw;
+    min-height: 100vh;
 }
 .image{
     width: 100%;
     height: 50vw;
     position: relative;
+    object-fit: cover;
 }
 .image img{
     object-fit: cover;
@@ -38,7 +40,7 @@
 }
 .selection{
     width: 95%;
-    min-height: 20vw;
+    min-height: 25vw;
     background: #444444;
     padding: 2vw;
     display: flex;
@@ -48,6 +50,9 @@
     border-radius: 1vw;
     box-shadow: 4px 4px 8px #000;
     margin: 8vw 0px;
+}
+#link{
+    width: 100%;
 }
 .list{
     width: 100%;
@@ -60,10 +65,10 @@
     padding: 2vw 4vw;
     border-radius: 10px;
     transition: 0.3s;
-    margin: 10px 0px;
+    margin: 1.1vw 0px;
 }
 .list:hover{
-    transform: translateY(-1vw);
+    transform: translateY(-0.8vw);
     box-shadow:  4px 4px 8px #000;
 }
 .list h1{
@@ -160,26 +165,26 @@
     .selection{
         width: 90%;
         min-height: 100px;
-        padding: 20px;
-        border-radius: 5px;
-    }
-    .image{
-        height: 300px;
+        padding: 5vw;
+
     }
     .list{
-        padding: 10px 20px;
-        border-radius: 5px;
+        border-radius: 2vw;
     }
+    .image{
+        height: 508w;
+    }
+    
     .list h1{
-        font-size: 15px;
+        font-size: 3vw;
     }
     .list p{
-        font-size: 10px;
+        font-size: 2vw;
         
     }
     .title{
         width: 90%;
-        font-size: 15px;
+        font-size: 5vw;
     }
     .button{
         font-size: 12px;

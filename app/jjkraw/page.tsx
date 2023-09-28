@@ -4,13 +4,13 @@ import styles from "../../styles/page.module.css";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { useState, useEffect } from "react";
-import {getLinks} from '../../schemas/sanity-utils'
+import {getJjkrawLinks} from '../../schemas/sanity-utils'
 import Image from 'next/image'
 export default function Home(){
     const [isData, setData] = useState([])
     useEffect(() =>{
         async function fetchData(){
-            const data = await getLinks();
+            const data = await getJjkrawLinks();
             setData(data)
         }
         fetchData()
@@ -19,19 +19,19 @@ export default function Home(){
     return(
         <div className={styles.body}>
             <div className={styles.image}>
-                <Image src="/images/boruto.Webp" fill={true} alt="boruto image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
+                <Image src="/images/gojo.Webp" fill={true} alt="gojo image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
             </div>
             <div className={styles.frame1}>
-                    <h1>Boruto</h1>
-                    <h2>Mahashi Kishimoto</h2>
-                    <p>Years have passed since Naruto and Sasuke teamed up to defeat Kaguya, the progenitor of chakra and the greatest threat the ninja world has ever faced. Times are now peaceful and the new generation of shinobi has not experienced the same hardships as its parents. Perhaps that is why Boruto would rather play video games than train. However, one passion does burn deep in this ninja boys heart, and that is the desire to defeat his father!</p>
+                    <h1>Jujutsu Kaisen</h1>
+                    <h2>GEGE AKUTAMI</h2>
+                    <p>For some strange reason, Yuji Itadori, despite his insane athleticism would rather just hang out with the Occult Club. However, her soon finds out that the occult is as real as it gets when his fellow club members are attacked! Meanwhile, the mysterious Megumi Fushiguro is tracking down a special-grade cursed object, and his search leads him to Itadori...</p>
             </div>
             <div className={styles.title}>
                 <h1>Chapter List</h1>
             </div>
             <div className={styles.selection}>
             {isData.map((data: any) => (
-                <Link href={`./boruto-chapter?param=${data.number}`} key={data._id} id={styles.link}>
+                <Link href={`./jujutsu-chapter-raw?param=${data.number}`} key={data._id} id={styles.link}>
                 <div className={styles.list}>
                         <div className="w-full flex items-center justify-start">
                             <h1>{data.name} -</h1>

@@ -32,15 +32,15 @@ export default function Home(){
             </div>
             <div className={styles.selection}>
             {isData.map((data: any) => (
-                <div className={styles.list} key={data._id}>
-                    <Link href={`./kagura-chapter?param=${data.number}`}>
+                <Link href={`./kagura-chapter?param=${data.number}`} key={data._id} id={styles.link}>
+                <div className={styles.list}>
                         <div className="w-full flex items-center justify-start">
                             <h1>{data.name} -</h1>
                             <h1>--<i>{data.title}</i></h1>
                         </div>
                         <p>{data.date}</p>
-                    </Link>
                 </div>
+                </Link>
                 ))}
             </div>
             <Footer/>

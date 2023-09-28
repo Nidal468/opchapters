@@ -20,15 +20,14 @@ export function Filter() {
         { name: 'Kagura bachi', link: '/kagura' },
         { name: 'Join Us', link: 'https://discord.com/invite/opscans' },
       ].map((item) => (
+        <Link href={item.link} key={item.name}>
         <div
-          key={item.name}
           className={item.name === activeFilter ? styles.activefilter : styles.filter}
           onClick={() => handleFilterClick(item.name)}
         >
-          <Link href={item.link}>
             <h1>{item.name}</h1>
-          </Link>
         </div>
+        </Link>
       ))}
     </>
   );
