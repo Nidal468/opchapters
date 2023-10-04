@@ -1,6 +1,6 @@
 const Boruto = {
   name: 'borutonext',
-  title: 'Boruto Next Gen chapters',
+  title: 'Kagura Raw Chapters',
   type: 'document',
   fields: [
     {

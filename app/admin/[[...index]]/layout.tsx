@@ -1,9 +1,7 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
-import Nav from '../components/nav'
 import Head from 'next/head'
 import Script from 'next/script';
 
@@ -36,7 +34,6 @@ export default function RootLayout({
         src="https://cdn.pubfuture-ad.com/v2/unit/pt.js"
       />
         <body className={inter.className}>
-          <Nav/>
           {children}
           </body>
       </html>

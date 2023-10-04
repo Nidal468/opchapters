@@ -1,7 +1,6 @@
 'use client'
 
 import styles from "../../styles/page.module.css";
-import Nav from "../../components/nav";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { useState, useEffect } from "react";

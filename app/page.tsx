@@ -68,24 +68,6 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.cards}>
-        <Link href={`./boruto`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/borutoCover.jpg"
-                alt="boruto"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>Boruto</h1>
-                <h2>Masashi Kishimoto</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
         <Link href={`./one`}>
           <div className={styles.card}>
             <div className={styles.image}>
@@ -99,6 +81,42 @@ export default function Home() {
             <div className={styles.info}>
               <div>
                 <h1>One Piece</h1>
+                <h2>EIICHIRO ODA</h2>
+              </div>
+            </div>
+          </div>
+        </Link>
+        <Link href={`./opraw`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/opraw.jpg"
+                alt="op raw"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>One Piece Raws</h1>
+                <h2>EIICHIRO ODA</h2>
+              </div>
+            </div>
+          </div>
+        </Link>
+        <Link href={`./opcolored`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/opcol.jpg"
+                alt="op raw"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>One Piece Colored</h1>
                 <h2>EIICHIRO ODA</h2>
               </div>
             </div>
@@ -118,6 +136,42 @@ export default function Home() {
               <div>
                 <h1>Jujutsu Kaisen</h1>
                 <h2>GEGE AKUTAMI</h2>
+              </div>
+            </div>
+          </div>
+        </Link>
+        <Link href={`./jjkraw`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/jjkraw.jpg"
+                alt="boruto"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>Jujutsu Kaisen Raw</h1>
+                <h2>GEGE AKUTAMI</h2>
+              </div>
+            </div>
+          </div>
+        </Link>
+        <Link href={`./boruto`}>
+          <div className={styles.card}>
+            <div className={styles.image}>
+              <Image
+                src="/images/borutoCover.jpg"
+                alt="boruto"
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            <div className={styles.info}>
+              <div>
+                <h1>Boruto</h1>
+                <h2>Masashi Kishimoto</h2>
               </div>
             </div>
           </div>
@@ -144,7 +198,7 @@ export default function Home() {
           <div className={styles.card}>
             <div className={styles.image}>
               <Image
-                src="/images/boruto-next.jpg"
+                src="/images/kaguraCover.jpg"
                 alt="boruto next"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -152,62 +206,8 @@ export default function Home() {
             </div>
             <div className={styles.info}>
               <div>
-                <h1>Boruto: Naruto Next Generations</h1>
-                <h2>Masashi Kishimoto</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link href={`./opraw`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/opraw.jpg"
-                alt="op raw"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>One piece raws</h1>
-                <h2>EIICHIRO ODA</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link href={`./opcolored`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/opcol.jpg"
-                alt="op raw"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>One piece colored</h1>
-                <h2>EIICHIRO ODA</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link href={`./jjkraw`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/jjkraw.jpg"
-                alt="boruto"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>Jujutsu Kaisen Raw</h1>
-                <h2>GEGE AKUTAMI</h2>
+                <h1>Kagurabachi Raw</h1>
+                <h2>TAKERU HOKAZONO</h2>
               </div>
             </div>
           </div>

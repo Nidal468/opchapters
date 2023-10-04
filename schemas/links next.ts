@@ -1,6 +1,6 @@
 const Links = {
     name: 'linksnext',
-    title: 'Boruto Next Gen list',
+    title: 'Kagura Raw list',
     type: 'document',
     fields: [
       {

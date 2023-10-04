@@ -99,10 +99,10 @@ export default function Home(props: any) {
                     console.error("Error fetching data:", error);
                 }
             }
-            else if (page === 'boruto-chapter-next') {
+            else if (page === 'kagura-chapter-raw') {
                 setData('boruto')
                 setIsJson(0)
-                setIsTitle('Boruto: Naruto Next Generations')
+                setIsTitle('Kagurabachi')
                 try {
                     const data = await getBorutoN();
                     setChapters(data);

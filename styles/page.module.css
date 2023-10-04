@@ -17,6 +17,7 @@
 }
 .image img{
     object-fit: cover;
+    object-position: 50% 10%;
 }
 .frame1{
     width: 100%;
@@ -102,6 +103,8 @@
 .pageimage image{
     width: auto;
     height: auto;
+    object-fit: cover;
+   
 }
 .card{
     width: 95%;

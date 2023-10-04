@@ -77,7 +77,7 @@ export async function getAssets() {
   export async function getOPLinks() {
     
     return client.fetch(
-      groq`*[_type == "oplinks"] {
+      groq`*[_type == "onelinks"] {
           _id, 
           name,
           title,

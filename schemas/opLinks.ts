@@ -1,5 +1,5 @@
 const Assets = {
-    name: 'oplinks',
+    name: 'onelinks',
     title: 'One Piece list',
     type: 'document',
     fields: [
