@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
       - name: Deploy project
         uses: appleboy/ssh-action@master
         with:
@@ -20,9 +23,8 @@ jobs:
             cd /root/opteam
             git pull origin master
             git status
+            node -v
+            npm -v
             npm install
             npm run build
             pm2 restart ecosystem.config.js
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '18.x'
