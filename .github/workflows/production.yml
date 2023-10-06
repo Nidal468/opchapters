@@ -16,9 +16,6 @@ jobs:
       - name: Deploying application
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
-            curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
-            source ~/.bashrc   
-            nvm install --lts 
             node -v
             cd /root/opteam
             git pull origin master
