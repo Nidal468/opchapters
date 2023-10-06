@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Deploy project
-        uses: applyboy/ssh-action@master
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
