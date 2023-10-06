@@ -5,26 +5,20 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v1
+      - uses: webfactory/ssh-agent@v0.1.1
         with:
-          node-version: '18.x'
-      - name: Deploy project
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: |
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploying application
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
             cd /root/opteam
             git pull origin master
-            git status
-            node -v
-            npm -v
             npm install
             npm run build
             pm2 restart ecosystem.config.js
+          EOF
