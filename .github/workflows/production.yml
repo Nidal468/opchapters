@@ -16,10 +16,9 @@ jobs:
       - name: Deploying application
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
-            node -v
             cd /root/opteam
             git pull origin master
             npm install
             npm run build
-            pm2 restart ecosystem.config.js
+            npx pm2 restart ecosystem.config.js
           EOF
