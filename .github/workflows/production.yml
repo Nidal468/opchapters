@@ -16,7 +16,8 @@ jobs:
       - name: Deploying application
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
-            ls
+            source ~/.bashrc   
+            node -v
             cd /root/opteam
             git pull origin master
             npm install
