@@ -16,8 +16,7 @@ jobs:
       - name: Deploying application
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
-            nvm alias default 18.18.0
-            node -v
+            ls
             cd /root/opteam
             git pull origin master
             npm install
