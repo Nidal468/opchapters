@@ -1,11 +1,6 @@
-import { createClient, groq } from "next-sanity";
+import { groq } from "next-sanity";
 
-const client = createClient({
-  projectId: "qtb4sill",
-  dataset: "production",
-  apiVersion: "2023-09-21",
-  useCdn: false
-});
+import client from './sanity-client'
 
 export async function getBoruto() {
   
