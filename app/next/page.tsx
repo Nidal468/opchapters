@@ -4,17 +4,9 @@ import styles from "../../styles/page.module.css";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { useState, useEffect } from "react";
-import {getBorutoNLinks} from '../../schemas/sanity-utils'
 import Image from 'next/image'
 export default function Home(){
     const [isData, setData] = useState([])
-    useEffect(() =>{
-        async function fetchData(){
-            const data = await getBorutoNLinks();
-            setData(data)
-        }
-        fetchData()
-    },[])
 
     return(
         <div className={styles.body}>

@@ -5,17 +5,9 @@ import Nav from "../../components/nav";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { useState, useEffect } from "react";
-import {getOprawLinks} from '../../schemas/sanity-utils'
 import Image from 'next/image'
 export default function Home(){
     const [isData, setData] = useState([])
-    useEffect(() =>{
-        async function fetchData(){
-            const data = await getOprawLinks();
-            setData(data)
-        }
-        fetchData()
-    },[])
 
     return(
         <div className={styles.body}>

@@ -3,6 +3,7 @@
 import {Filter} from './filter'
 import styles from '../styles/styles.module.css'
 import MenuIcon from '@mui/icons-material/Menu';
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import {useState} from 'react'
 import Link from "next/link";
 
@@ -16,7 +17,10 @@ export default function Nav() {
 
     return(
         <div className={styles.nav}>
-          <img src='/images/pscans.Webp' alt='opscans'/>
+            <div className='flex items-center justify-between'>
+            <img src='/images/pscans.Webp' alt='opscans'/>
+            <a href='#main'><ArrowCircleDownIcon/></a>
+            </div>
           <div className={styles.filters}>
             <Filter/>
           </div>

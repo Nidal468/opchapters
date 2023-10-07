@@ -1,44 +1,31 @@
-'use client'
-
 import styles from "../../styles/page.module.css";
-import Nav from "../../components/nav";
 import Footer from '../../components/footer'
 import Link from 'next/link'
-import { useState, useEffect } from "react";
-import {getJJKLinks} from '../../schemas/sanity-utils'
+import Data from './list.json'
 import Image from 'next/image'
+import Json from '../../public/data/data.json'
 export default function Home(){
-    const [isData, setData] = useState([])
-    useEffect(() =>{
-        async function fetchData(){
-            const data = await getJJKLinks();
-            setData(data)
-        }
-        fetchData()
-    },[])
-
+    
     return(
         <div className={styles.body}>
             <div className={styles.image}>
-                <Image src="/images/gojo.Webp" fill={true} alt="gojo image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
+                <Image src="/images/gojo.Webp" fill={true} alt="boruto image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
             </div>
             <div className={styles.frame1}>
-                    <h1>Jujutsu Kaisen</h1>
-                    <h2>GEGE AKUTAMI</h2>
-                    <p>For some strange reason, Yuji Itadori, despite his insane athleticism would rather just hang out with the Occult Club. However, her soon finds out that the occult is as real as it gets when his fellow club members are attacked! Meanwhile, the mysterious Megumi Fushiguro is tracking down a special-grade cursed object, and his search leads him to Itadori...</p>
+                    <h1>{Json[2].name}</h1>
+                    <h2>{Json[2].author}</h2>
+                    <p>{Json[2].info}</p>
             </div>
-            <div className={styles.title}>
+            <div className={styles.title} id="main">
                 <h1>Chapter List</h1>
             </div>
             <div className={styles.selection}>
-            {isData.map((data: any) => (
-                <Link href={`./jujutsu-chapter?param=${data.number}`} key={data._id} id={styles.link}>
+            {Data.map((data: any, index: number) => (
+                <Link href={`./jjk-chapter?param=${index + 1}`} key={index + 1} id={styles.link}>
                 <div className={styles.list}>
                         <div className="w-full flex items-center justify-start">
-                            <h1>{data.name} -</h1>
-                            <h1>--<i>{data.title}</i></h1>
+                            <h1>Chapter {data.number} --- <i>{data.title}</i></h1>
                         </div>
-                        <p>{data.date}</p>
                 </div>
                 </Link>
                 ))}

@@ -4,14 +4,16 @@ import styles from "../../styles/page.module.css";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getBoruto, getOP, getJJK , getKagura, getBorutoN, getJjkraw, getOpcol, getOpraw} from "../../schemas/sanity-utils";
 import { useState, useEffect } from "react";
 import json from '../../public/data/data.json'
 import Script from 'next/script';
+import borutoData from '../boruto/chapters.json'
+import opData from '../one/chapters.json'
+import jjkData from '../jujutsu/chapters.json'
+import kaguraData from '../kagura/chapters.json'
 interface Chapter {
-  _id: string,
-  images: any,
-  title: string
+  id: string,
+  images: any
 }
 
 export default function Home(props: any) {
@@ -21,115 +23,33 @@ export default function Home(props: any) {
     const [chapters, setChapters] = useState<Chapter[]>([]);
     const [isTitle, setIsTitle] = useState('')
     const [isJson, setIsJson] = useState(0)
+
     useEffect(() => {
-        async function fetchData() {
+        function fetchData() {
             if (page === 'boruto-chapter') {
                 setData('boruto');
-                try {
-                    const data = await getBoruto();
-                    setChapters(data);
-                    setIsJson(0)
-                    setIsTitle('Boruto Two Blue Vortex')
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
-            } else if (page === 'one-piece-chapter') {
-                setData('one')
-                setIsJson(1)
-                try {
-                    const data = await getOP();
-                    setChapters(data);
-                    setIsJson(1)
-                    setIsTitle('One Piece')
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
-            } else if (page === 'jujutsu-chapter') {
-                setData('gojo')
-                setIsJson(2)
-                setIsTitle('Jujutsu Kaisen')
-                try {
-                    const data = await getJJK();
-                    setChapters(data);
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
-            }
-            else if (page === 'kagura-chapter') {
-                setData('kagura')
-                setIsJson(3)
-                setIsTitle('Kagurabachi')
-                try {
-                    const data = await getKagura();
-                    setChapters(data);
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
-            }
-            else if (page === 'one-piece-raw-chapter') {
-                setData('one')
-                setIsJson(1)
-                setIsTitle('One Piece Raw')
-                try {
-                    const data = await getOpraw();
-                    setChapters(data);
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
-            }
-            else if (page === 'one-piece-chapter-colored') {
-                setData('one')
-                setIsJson(3)
-                setIsTitle('One Piece Colored')
-                try {
-                    const data = await getOpcol();
-                    setChapters(data);
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
-            }
-            else if (page === 'one-piece-chapter-colored') {
-                setData('one')
-                setIsJson(3)
-                setIsTitle('One Piece Colored')
-                try {
-                    const data = await getOpcol();
-                    setChapters(data);
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
-            }
-            else if (page === 'kagura-chapter-raw') {
-                setData('boruto')
+                setChapters(borutoData);
                 setIsJson(0)
-                setIsTitle('Kagurabachi')
-                try {
-                    const data = await getBorutoN();
-                    setChapters(data);
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
-            }
-            else if (page === 'jujutsu-chapter-raw') {
-                setData('gojo')
+                setIsTitle('Boruto Two Blue Vortex')
+            } else if(page === 'one-piece-chapter') {
+                setData('one');
+                setChapters(opData);
+                setIsJson(1)
+                setIsTitle('One Piece')
+            } else if(page === 'jjk-chapter') {
+                setData('jjk');
+                setChapters(jjkData);
+                setIsJson(3)
+                setIsTitle('Jujutsu Kaisen')
+            } else if(page === 'jjk-chapter') {
+                setData('kagura');
+                setChapters(kaguraData);
                 setIsJson(2)
-                setIsTitle('Jujutsu Kaisen Raw')
-                try {
-                    const data = await getBorutoN();
-                    setChapters(data);
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
+                setIsTitle('KaguraBachi')
             }
         }
         fetchData();
     }, [page]);
-
-    if (chapters.length === 0) {
-        return <div></div>;
-    }
-
-    // Calculate previous and next chapter numbers
     const prevChapter = parseInt(param) - 1;
     const nextChapter = parseInt(param) + 1;
     const maxChapter = chapters.length;
@@ -145,7 +65,6 @@ export default function Home(props: any) {
                 <p>{json[isJson].info}</p>
             </div>
             <div className={styles.title}>
-
                 <h1><i>{isTitle}</i></h1>
             </div>
             <div id="pf-4545-1">
@@ -154,25 +73,28 @@ export default function Home(props: any) {
                 window.pubfuturetag.push({
                     unit: '647eba0aac8efb003f768eac',
                     id: 'pf-4545-1',
+                    
                 })`}
             </Script>
             </div>
             <div className={styles.page}>
+                <Image width={713} height={1024} src={`/images/${isData}/chapter1/main.png`} alt="opscans" id="main"/>
                 {chapters.length > 0 && (
-                    <div key={chapters[parseInt(param) - 1]._id}>
-                        {chapters[parseInt(param) - 1].images.map((imageUrl: string, index: number) => (
+                    <div key={chapters[parseInt(param) - 1].id}>
+                        {chapters[parseInt(param) - 1].images.map((image: any, index: number) => (
                             <div className={styles.pageimage} key={index}>
-                                <Image
-                                    width={713}
-                                    height={1024}
-                                    src={imageUrl}
-                                    alt={`Chapter ${chapters[0].title} - Image ${index}`}
-                                />
+                            <Image
+                                width={713}
+                                height={1024}
+                                src={`/images/${isData}/chapter${param}/${index}.png`} // Access the src property of the image object
+                                alt={`chapter ${index}`}
+                            />
                             </div>
                         ))}
                     </div>
                 )}
             </div>
+
             <div id="pf-4499-1">
             <Script>
                 {`window.pubfuturetag = window.pubfuturetag || [];

@@ -2,10 +2,8 @@
 
 import Image from 'next/image';
 import styles from '../styles/styles.module.css';
-import { getBoruto, getAssets, getManga, getSoon} from '../schemas/sanity-utils';
 import Footer from '../components/footer'
 import Link from 'next/link'
-import { useState , useEffect} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -13,17 +11,6 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import Script from 'next/script';
 
 export default function Home() {
-  const [isManga, setIsManga] = useState([])
-  const [isSoon, setIsSoon] = useState([])
-  useEffect(() => {
-    async function fetchData() {
-      const mangas = await getManga();
-      const soon = await getSoon();
-      setIsManga(mangas);
-      setIsSoon(soon);
-    }
-    fetchData();
-  }, []);
   return (
     <div className={styles.body}>
       <div className={styles.frame1}>
@@ -48,7 +35,7 @@ export default function Home() {
             </Swiper>
           </div>
         <div className={styles.bot}>
-          <div className={styles.button}><Link href='#bar'>Read Now</Link></div>
+          <div className={styles.button}><Link href='#main'>Read Now</Link></div>
           <h1>Hey everybody we are glad that you enjoy our scanlations but, don't forget to support the official version of our chapters or any other official publishing site! We value your suggestions so feel free to join our Discord server and give us feedback! for now just sit back, relax and enjoy some quality manga</h1>
         </div>
       </div>
@@ -62,7 +49,7 @@ export default function Home() {
           })`}
       </Script>
       </div>
-        <div className={styles.bar} id="bar">
+        <div className={styles.bar} id="main">
           <div className={styles.title}><h1>Manga List</h1></div>
           <div className={styles.buttons}>
           </div>
