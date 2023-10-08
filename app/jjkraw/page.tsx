@@ -17,7 +17,7 @@ export default function Home(){
                     <p>{Json[2].info}</p>
             </div>
             <div className={styles.title} id="main">
-                <h1></h1>
+                <h1>Chapter List</h1>
                 <a href="#list"><div className={styles.latest}>Latest</div></a>
             </div>
             <div className={styles.selection}>
