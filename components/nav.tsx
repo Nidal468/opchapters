@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function Nav() {
     const [isActive, setIsActive] = useState(false)
 
-    function handleClick() {
+    function HandleClick() {
         setIsActive(current => !current);
     }
 
