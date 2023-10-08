@@ -9,7 +9,7 @@ export default function Home(){
     return(
         <div className={styles.body}>
             <div className={styles.image}>
-                <Image src="/images/boruto.Webp" fill={true} alt="boruto image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
+                <Image src="/images/boruto.Webp" fill={true} alt="boruto image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75} />
             </div>
             <div className={styles.frame1}>
                     <h1>{Json[0].name}</h1>
@@ -32,7 +32,7 @@ export default function Home(){
                 ))}
             </div>
             <div id="list"></div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

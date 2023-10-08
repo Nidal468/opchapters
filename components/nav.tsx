@@ -1,6 +1,6 @@
 'use client'
 
-import {Filter} from './filter'
+import { Filter } from './filter'
 import styles from '../styles/styles.module.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
@@ -8,14 +8,13 @@ import {useState} from 'react'
 import Link from "next/link";
 
 export default function Nav() {
-
     const [isActive, setIsActive] = useState(false)
 
-    function HandleClick() {
-        setIsActive(current => ! current);
+    function handleClick() {
+        setIsActive(current => !current);
     }
 
-    return(
+    return (
         <div className={styles.nav}>
             <div className='flex items-center justify-between'>
             <img src='/images/pscans.Webp' alt='opscans'/>

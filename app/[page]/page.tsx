@@ -13,7 +13,7 @@ interface Chapter {
   images: any
 }
 
-export default function Home(props: any) {
+export default async function Home(props: any) {
     const { page } = props.params;
     const { param } = props.searchParams;
 
@@ -49,7 +49,7 @@ export default function Home(props: any) {
     return (
         <div className={styles.body}>
             <div className={styles.image}>
-                <Image src={`/images/${isData}.Webp`} fill={true} alt={isData} priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75}/>
+                <Image src={`/images/${isData}.Webp`} fill={true} alt={isData} priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75} />
             </div>
             <div className={styles.frame1}>
                 <h1>{json[isJson].name}</h1>
@@ -60,14 +60,14 @@ export default function Home(props: any) {
                 <h1><i>{isTitle}</i></h1>
             </div>
             <div id="pf-4545-1">
-            <Script>
-                {`window.pubfuturetag = window.pubfuturetag || [];
+                <Script>
+                    {`window.pubfuturetag = window.pubfuturetag || [];
                 window.pubfuturetag.push({
                     unit: '647eba0aac8efb003f768eac',
                     id: 'pf-4545-1',
                     
                 })`}
-            </Script>
+                </Script>
             </div>
             <div className={styles.page}>
                 <Image width={713} height={1024} src={`/images/${isData}/chapter1/main.jpg`} alt="opscans" id="main"/>
@@ -88,13 +88,13 @@ export default function Home(props: any) {
             </div>
 
             <div id="pf-4499-1">
-            <Script>
-                {`window.pubfuturetag = window.pubfuturetag || [];
+                <Script>
+                    {`window.pubfuturetag = window.pubfuturetag || [];
                 window.pubfuturetag.push({
                     unit: '6475cb8abb5c49003e9b86b5',
                     id: 'pf-4499-1',
                 })`}
-            </Script>
+                </Script>
             </div>
 
             <div className={styles.pageChange}>
