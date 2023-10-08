@@ -21,7 +21,7 @@ export default function Home(){
                 <a href="#list"><div className={styles.latest}>Latest</div></a>
             </div>
             <div className={styles.selection}>
-            {Data.map((data: any, index: number) => (
+            {Data.slice().reverse().map((data: any, index: number) => (
                 <Link href={`./kagura-chapter?param=${index + 1}`} key={index + 1} id={styles.link}>
                 <div className={styles.list}>
                         <div className="w-full flex items-center justify-start">

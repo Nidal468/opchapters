@@ -85,6 +85,7 @@ export default async function Home(props: any) {
                         ))}
                     </div>
                 )}
+                <Image width={713} height={1024} src={`/images/${isData}/chapter1/end.jpg`} alt="opscans" id="main"/>
             </div>
 
             <div id="pf-4499-1">
