@@ -82,7 +82,7 @@
     width: 95%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     font-size: 2vw;
     border-bottom: 0.2vw solid #fff;
     padding: 2.5vw 0px;
@@ -148,7 +148,18 @@
     color: #444;
     border: 1px solid #222;
 }
-
+.latest{
+    display: flex;
+    padding: 0.7vw 2.5vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 0.3vw;
+    background: linear-gradient(92deg, rgba(128, 1, 31, 0.60) 16.85%, rgba(255, 0, 61, 0.60) 100%);
+    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(25px);
+    font-size: 1vw;
+}
 @media only screen and (max-width: 768px) {
     .frame1{
         transform: translateY(-50px);

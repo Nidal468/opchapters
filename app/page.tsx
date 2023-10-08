@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image';
 import styles from '../styles/styles.module.css';
 import Footer from '../components/footer'
@@ -9,30 +7,14 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
 import Script from 'next/script';
-
+import SwiperComponent from '@/components/home/swiper';
 export default function Home() {
   return (
     <div className={styles.body}>
       <div className={styles.frame1}>
           <div className={styles.imageContainer}>
             <div className={styles.fade}></div>
-            <Swiper
-              pagination={{
-                dynamicBullets: true,
-              }}
-              spaceBetween={30}
-              centeredSlides={true}
-              autoplay={{
-                disableOnInteraction: false,
-              }}
-              modules={[Pagination, Autoplay]}
-              loop={true}
-              className={styles.swiper}
-              >
-                <SwiperSlide><Image src='/images/sgojo.Webp' alt='boruto' fill={true} priority={true}/></SwiperSlide>
-                <SwiperSlide><Image src='/images/borutom.Webp' alt='boruto' fill={true} priority={true}/></SwiperSlide>
-                <SwiperSlide><Image src='/images/one.Webp' alt='op' fill={true} priority={true}/></SwiperSlide>
-            </Swiper>
+            <SwiperComponent/>
           </div>
         <div className={styles.bot}>
           <div className={styles.button}><Link href='#main'>Read Now</Link></div>

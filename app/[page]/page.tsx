@@ -1,10 +1,7 @@
-'use client'
-
 import styles from "../../styles/page.module.css";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState, useEffect } from "react";
 import json from '../../public/data/data.json'
 import Script from 'next/script';
 import borutoData from '../boruto/chapters.json'
@@ -19,37 +16,32 @@ interface Chapter {
 export default function Home(props: any) {
     const { page } = props.params;
     const { param } = props.searchParams;
-    const [isData, setData] = useState('');
-    const [chapters, setChapters] = useState<Chapter[]>([]);
-    const [isTitle, setIsTitle] = useState('')
-    const [isJson, setIsJson] = useState(0)
 
-    useEffect(() => {
-        function fetchData() {
-            if (page === 'boruto-chapter') {
-                setData('boruto');
-                setChapters(borutoData);
-                setIsJson(0)
-                setIsTitle('Boruto Two Blue Vortex')
-            } else if(page === 'one-piece-chapter') {
-                setData('one');
-                setChapters(opData);
-                setIsJson(1)
-                setIsTitle('One Piece')
-            } else if(page === 'jjk-chapter') {
-                setData('jjk');
-                setChapters(jjkData);
-                setIsJson(3)
-                setIsTitle('Jujutsu Kaisen')
-            } else if(page === 'jjk-chapter') {
-                setData('kagura');
-                setChapters(kaguraData);
-                setIsJson(2)
-                setIsTitle('KaguraBachi')
-            }
-        }
-        fetchData();
-    }, [page]);
+    let isData = '';
+    let chapters: Chapter[] = [];
+    let isTitle = '';
+    let isJson = 0;
+    if (page === 'boruto-chapter') {
+        isData = 'boruto';
+        chapters = borutoData;
+        isJson = 0;
+        isTitle = "Boruto Two Blue Vortex";
+    } else if(page === 'one-piece-chapter') {
+        isData = 'one';
+        isJson = 1;
+        isTitle = 'One Piece';
+        chapters = opData;
+    } else if(page === 'jjk-chapter') {
+        isData = 'gojo';
+        isJson = 2;
+        isTitle = 'Jujutsu Kaisen';
+        chapters = jjkData;
+    } else if(page === 'kagura-chapter') {
+        isData = 'kagura';
+        isJson = 3;
+        isTitle = 'Kagurabachi';
+        chapters = kaguraData;
+    }
     const prevChapter = parseInt(param) - 1;
     const nextChapter = parseInt(param) + 1;
     const maxChapter = chapters.length;
@@ -78,7 +70,7 @@ export default function Home(props: any) {
             </Script>
             </div>
             <div className={styles.page}>
-                <Image width={713} height={1024} src={`/images/${isData}/chapter1/main.png`} alt="opscans" id="main"/>
+                <Image width={713} height={1024} src={`/images/${isData}/chapter1/main.jpg`} alt="opscans" id="main"/>
                 {chapters.length > 0 && (
                     <div key={chapters[parseInt(param) - 1].id}>
                         {chapters[parseInt(param) - 1].images.map((image: any, index: number) => (
@@ -86,7 +78,7 @@ export default function Home(props: any) {
                             <Image
                                 width={713}
                                 height={1024}
-                                src={`/images/${isData}/chapter${param}/${index}.png`} // Access the src property of the image object
+                                src={`/images/${isData}/chapter${param}/${index}.jpg`} // Access the src property of the image object
                                 alt={`chapter ${index}`}
                             />
                             </div>

@@ -18,6 +18,7 @@ export default function Home(){
             </div>
             <div className={styles.title} id="main">
                 <h1>Chapter List</h1>
+                <a href="#list"><div className={styles.latest}>Latest</div></a>
             </div>
             <div className={styles.selection}>
             {Data.map((data: any, index: number) => (
@@ -30,6 +31,7 @@ export default function Home(){
                 </Link>
                 ))}
             </div>
+            <div id="list"></div>
             <Footer/>
         </div>
     )
