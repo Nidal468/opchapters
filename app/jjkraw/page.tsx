@@ -21,8 +21,8 @@ export default function Home(){
                 <a href="#list"><div className={styles.latest}>Latest</div></a>
             </div>
             <div className={styles.selection}>
-            {Data.slice().reverse().map((data: any, index: number) => (
-                <Link href={`./jjk-chapter?param=${index + 1}`} key={index + 1} id={styles.link}>
+            {Data.slice().reverse().map((data: any, index: number , arr: any[]) => (
+                <Link href={`./jjk-chapter?param=${arr.length - index}`} key={arr.length - index} id={styles.link}>
                 <div className={styles.list}>
                         <div className="w-full flex items-center justify-start">
                             <h1>Chapter {data.number} --- <i>{data.title}</i></h1>
