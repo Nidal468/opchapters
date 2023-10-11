@@ -28,6 +28,12 @@ export default async function Home(props: any) {
         chapters = borutoData;
         isJson = 0;
         isTitle = "Boruto Two Blue Vortex";
+    } 
+    if (page === 'boruto-chapter-raw') {
+        isData = 'boruto';
+        chapters = borutoData;
+        isJson = 0;
+        isTitle = "Boruto Two Blue Vortex";
     } else if(page === 'one-piece-chapter') {
         isData = 'one';
         isJson = 1;
