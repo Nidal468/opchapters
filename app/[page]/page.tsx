@@ -42,7 +42,13 @@ export default async function Home(props: any) {
         isJson = 2;
         isTitle = 'Jujutsu Kaisen';
         chapters = jjkData;
-    } else if(page === 'kagura-chapter') {
+    } else if(page === 'jjk-chapter-raw') {
+        isData = 'gojoraw';
+        isJson = 2;
+        isTitle = 'Jujutsu Kaisen';
+        chapters = jjkData;
+    } 
+    else if(page === 'kagura-chapter') {
         isData = 'kagura';
         isJson = 3;
         isTitle = 'Kagurabachi';
