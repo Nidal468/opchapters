@@ -89,7 +89,6 @@ export default async function Home(props: any) {
                 </Script>
             </div>
             <div className={styles.page}>
-                <Image width={713} height={1024} src={`/images/${isData}/chapter${param}/main.jpg`} alt="opscans" id="main"/>
                 {chapters.length > 0 && (
                     <div key={chapters[parseInt(param) - 1].id}>
                         {chapters[parseInt(param) - 1].images.map((image: any, index: number) => (
