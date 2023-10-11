@@ -22,7 +22,7 @@ export default function Home(){
             </div>
             <div className={styles.selection}>
             {Data.slice().reverse().map((data: any, index: number, arr: any[]) => (
-                <Link href={`./one-piece-chapter?param=${arr.length - index}`} key={arr.length - index} id={styles.link}>
+                <Link href={`./one-piece-raw-chapter?param=${arr.length - index}`} key={arr.length - index} id={styles.link}>
                 <div className={styles.list}>
                         <div className="w-full flex items-center justify-start">
                             <h1>Chapter {data.number} --- <i>{data.title}</i></h1>

@@ -8,6 +8,7 @@ import borutoData from '../boruto/chapters.json'
 import opData from '../one/chapters.json'
 import jjkData from '../jujutsu/chapters.json'
 import kaguraData from '../kagura/chapters.json'
+import opraw from '../opraw/chapters.json'
 interface Chapter {
   id: string,
   images: any
@@ -31,6 +32,11 @@ export default async function Home(props: any) {
         isJson = 1;
         isTitle = 'One Piece';
         chapters = opData;
+    }  else if(page === 'one-piece-raw-chapter') {
+        isData = 'opraw';
+        isJson = 1;
+        isTitle = 'One Piece Raw';
+        chapters = opraw;
     } else if(page === 'jjk-chapter') {
         isData = 'gojo';
         isJson = 2;

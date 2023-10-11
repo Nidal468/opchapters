@@ -13,8 +13,8 @@ export default function Home(){
             </div>
             <div className={styles.frame1}>
                     <h1>{Json[1].name}</h1>
-                    <h2>{Json[2].author}</h2>
-                    <p>{Json[3].info}</p>
+                    <h2>{Json[1].author}</h2>
+                    <p>{Json[1].info}</p>
             </div>
             <div className={styles.title} id="main">
                 <h1>Chapter List</h1>
