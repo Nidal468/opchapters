@@ -9,6 +9,7 @@ import opData from '../one/chapters.json'
 import jjkData from '../jujutsu/chapters.json'
 import kaguraData from '../kagura/chapters.json'
 import opraw from '../opraw/chapters.json'
+import jjkraw from '../jjkraw/chapters.json'
 interface Chapter {
   id: string,
   images: any
@@ -45,8 +46,8 @@ export default async function Home(props: any) {
     } else if(page === 'jjk-chapter-raw') {
         isData = 'gojoraw';
         isJson = 2;
-        isTitle = 'Jujutsu Kaisen';
-        chapters = jjkData;
+        isTitle = 'Jujutsu Kaisen Raw';
+        chapters = jjkraw;
     } 
     else if(page === 'kagura-chapter') {
         isData = 'kagura';
