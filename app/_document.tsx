@@ -1,5 +1,7 @@
 import { Html, Head, Main, NextScript} from 'next/document'
 import Script from 'next/script'
+import { Metadata } from 'next';
+
 export default function Docs() {
   return (
     <Html lang="en">

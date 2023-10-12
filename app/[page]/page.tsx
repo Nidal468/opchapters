@@ -2,133 +2,76 @@ import styles from "../../styles/page.module.css";
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import json from '../../public/data/data.json'
-import Script from 'next/script';
-import borutoData from '../boruto/chapters.json'
-import opData from '../one/chapters.json'
-import jjkData from '../jujutsu/chapters.json'
-import kaguraData from '../kagura/chapters.json'
-import opraw from '../opraw/chapters.json'
-import jjkraw from '../jjkraw/chapters.json'
-interface Chapter {
-  id: string,
-  images: any
+import Json from '../../public/data/data.json'
+import boruto from "../../public/list/borutolist.json";
+import op from "../../public/list/oplist.json";
+import jjk from "../../public/list/jujutsulist.json";
+import jjkraw from "../../public/list/jjkrawlist.json";
+import kagura from "../../public/list/kaguralist.json";
+import opcolored from "../../public/list/opcoloredlist.json";
+import opraw from "../../public/list/oprawlist.json";
+interface Data {
+    number: string,
+    title: string
 }
 
-export default async function Home(props: any) {
+export default async function Home(props: any){
     const { page } = props.params;
-    const { param } = props.searchParams;
-
-    let isData = '';
-    let chapters: Chapter[] = [];
-    let isTitle = '';
-    let isJson = 0;
-    if (page === 'boruto-chapter') {
-        isData = 'boruto';
-        chapters = borutoData;
-        isJson = 0;
-        isTitle = "Boruto Two Blue Vortex";
-    } 
-    if (page === 'boruto-chapter-raw') {
-        isData = 'boruto';
-        chapters = borutoData;
-        isJson = 0;
-        isTitle = "Boruto Two Blue Vortex";
-    } else if(page === 'one-piece-chapter') {
-        isData = 'one';
-        isJson = 1;
-        isTitle = 'One Piece';
-        chapters = opData;
-    }  else if(page === 'one-piece-raw-chapter') {
-        isData = 'opraw';
-        isJson = 1;
-        isTitle = 'One Piece Raw';
-        chapters = opraw;
-    } else if(page === 'jjk-chapter') {
-        isData = 'gojo';
-        isJson = 2;
-        isTitle = 'Jujutsu Kaisen';
-        chapters = jjkData;
-    } else if(page === 'jjk-chapter-raw') {
-        isData = 'gojoraw';
-        isJson = 2;
-        isTitle = 'Jujutsu Kaisen Raw';
-        chapters = jjkraw;
-    } 
-    else if(page === 'kagura-chapter') {
-        isData = 'kagura';
-        isJson = 3;
-        isTitle = 'Kagurabachi';
-        chapters = kaguraData;
+    let image = 'boruto';
+    let json = 0;
+    let chapter = 'boruto-chapter';
+    let data :Data [] = [];
+    if (page === 'boruto') {
+        chapter = 'boruto-chapter';
+        json = 0;
+        image = 'boruto';
+        data = boruto;
+    } else if (page === 'one') {
+        chapter = 'one-piece-chapter';
+        json = 1;
+        image = 'one';
+        data = op;
+    }  else if (page === 'jujutsu') {
+        chapter = 'jjk-chapter';
+        json = 2;
+        image = 'gojo';
+        data = jjk;
+    } else if (page === 'kagura') {
+        chapter = 'kagura-chapter';
+        json = 3;
+        image = 'kagura';
+        data = kagura;
+    } else {
+        chapter = 'boruto-chapter';
+        json = 0;
+        image = 'boruto';
+        data = boruto;
     }
-    const prevChapter = parseInt(param) - 1;
-    const nextChapter = parseInt(param) + 1;
-    const maxChapter = chapters.length;
-
-    return (
+    return(
         <div className={styles.body}>
             <div className={styles.image}>
-                <Image src={`/images/${isData}.Webp`} fill={true} alt={isData} priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75} />
+                <Image src={`/images/${image}.Webp`} fill={true} alt="boruto image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75} />
             </div>
             <div className={styles.frame1}>
-                <h1>{json[isJson].name}</h1>
-                <h2>{json[isJson].author}</h2>
-                <p>{json[isJson].info}</p>
+                    <h1>{Json[json].name}</h1>
+                    <h2>{Json[json].author}</h2>
+                    <p>{Json[json].info}</p>
             </div>
             <div className={styles.title}>
-                <h1><i>{isTitle}</i></h1>
+                <h1>Chapter List</h1>
             </div>
-            <div id="pf-4545-1">
-                <Script>
-                    {`window.pubfuturetag = window.pubfuturetag || [];
-                window.pubfuturetag.push({
-                    unit: '647eba0aac8efb003f768eac',
-                    id: 'pf-4545-1',
-                    
-                })`}
-                </Script>
-            </div>
-            <div className={styles.page}>
-                {chapters.length > 0 && (
-                    <div key={chapters[parseInt(param) - 1].id}>
-                        {chapters[parseInt(param) - 1].images.map((image: any, index: number) => (
-                            <div className={styles.pageimage} key={index}>
-                            <Image
-                                width={713}
-                                height={1024}
-                                src={`/images/${isData}/chapter${param}/${index}.jpg`} // Access the src property of the image object
-                                alt={`chapter ${index}`}
-                            />
-                            </div>
-                        ))}
-                    </div>
-                )}
-                <Image width={713} height={1024} src={`/images/${isData}/chapter1/end.jpg`} alt="opscans" id="main"/>
-            </div>
-
-            <div id="pf-4499-1">
-                <Script>
-                    {`window.pubfuturetag = window.pubfuturetag || [];
-                window.pubfuturetag.push({
-                    unit: '6475cb8abb5c49003e9b86b5',
-                    id: 'pf-4499-1',
-                })`}
-                </Script>
-            </div>
-
-            <div className={styles.pageChange}>
-                <div className={styles.button}>
-                    {prevChapter > 0 && (
-                        <Link href={`./${page}?param=${prevChapter}`}>Previous Chapter</Link>
-                    )}
+            <div className={styles.selection}>
+            {data.slice().reverse().map((data: any, index: number, arr: any[]) => (
+                <Link href={`./page/${chapter}?param=${arr.length - index}`} key={arr.length - index} id={styles.link}>
+                <div className={styles.list}>
+                        <div className="w-full flex items-center justify-start">
+                            <h1>Chapter {data.number} --- <i>{data.title}</i></h1>
+                        </div>
                 </div>
-                <h1 >{param}</h1>
-                <div className={styles.button}>
-                    {nextChapter <= maxChapter && (
-                        <Link href={`./${page}?param=${nextChapter}`}>Next Chapter</Link>
-                    )}
-                </div>
+                </Link>
+                ))}
             </div>
+            <div id="list"></div>
             <Footer />
         </div>
     )

@@ -2,8 +2,6 @@
 
 import { Filter } from './filter'
 import styles from '../styles/styles.module.css'
-import MenuIcon from '@mui/icons-material/Menu';
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import {useState} from 'react'
 import Link from "next/link";
 
@@ -18,12 +16,12 @@ export default function Nav() {
         <div className={styles.nav}>
             <div className='flex items-center justify-between'>
             <img src='/images/pscans.Webp' alt='opscans'/>
-            <a href='#main'><ArrowCircleDownIcon/></a>
+            <a href='#main'></a>
             </div>
           <div className={styles.filters}>
             <Filter/>
           </div>
-          <MenuIcon onClick={HandleClick} className={styles.menuicon} />
+          <button onClick={HandleClick} className={styles.menuicon}>Menu</button>
           <div className={styles.menu} style={{display: isActive? 'flex': 'none'}}>
             <ul className={styles.menuItems} style={{display: isActive? 'block': 'none'}}>
                 <li><Link href="/">Home</Link></li>
