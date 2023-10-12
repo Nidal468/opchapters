@@ -1,11 +1,7 @@
 'use client'
 import { useEffect } from 'react';
-import './globals.css'
-import { Inter } from 'next/font/google'
-const inter = Inter({ subsets: ['latin'] })
-import Nav from '../components/nav'
 
-export default function RootLayout({children,}: {children: React.ReactNode}){
+const useRegisterServiceWorkerClient = () => {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
@@ -18,12 +14,6 @@ export default function RootLayout({children,}: {children: React.ReactNode}){
         });
     }
   }, []);
-  return (
-      <html>
-        <body className={inter.className}>
-          <Nav/>
-          {children}
-          </body>
-      </html>
-  )
-}
+};
+
+export default useRegisterServiceWorkerClient;
