@@ -28,8 +28,6 @@ export default function RootLayout({children,}: {children: React.ReactNode}){
           <link rel='icon' href='/favicon.ico' />
           <Script data-cfasync="false" async type="text/javascript"src="https://iu.ecusemis.com/ry0O792CsgvVK9/nEOlO"/>
           <Script strategy="afterInteractive" src="https://cdn.pubfuture-ad.com/v2/unit/pt.js"/>
-          <Script strategy="afterInteractive" src="https://cdn.pubfuture-ad.com/v2/unit/pt.js"/>
-          <Script strategy="afterInteractive" src="https://cdn.pubfuture-ad.com/v2/unit/pt.js"/>
         </head>
         <body className={inter.className}>
           <Nav/>
