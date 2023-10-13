@@ -97,7 +97,6 @@ export default async function Home(props: any) {
                                 height={1024}
                                 src={`/images/${isData}/chapter${param}/${index}.jpg`} // Access the src property of the image object
                                 alt={`chapter ${index}`}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
                             </div>
                         ))}

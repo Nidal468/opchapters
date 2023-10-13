@@ -101,10 +101,7 @@
     position: relative;
 }
 .pageimage image{
-    width: auto;
-    height: auto;
     object-fit: cover;
-   
 }
 .card{
     width: 95%;
