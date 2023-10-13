@@ -3,8 +3,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/ads.txt',
-        destination: '/ads.txt',
+        source: '/ads1.txt',
+        destination: '/ads1.txt',
       },
     ];
   },
