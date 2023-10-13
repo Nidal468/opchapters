@@ -101,6 +101,7 @@
     position: relative;
 }
 .pageimage image{
+    position: relative;
     object-fit: cover;
 }
 .card{
