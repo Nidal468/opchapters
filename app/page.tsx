@@ -2,10 +2,6 @@ import Image from 'next/image';
 import styles from '../styles/styles.module.css';
 import Footer from '../components/footer'
 import Link from 'next/link'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Pagination, Autoplay } from 'swiper/modules';
 import Script from 'next/script';
 import SwiperComponent from '@/components/home/swiper';
 export default function Home() {
@@ -45,6 +41,7 @@ export default function Home() {
                 alt="boruto"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={40}
               />
             </div>
             <div className={styles.info}>
@@ -63,6 +60,7 @@ export default function Home() {
                 alt="op raw"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={40}
               />
             </div>
             <div className={styles.info}>
@@ -81,6 +79,7 @@ export default function Home() {
                 alt="op raw"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={40}
               />
             </div>
             <div className={styles.info}>
@@ -99,6 +98,7 @@ export default function Home() {
                 alt="boruto"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={40}
               />
             </div>
             <div className={styles.info}>
@@ -117,6 +117,7 @@ export default function Home() {
                 alt="boruto"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={40}
               />
             </div>
             <div className={styles.info}>
@@ -135,6 +136,7 @@ export default function Home() {
                 alt="boruto"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={40}
               />
             </div>
             <div className={styles.info}>
@@ -153,6 +155,7 @@ export default function Home() {
                 alt="boruto"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={40}
               />
             </div>
             <div className={styles.info}>
@@ -171,6 +174,7 @@ export default function Home() {
                 alt="boruto next"
                 fill={true}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={40}
               />
             </div>
             <div className={styles.info}>

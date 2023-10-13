@@ -7,27 +7,24 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import { Pagination, Autoplay } from 'swiper/modules';
+import {Autoplay } from 'swiper/modules';
 import styles from '../../styles/styles.module.css';
 
 export default function SwiperComponent() {
     return (
         <Swiper
-            pagination={{
-                dynamicBullets: true,
-            }}
             spaceBetween={30}
             centeredSlides={true}
             autoplay={{
                 disableOnInteraction: false,
             }}
-            modules={[Pagination, Autoplay]}
+            modules={[Autoplay]}
             loop={true}
             className={styles.swiper}
         >
             <SwiperSlide><Image src='/images/sgojo.Webp' alt='boruto' fill={true} priority={true} /></SwiperSlide>
-            <SwiperSlide><Image src='/images/borutom.Webp' alt='boruto' fill={true} priority={true} /></SwiperSlide>
-            <SwiperSlide><Image src='/images/one.Webp' alt='op' fill={true} priority={true} /></SwiperSlide>
+            <SwiperSlide><Image src='/images/borutom.Webp' alt='boruto' fill={true} priority={true}/></SwiperSlide>
+            <SwiperSlide><Image src='/images/one.Webp' alt='op' fill={true} priority={true}/></SwiperSlide>
         </Swiper>
     )
 }
