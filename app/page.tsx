@@ -40,42 +40,8 @@ export default function Home() {
         <Card href="./jujutsu" src="/images/jjkCover.jpg" alt="jujutsu kaisen" title="Jujutsu Kaisen" author="GEGE AKUTAMI"/>
         <Card href="./jjkraw" src="/images/jjkraw.jpg" alt="jujutsu kaisen raw" title="Jujutsu Kaisen Raw" author="GEGE AKUTAMI"/>
         <Card href="./boruto" src="/images/borutoCover.jpg" alt="boruto" title="Boruto Two Blue Vortex" author="Mahashi Kishimoto"/>
-        <Link href={`./kagura`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/kaguraCover.jpg"
-                alt="boruto"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>Kagurabachi</h1>
-                <h2>TAKERU HOKAZONO</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link href={`./next`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/kaguraCover.jpg"
-                alt="boruto next"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>Kagurabachi Raw</h1>
-                <h2>TAKERU HOKAZONO</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
+        <Card href="./kagura" src="/images/kaguraCover.jpgg" alt="kagurabachi" title="Kagurabachi" author="TAKERU HOKAZONO"/>
+        <Card href="./next" src="/images/kaguraCover.jpgg" alt="kagurabachi raw" title="Kagurabachi Raw" author="TAKERU HOKAZONO"/>
         </div>
         <div id="pf-4702-1">
         <Script>
