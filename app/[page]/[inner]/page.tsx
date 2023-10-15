@@ -93,8 +93,7 @@ export default async function Home(props: any) {
                         {chapters[parseInt(param) - 1].images.map((image: any, index: number) => (
                             <div className={styles.pageimage} key={index}>
                             <Image
-                                width={713}
-                                height={1024}
+                                fill={true}
                                 src={`/images/${isData}/chapter${param}/${index}.jpg`} // Access the src property of the image object
                                 alt={`chapter ${index}`}
                             />
@@ -102,7 +101,6 @@ export default async function Home(props: any) {
                         ))}
                     </div>
                 )}
-                <Image width={713} height={1024} src={`/images/${isData}/chapter${param}/end.jpg`} alt="opscans" id="main" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
             </div>
 
             <div id="pf-4499-1">

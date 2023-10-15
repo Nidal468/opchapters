@@ -99,6 +99,8 @@
 .pageimage{
     background-color: #fff;
     position: relative;
+    width: 713px;
+    height: 1024px;
 }
 .pageimage image{
     position: relative;
@@ -200,5 +202,9 @@
     }
     .button{
         font-size: 12px;
+    }
+    .pageimage{
+        width: 360px;
+        min-height: 400px;
     }
 }
