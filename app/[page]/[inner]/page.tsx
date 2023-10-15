@@ -102,7 +102,7 @@ export default async function Home(props: any) {
                         ))}
                     </div>
                 )}
-                <Image width={713} height={1024} src={`/images/${isData}/chapter1/end.jpg`} alt="opscans" id="main" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
+                <Image width={713} height={1024} src={`/images/${isData}/chapter${param}/end.jpg`} alt="opscans" id="main" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
             </div>
 
             <div id="pf-4499-1">
