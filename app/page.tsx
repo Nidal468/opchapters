@@ -38,42 +38,8 @@ export default function Home() {
         <Card href="./opraw" src="/images/opraw.jpg" alt="one piece raw" title="One Piece Raw" author="EIICHIRO ODA"/>
         <Card href="./opcolored" src="/images/opcol.jpg" alt="one piece colored" title="One Piece Colored" author="EIICHIRO ODA"/>
         <Card href="./jujutsu" src="/images/jjkCover.jpg" alt="jujutsu kaisen" title="Jujutsu Kaisen" author="GEGE AKUTAMI"/>
-        <Link href={`./jjkraw`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/jjkraw.jpg"
-                alt="boruto"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>Jujutsu Kaisen Raw</h1>
-                <h2>GEGE AKUTAMI</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link href={`./boruto`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/borutoCover.jpg"
-                alt="boruto"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>Boruto</h1>
-                <h2>Masashi Kishimoto</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
+        <Card href="./jjkraw" src="/images/jjkraw.jpg" alt="jujutsu kaisen raw" title="Jujutsu Kaisen Raw" author="GEGE AKUTAMI"/>
+        <Card href="./boruto" src="/images/borutoCover.jpg" alt="boruto" title="Boruto Two Blue Vortex" author="Mahashi Kishimoto"/>
         <Link href={`./kagura`}>
           <div className={styles.card}>
             <div className={styles.image}>
