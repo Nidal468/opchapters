@@ -92,10 +92,10 @@ export default async function Home(props: any) {
                     <div key={chapters[parseInt(param) - 1].id}>
                         {chapters[parseInt(param) - 1].images.map((image: any, index: number) => (
                             <div className={styles.pageimage} key={index}>
-                            <Image
-                                fill={true}
-                                src={`/images/${isData}/chapter${param}/${index}.jpg`} // Access the src property of the image object
+                            <img
+                                src={`/images/${isData}/chapter${param}/${index}.jpg`}
                                 alt={`chapter ${index}`}
+                                loading="lazy"
                             />
                             </div>
                         ))}

@@ -3,7 +3,8 @@ import styles from '../styles/styles.module.css';
 import Footer from '../components/footer'
 import Link from 'next/link'
 import Script from 'next/script';
-import SwiperComponent from '@/components/home/swiper';
+import SwiperComponent from '@/components/swiper';
+import Card from '../components/card'
 export default function Home() {
   return (
     <div className={styles.body}>
@@ -33,78 +34,10 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.cards}>
-        <Link href={`./one`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/opCover.jpg"
-                alt="boruto"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>One Piece</h1>
-                <h2>EIICHIRO ODA</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link href={`./opraw`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/opraw.jpg"
-                alt="op raw"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>One Piece Raws</h1>
-                <h2>EIICHIRO ODA</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link href={`./opcolored`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/opcol.jpg"
-                alt="op raw"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>One Piece Colored</h1>
-                <h2>EIICHIRO ODA</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link href={`./jujutsu`}>
-          <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                src="/images/jjkCover.jpg"
-                alt="boruto"
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className={styles.info}>
-              <div>
-                <h1>Jujutsu Kaisen</h1>
-                <h2>GEGE AKUTAMI</h2>
-              </div>
-            </div>
-          </div>
-        </Link>
+        <Card href="./one" src="/images/opCover.jpg" alt="one piece" title="One Piece" author="EIICHIRO ODA"/>
+        <Card href="./opraw" src="/images/opraw.jpg" alt="one piece raw" title="One Piece Raw" author="EIICHIRO ODA"/>
+        <Card href="./opcolored" src="/images/opcol.jpg" alt="one piece colored" title="One Piece Colored" author="EIICHIRO ODA"/>
+        <Card href="./jujutsu" src="/images/jjkCover.jpg" alt="jujutsu kaisen" title="Jujutsu Kaisen" author="GEGE AKUTAMI"/>
         <Link href={`./jjkraw`}>
           <div className={styles.card}>
             <div className={styles.image}>

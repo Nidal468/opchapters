@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import {Autoplay } from 'swiper/modules';
-import styles from '../../styles/styles.module.css';
+import styles from '../styles/styles.module.css';
 
 export default function SwiperComponent() {
     return (
