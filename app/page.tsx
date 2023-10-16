@@ -34,6 +34,7 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.cards}>
+          <img src='/images/one.Webp'/>
         <Card href="./one" src="/images/opCover.jpg" alt="one piece" title="One Piece" author="EIICHIRO ODA"/>
         <Card href="./opraw" src="/images/opraw.jpg" alt="one piece raw" title="One Piece Raw" author="EIICHIRO ODA"/>
         <Card href="./opcolored" src="/images/opcol.jpg" alt="one piece colored" title="One Piece Colored" author="EIICHIRO ODA"/>
