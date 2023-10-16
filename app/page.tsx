@@ -40,8 +40,8 @@ export default function Home() {
         <Card href="./jujutsu" src="/images/jjkCover.jpg" alt="jujutsu kaisen" title="Jujutsu Kaisen" author="GEGE AKUTAMI"/>
         <Card href="./jjkraw" src="/images/jjkraw.jpg" alt="jujutsu kaisen raw" title="Jujutsu Kaisen Raw" author="GEGE AKUTAMI"/>
         <Card href="./boruto" src="/images/borutoCover.jpg" alt="boruto" title="Boruto Two Blue Vortex" author="Mahashi Kishimoto"/>
-        <Card href="./kagura" src="/images/kaguraCover.jpgg" alt="kagurabachi" title="Kagurabachi" author="TAKERU HOKAZONO"/>
-        <Card href="./next" src="/images/kaguraCover.jpgg" alt="kagurabachi raw" title="Kagurabachi Raw" author="TAKERU HOKAZONO"/>
+        <Card href="./kagura" src="/images/kaguraCover.jpg" alt="kagurabachi" title="Kagurabachi" author="TAKERU HOKAZONO"/>
+        <Card href="./next" src="/images/kaguraCover.jpg" alt="kagurabachi raw" title="Kagurabachi Raw" author="TAKERU HOKAZONO"/>
         </div>
         <div id="pf-4702-1">
         <Script>
