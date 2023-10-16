@@ -119,7 +119,7 @@ export default async function Home(props: any) {
                         <Link href={`./${inner}?param=${prevChapter}`}>Previous Chapter</Link>
                     )}
                 </div>
-                <h1>{param}</h1>
+                <h1 className="text-2xl">{param}</h1>
                 <div className={styles.button}>
                     {nextChapter <= maxChapter && (
                         <Link href={`./${inner}?param=${nextChapter}`}>Next Chapter</Link>
