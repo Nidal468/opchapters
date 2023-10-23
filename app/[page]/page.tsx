@@ -1,22 +1,32 @@
-import styles from "../../styles/page.module.css";
-import Footer from '../../components/footer'
+import styles from "@/styles/page.module.css";
+import Footer from '@/components/footer'
 import Link from 'next/link'
-import Image from 'next/image'
-import Json from '../../public/data/data.json'
-import boruto from "../../public/list/borutolist.json";
-import op from "../../public/list/oplist.json";
-import jjk from "../../public/list/jujutsulist.json";
-import jjkraw from "../../public/list/jjkrawlist.json";
-import kagura from "../../public/list/kaguralist.json";
-import opcolored from "../../public/list/opcoloredlist.json";
-import opraw from "../../public/list/oprawlist.json";
+import Json from '@/public/data/data.json'
+import boruto from "@/public/list/borutolist.json";
+import op from "@/public/list/oplist.json";
+import jjk from "@/public/list/jujutsulist.json";
+import jjkraw from "@/public/list/jjkrawlist.json";
+import kagura from "@/public/list/kaguralist.json";
+import opcolored from "@/public/list/opcoloredlist.json";
+import opraw from "@/public/list/oprawlist.json";
+
 interface Data {
     number: string,
     title: string
 }
-
-export default async function Home(props: any){
-    const { page } = props.params;
+export function generateStaticParams() {
+    return [
+      { page: 'boruto'},
+      { page: 'one'},
+      { page: 'kagura'},
+      { page: 'jujutsu'},
+      { page: 'jjkraw'},
+      { page: 'favicon.ico'}
+    ]
+  }
+  
+export default async function Home({params}:{params:{ page: string}}){
+    const {page} = params
     let image = 'boruto';
     let json = 0;
     let chapter = 'boruto-chapter';
@@ -36,6 +46,11 @@ export default async function Home(props: any){
         json = 2;
         image = 'gojo';
         data = jjk;
+    } else if (page === 'jjkraw') {
+        chapter = 'jjkraw-chapter';
+        json = 2;
+        image = 'gojo';
+        data = jjkraw
     } else if (page === 'kagura') {
         chapter = 'kagura-chapter';
         json = 3;
@@ -50,7 +65,7 @@ export default async function Home(props: any){
     return(
         <div className={styles.body}>
             <div className={styles.image}>
-                <Image src={`/images/${image}.Webp`} fill={true} alt="boruto image" priority={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw" quality={75} />
+                <img src={`/images/${image}.Webp`} alt="boruto image"/>
             </div>
             <div className={styles.frame1}>
                     <h1>{Json[json].name}</h1>
@@ -62,7 +77,7 @@ export default async function Home(props: any){
             </div>
             <div className={styles.selection}>
             {data.slice().reverse().map((data: any, index: number, arr: any[]) => (
-                <Link href={`./page/${chapter}?param=${arr.length - index}`} key={arr.length - index} id={styles.link}>
+                <Link href={`./page/${chapter}/${arr.length - index}`} key={arr.length - index} id={styles.link}>
                 <div className={styles.list}>
                         <div className="w-full flex items-center justify-start">
                             <h1>Chapter {data.number} --- <i>{data.title}</i></h1>

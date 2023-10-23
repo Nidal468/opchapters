@@ -8,6 +8,7 @@ export default function Card(props: any){
               <img
                 src={props.src}
                 alt={props.alt}
+                loading='lazy'
               />
             </div>
             <div className={styles.info}>

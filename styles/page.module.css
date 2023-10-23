@@ -105,6 +105,7 @@
     position: relative;
 }
 .pageimage img{
+    width: 70%;
     object-fit: cover;
 }
 .card{
@@ -203,5 +204,8 @@
     }
     .button{
         font-size: 12px;
+    }
+    .pageimage img{
+        width: 100%;
     }
 }
