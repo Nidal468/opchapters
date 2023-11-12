@@ -1,5 +1,6 @@
 import styles from "../styles/styles.module.css";
 import Link from 'next/link'
+import Image from 'next/image'
 export default function Footer() {
     return(
         <div className={styles.footer}>
@@ -15,7 +16,7 @@ export default function Footer() {
         </div>
         <div className={styles.effect}></div>
         <div className={styles.footerImage}>
-        <img src="/images/opslider.Webp" alt={"footer image"}/>
+        <Image fill={true} src="/images/opslider.Webp" alt={"footer image"} sizes="10vw,15vw"/>
         </div>
       </div>
     )

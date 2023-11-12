@@ -60,7 +60,7 @@ export default function Home(params: any) {
   return (
     <div className={styles.body}>
       <div className={styles.image}>
-        <Image fill={true} src={`/images/${image}.Webp`} alt="boruto image" priority={true}/>
+        <Image fill={true} src={`/images/${image}.Webp`} alt="boruto image" priority={true} sizes="30vw, 40vw"/>
       </div>
       <div className={styles.frame1}>
         <h1>{Json[json].name}</h1>

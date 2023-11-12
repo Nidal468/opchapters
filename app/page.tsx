@@ -1,9 +1,8 @@
 import styles from '../styles/styles.module.css';
-import Footer from '../components/footer'
-import Link from 'next/link'
-import Script from 'next/script';
+import Footer from '../components/footer';
+import Link from 'next/link';
 import SwiperComponent from '@/components/swiper';
-import Card from '../components/card'
+import Card from '../components/card';
 
 export default function Home() {
 

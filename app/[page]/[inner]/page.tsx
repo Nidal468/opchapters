@@ -8,7 +8,7 @@ import jjkData from '@/public/chapter/jujutsuchapters.json'
 import kaguraData from '@/public/chapter/kagurachapters.json'
 import opraw from '@/public/chapter/oprawchapters.json'
 import jjkraw from '@/public/chapter/jjkrawchapters.json'
-import Script from "next/script";
+import Chapters from "@/components/images"
 import Image from "next/image";
 interface Chapter {
     id: string,
@@ -65,7 +65,7 @@ export default function Home(params: any) {
     return (
         <div className={styles.body}>
             <div className={styles.image}>
-                <Image fill={true} src={`/images/${isData}.Webp`} alt={isData} priority={true} />
+                <Image fill={true} src={`/images/${isData}.Webp`} alt={isData} priority={true} sizes="30vw, 40vw"/>
             </div>
             <div className={styles.frame1}>
                 <h1>{json[isJson].name}</h1>
@@ -77,31 +77,7 @@ export default function Home(params: any) {
             </div>
             <ins className="adsbygoogle" style={{ display: "block" }} data-ad-client="ca-pub-6216514032813165" data-ad-slot="4557355396" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <ins className="adsbygoogle" style={{ display: "block" }} data-ad-client="ca-pub-6216514032813165" data-ad-slot="6548259764" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <div className="w-full h-[5vw] bg-zinc-800 flex items-center justify-start gap-[1vw] p-[2vw] my-[2vw]">
-                <div className="w-[3vw] h-[3vw] rounded-[0.5vw] bg-zinc-600 flex items-center justify-center">+</div>
-                <div className="w-[3vw] h-[3vw] rounded-[0.5vw] bg-zinc-600 flex items-center justify-center">-</div>
-                <div className="w-[8vw] h-[3vw] rounded-[0.5vw] bg-zinc-600 flex items-center justify-center">Low Res</div>
-                <div className="w-[8vw] h-[3vw] rounded-[0.5vw] bg-zinc-600 flex items-center justify-center">Midium Res</div>
-                <div className="w-[8vw] h-[3vw] rounded-[0.5vw] bg-zinc-600 flex items-center justify-center">High Res</div>
-            </div>
-            <div className={styles.page}>
-                {chapters.length > 0 && chapters[parseInt(param) - 1] && chapters[parseInt(param) - 1].images && (
-                    <div key={chapters[parseInt(param) - 1].id}>
-                        {chapters[parseInt(param) - 1].images.map((image: any, index: number) => (
-                            <div className={styles.pageimage} key={index}>
-                                <Image
-                                    fill={true}
-                                    src={`/images/${isData}/chapter${param}/${index}.jpg`}
-                                    alt={`chapter ${index}`}
-                                    loading="lazy"
-                                    quality={100}
-                                    sizes="20vw, 30vw"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </div>
+            <Chapters data={chapters} param={param} src={isData}/>
             <div className={styles.pageChange}>
                 <div className={styles.button}>
                     {prevChapter > 0 && (
