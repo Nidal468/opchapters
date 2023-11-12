@@ -19,22 +19,14 @@ export default function Home() {
           <h1>Hey everybody we are glad that you enjoy our scanlations but, don't forget to support the official version of our chapters or any other official publishing site! We value your suggestions so feel free to join our Discord server and give us feedback! for now just sit back, relax and enjoy some quality manga</h1>
         </div>
       </div>
+      <ins className="adsbygoogle" style={{display:"block"}} data-ad-client="ca-pub-6216514032813165" data-ad-slot="4557355396" data-ad-format="auto" data-full-width-responsive="true"></ins>
       <div className={styles.frame2}>
-        <div id="pf-4545-1">
-          <Script>
-            {`window.pubfuturetag = window.pubfuturetag || [];
-          window.pubfuturetag.push({
-            unit: '647eba0aac8efb003f768eac',
-            id: 'pf-4545-1',
-          })`}
-          </Script>
-          <div id="bg-ssp-8137"><Script>{`var bg_id = document.getElementById('bg-ssp-8137');bg_id.id = 'bg-ssp-8137-' + Math.floor(Math.random() * Date.now());window.pubbidgeartag = window.pubbidgeartag || [];window.pubbidgeartag.push({zoneid: 8137, id: bg_id.id, wu: window.location.href})`}</Script></div>
-        </div>
         <div className={styles.bar} id="main">
           <div className={styles.title}><h1>Manga List</h1></div>
           <div className={styles.buttons}>
           </div>
         </div>
+        <ins className="adsbygoogle" style={{display:"block"}} data-ad-client="ca-pub-6216514032813165" data-ad-slot="4557355396" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <div className={styles.cards}>
           <Card href="./one" src="/images/opCover.jpg" alt="one piece" title="One Piece" author="EIICHIRO ODA" />
           <Card href="./opraw" src="/images/opraw.jpg" alt="one piece raw" title="One Piece Raw" author="EIICHIRO ODA" />
@@ -45,24 +37,8 @@ export default function Home() {
           <Card href="./kagura" src="/images/kaguraCover.jpg" alt="kagurabachi" title="Kagurabachi" author="TAKERU HOKAZONO" />
           <Card href="./next" src="/images/kaguraCover.jpg" alt="kagurabachi raw" title="Kagurabachi Raw" author="TAKERU HOKAZONO" />
         </div>
-        <div id="pf-4702-1">
-          <Script>
-            {`window.pubfuturetag = window.pubfuturetag || [];
-            window.pubfuturetag.push({
-              unit: '649a799104b327003ffaa324',
-              id: 'pf-4702-1',
-            })`}
-          </Script>
-          <div id="bg-ssp-8138">
-            <Script>
-              {`var bg_id = document.getElementById('bg-ssp-8138');
-              bg_id.id = 'bg-ssp-8138-' + Math.floor(Math.random() * Date.now());
-              window.pubbidgeartag = window.pubbidgeartag || [];
-              window.pubbidgeartag.push({zoneid: 8138, id: bg_id.id, wu: window.location.href})`}
-            </Script>
-          </div>
-        </div>
       </div>
+      <ins className="adsbygoogle" style={{display:"block"}} data-ad-client="ca-pub-6216514032813165" data-ad-slot="4557355396" data-ad-format="auto" data-full-width-responsive="true"></ins>
       <Footer />
     </div>
   );
