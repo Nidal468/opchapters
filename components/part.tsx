@@ -11,6 +11,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import themes from '@/style/themes.module.css'
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import Link from 'next/link'
+const info = "Hey everybody we are glad that you enjoy our scanlations but, don't forget to support the official version of our chapters or any other official publishing site! We value your suggestions so feel free to join our Discord server and give us feedback! for now just sit back, relax and enjoy some quality manga";
 export function Nav() {
     return (
         <div className="w-full h-[4vw] flex items-center justify-between pr-[2vw]" id={themes.box}>
@@ -86,7 +87,7 @@ export function Banner() {
                         <h1 className='text-[2.4vw] font-medium'>WELCOME TO OPSCANS</h1>
                         <h1 className='text-[1.8vw] font-medium'>HIGH QUALITY SCANS</h1>
                     </div>
-                    <p className='text-[1.2vw]'>Hey everybody we are glad that you enjoy our scanlations but, don't forget to support the official version of our chapters or any other official publishing site! We value your suggestions so feel free to join our Discord server and give us feedback! for now just sit back, relax and enjoy some quality manga</p>
+                    <p className='text-[1.2vw]'>{info}</p>
                     <div className='flex flex-col gap-[1vw]'>
                         <h1 className='text-[1vw]'>OUR BEST MANGAS</h1>
                         <div className='flex items-center gap-[10px] text-[1vw]'>
