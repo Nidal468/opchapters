@@ -44,7 +44,7 @@ export function Nav() {
 }
 export function Card(props: any) {
     return (
-        <Link href={`/home/${props.link}`} key={props.link}>
+        <Link href={`/home/${props.link}`}>
             <div className='lg:w-[12vw] lg:h-[21vw] w-[18vw] h-[28vw] flex flex-col items-start justify-start lg:rounded-[0.5vw] rounded-[0.8vw] overflow-hidden' id={themes.card}>
                 <div className='w-full lg:h-[18vw] h-[24vw] relative'>
                     <Image fill={true} alt={props.link} src={props.src} />

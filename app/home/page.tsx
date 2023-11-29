@@ -18,7 +18,7 @@ export default function Home() {
                 </div>
                 <div className='w-full flex flex-wrap items-start justify-start gap-[1vw]'>
                     {Data.map((data: any) => (
-                        <Card link={data.id} src={data.cover} name={data.name}/>
+                        <Card link={data.id} src={data.cover} name={data.name} key={data.id}/>
                     ))}
                 </div>
                 <Footer/>
