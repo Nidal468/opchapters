@@ -1,8 +1,11 @@
 'use client'
 
 import MenuIcon from '@mui/icons-material/Menu';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow } from 'swiper/modules';
+import { useState } from 'react'
+import Data from '@/public/data/manga.json'
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import Image from 'next/image'
@@ -15,8 +18,10 @@ const info = "Hey everybody we are glad that you enjoy our scanlations but, don'
 export function Nav() {
     return (
         <div className="w-full h-[4vw] flex items-center justify-between pr-[2vw]" id={themes.box}>
-            <div className='lg:w-[23vw] h-full relative'>
-                <Image src="/images/bg.png" fill={true} alt="" className='object-cover' />
+            <div className='px-[1vw] h-full bg-white bg-opacity-10 flex items-center justify-center'>
+                <div className='lg:w-[20vw] h-[80%] relative'>
+                    <Image src="/images/opscans.png" fill={true} alt="" className='object-cover' sizes='100vw, 100vw' />
+                </div>
             </div>
             <div className='gap-[1vw] h-full flex items-center justify-between text-[1vw]' id={themes.dim}>
                 <Link href="/home"><h1>Home</h1></Link>
@@ -40,16 +45,18 @@ export function Nav() {
         </div>
     )
 }
-export function Card() {
+export function Card(props: any) {
     return (
-        <div className='w-[12vw] h-[21vw] flex flex-col items-start justify-start rounded-[0.5vw] overflow-hidden' id={themes.card}>
-            <div className='w-full h-[18vw] relative'>
-                <Image fill={true} alt="" src={"/images/cover/one-piece.jpg"} />
+        <Link href={`/home/${props.link}`}>
+            <div className='w-[12vw] h-[21vw] flex flex-col items-start justify-start rounded-[0.5vw] overflow-hidden' id={themes.card}>
+                <div className='w-full h-[18vw] relative'>
+                    <Image fill={true} alt="" src={`/images/cover/${props.src}.jpg`} />
+                </div>
+                <div className='w-full h-[3vw] flex items-center justify-center text-[1vw] p-[0.3vw]'>
+                    <h1>{props.name}</h1>
+                </div>
             </div>
-            <div className='w-full h-[3vw] flex items-center justify-center text-[1vw] p-[0.3vw]'>
-                <h1>One Piece</h1>
-            </div>
-        </div>
+        </Link>
     )
 }
 export function SwiperCards() {
@@ -104,7 +111,7 @@ export function Footer() {
     return (
         <div className='lg:w-full h-[16vw] flex items-start justify-start'>
             <div className='w-full h-full relative z-10'>
-                <Image fill={true} alt="" src="/images/one.png" className='object-cover'/>
+                <Image fill={true} alt="" src="/images/one.png" className='object-cover' />
             </div>
             <div className='w-full h-[16vw] absolute z-20 flex flex-col items-start justify-center gap-[1vw] px-[2vw]' id={themes.footer}>
                 <div className="OpScans text-center text-white font-normal text-[1vw] leading-tight">OPSCANS</div>
@@ -117,5 +124,59 @@ export function Footer() {
                 <div className="CopyrightOpscansComAllRightsReserved text-center text-white text-opacity-60 text-[1vw] font-normal leading-tight">Copyright © opscans.com. All Rights Reserved</div>
             </div>
         </div>
+    )
+}
+export function List(props: any) {
+    return (
+        <Link href={`/home/${props.manga}/${props.chapter}`}>
+            <div className='w-[10vw] h-[3vw] flex flex-col items-center justify-center text-[0.8vw] bg-zinc-700 rounded-[0.3vw]'>
+                <h1>{props.name}</h1>
+                <h3>Chapter {props.number}</h3>
+            </div>
+        </Link>
+    )
+}
+export function Pages(props: any) {
+    const [index, setIndex] = useState(0)
+    const selectedManga = Data.find((mangas: any) => mangas.id === props.manga);
+    const selectedChapter = selectedManga?.chapters.find((chapters: any) => chapters.id === props.chapter);
+    const max = selectedChapter?.images.length || 0;
+
+    function Prev() {
+        if (index === 0) {
+            setIndex(0)
+        } else {
+            setIndex(prev => prev - 1)
+        }
+    }
+    function Next() {
+        if (index === max - 1) {
+            setIndex(max - 1)
+        } else {
+            setIndex(prev => prev + 1)
+        }
+    }
+    return (
+        <div className="w-[75%] h-full bg-zinc-800 flex items-center justify-center">
+            <h1 className='absolute top-[4%] right-[4%] text-[2vw]'>{index +1} / {max}</h1>
+            <div className={`w-[65vh] h-[90vh] relative`}>
+                <Image fill={true} alt={`${selectedChapter?.images[index].source}`} src={`${selectedChapter?.images[index].source}`} sizes='100vw, 100vw' key={`${selectedChapter?.images[index].source}`} />
+
+            </div>
+            <div className='w-[75vw] h-[8vw] absolute bottom-0 right-0 flex items-center justify-between px-[5vw]'>
+                <div className='w-[6vw] h-[6vw] flex items-center justify-center opacity-0 hover:opacity-100 duration-300' onClick={Prev}>
+                    <ArrowBackIosIcon fontSize='large' />
+                </div>
+
+                <div className='w-[6vw] h-[6vw] flex items-center justify-center opacity-0 hover:opacity-100 duration-300 rotate-180' onClick={Next}>
+                    <ArrowBackIosIcon fontSize='large' />
+                </div>
+            </div>
+        </div>
+    )
+}
+export function Sidebar() {
+    return(
+        <div></div>
     )
 }

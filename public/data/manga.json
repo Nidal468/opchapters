@@ -1,0 +1,77 @@
+[
+  {
+    "id": "1701170221062",
+    "name": "One Piece",
+    "author": "EIICHIRO ODA",
+    "date": "Nov 28, 2023",
+    "info": "As a child, Monkey D. Luffy was inspired to become a pirate by listening to the tales of the buccaneer \"Red-Haired\" Shanks. But Luffy's life changed when he accidentally ate the Gum-Gum Devil Fruit and gained the power to stretch like rubber...at the cost of never being able to swim again! Years later, still vowing to become the king of the pirates, Luffy sets out on his adventure...one guy alone in a rowboat, in search of the legendary \"One Piece,\" said to be the greatest treasure in the world",
+    "genre1": "Shonen",
+    "genre2": "Action",
+    "genre3": "Adventure",
+    "cover": "/images/cover/opCover.jpg",
+    "chapters": [
+      {
+        "id": "1701172285304",
+        "title": "New Emperor",
+        "number": "1058",
+        "date": "Nov 28, 2023",
+        "images": [
+          {
+            "source": "/images/upload/One Piece/New Emperor/0.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/1.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/2.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/3.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/4.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/5.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/6.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/7.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/8.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/9.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/10.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/11.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/12.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/13.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/14.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/15.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/16.jpg"
+          },
+          {
+            "source": "/images/upload/One Piece/New Emperor/17.jpg"
+          }
+        ]
+      }
+    ]
+  }
+]

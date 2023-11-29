@@ -20,6 +20,10 @@
     background: linear-gradient(to right,rgba(20, 20, 20, 0.879), rgba(13, 13, 13, 0.016));
     
 }
+#opacity{
+    background: linear-gradient(to right,rgba(20, 20, 20, 0.879), rgba(13, 13, 13, 0.374));
+    
+}
 #card{
     background: #3e3e3e;
     box-shadow: 4px 4px 8px #141414;
@@ -27,4 +31,7 @@
 #footer{
     background: linear-gradient(to right,rgba(20, 20, 20, 0.879), rgba(13, 13, 13, 0.016));
     color: #fff;
+}
+#button{
+    background: #787878;
 }

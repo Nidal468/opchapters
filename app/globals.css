@@ -9,3 +9,6 @@ body{
     justify-content: center;
     background: linear-gradient(#141414,#0b0b0b);
 }
+input{
+    outline: none;
+}
