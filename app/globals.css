@@ -7,7 +7,7 @@ body{
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    background: linear-gradient(#141414,#0b0b0b);
+    background: #1a1a1a;
 }
 input{
     outline: none;
