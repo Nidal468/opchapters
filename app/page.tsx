@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import { Nav, Card, SwiperCards } from '@/components/part'
+import { Nav } from '@/components/part'
 import themes from '@/style/themes.module.css'
+import Link from 'next/link'
 export default function Home() {
   return (
     <div className='w-full h-[100vh] flex flex-col' id={themes.background}>
-      <Nav />
-      
+      <Link href="/home">Go to home</Link>
     </div>
   )
 }

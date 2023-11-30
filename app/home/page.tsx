@@ -1,14 +1,14 @@
-import Image from 'next/image'
 import { Nav, Banner, Card, Footer, Sidebar, Menu } from '@/components/part'
 import themes from '@/style/themes.module.css'
 import FolderIcon from '@mui/icons-material/Folder';
 import Data from '@/public/data/manga.json'
 export default function Home() {
-
+    
     return (
-        <div className='w-full flex items-center justify-start text-white' id={themes.body}>
+        <div className='w-full min-h-screen flex items-center justify-start text-white' id={themes.body}>
             <Sidebar />
-            <div className='lg:w-[80%] w-full flex flex-col items-start justify-start gap-[1.5vw] lg:px-[3vw] px-[2vw] gap-[0.5vw] absolute top-0 right-0'>
+            <div className='lg:w-[80%] w-full min-h-screen flex flex-col items-start justify-between lg:px-[3vw] px-[2vw] gap-[2vw] absolute top-0 right-0'>
+                <div className='w-full flex flex-col items-start justify-start gap-[1.5vw]'>
                 <Nav />
                 <Menu/>
                 <Banner />
@@ -20,6 +20,8 @@ export default function Home() {
                     {Data.map((data: any) => (
                         <Card link={data.id} src={data.cover} name={data.name} key={data.id}/>
                     ))}
+                </div>
+                <div className='w-full h-[30vh]'></div>
                 </div>
                 <Footer/>
             </div>

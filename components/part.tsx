@@ -16,6 +16,17 @@ import CloseIcon from '@mui/icons-material/Close';
 import themes from '@/style/themes.module.css'
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import Link from 'next/link'
+
+type DivStates = {
+    div1: boolean;
+    div2: boolean;
+    div3: boolean;
+    div4: boolean;
+    div5: boolean;
+    div6: boolean;
+    div7: boolean;
+};
+
 const info = "Hey everybody we are glad that you enjoy our scanlations but, don't forget to support the official version of our chapters or any other official publishing site! We value your suggestions so feel free to join our Discord server and give us feedback! for now just sit back, relax and enjoy some quality manga";
 export function Nav() {
     return (
@@ -25,9 +36,9 @@ export function Nav() {
             </div>
             <div className='flex items-center gap-[4vw]'>
                 <div className='lg:w-[30vw] h-[2.8vw] flex items-center justify-between rounded-full px-[0.2vw]' id={themes.outer}>
-                    <div className='w-[2.4vw] h-[2.4vw] rounded-full flex items-center justify-center'><SearchIcon sx={{fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }}/></div>
+                    <div className='w-[2.4vw] h-[2.4vw] rounded-full flex items-center justify-center'><SearchIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} /></div>
                     <input type='text' placeholder='Enter your search' className='lg:w-[25vw] h-full bg-transparent  outline-0 text-[1vw]' />
-                    <div className='w-[2.4vw] h-[2.4vw] rounded-full flex items-center justify-center' id={themes.inner}><CloseIcon sx={{fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }}/></div>
+                    <div className='w-[2.4vw] h-[2.4vw] rounded-full flex items-center justify-center' id={themes.inner}><CloseIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} /></div>
                 </div>
                 <div className='h-full gap-[2vw] flex items-center justify-between text-[0.8vw] font-medium'>
                     <div className='flex flex-col items-center justify-between'>
@@ -35,7 +46,7 @@ export function Nav() {
                         <h1 className='text-[0.6vw]'>New Release</h1>
                     </div>
                     <div className='w-[3vw] h-[3vw] rounded-full flex items-center justify-center' id={themes.outer}>
-                        <NotificationsActiveOutlinedIcon sx={{fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }}/>
+                        <NotificationsActiveOutlinedIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} />
                     </div>
                 </div>
             </div>
@@ -94,7 +105,7 @@ export function Banner() {
                     <p className='text-[1.2vw]'>{info}</p>
                     <div className='flex flex-col gap-[1vw]'>
                         <h1 className='text-[1vw]'>OUR BEST MANGAS</h1>
-                        <div className='flex items-center gap-[10px] text-[1vw]'>
+                        <div className='flex items-center gap-[2vw] text-[1vw]'>
                             <div className='px-[2vw] py-[0.4vw] bg-neutral-100 text-black lg:rounded-[0.2vw] rounded-[0.3vw] hover:bg-neutral-300 duration-300 cursor-pointer'>ONE PIECE</div>
                             <div className='px-[2vw] py-[0.4vw] bg-sky-500 text-white rounded-[0.2vw] lg:rounded-[0.3vw] hover:bg-sky-600 duration-300 cursor-pointer'>BORUTO</div>
                         </div>
@@ -106,7 +117,7 @@ export function Banner() {
 }
 export function Footer() {
     return (
-        <footer className='w-full h-[16vw] flex items-start justify-start'>
+        <div className='w-full h-[16vw] flex items-start justify-start'>
             <div className='w-full h-full relative z-10'>
                 <Image fill={true} alt="" src="/images/one.png" className='object-cover' />
             </div>
@@ -120,13 +131,13 @@ export function Footer() {
                 </div>
                 <div className="CopyrightOpscansComAllRightsReserved text-center text-white text-opacity-60 lg:text-[1vw] text-[1.4vw] font-normal leading-tight">Copyright © opscans.com. All Rights Reserved</div>
             </div>
-        </footer>
+        </div>
     )
 }
 export function List(props: any) {
     return (
         <Link href={`/home/${props.manga}/${props.chapter}`}>
-            <div className='w-[10vw] h-[3vw] flex flex-col items-center justify-center text-[0.8vw] bg-zinc-700 rounded-[0.3vw]'>
+            <div className='lg:w-[10vw] lg:h-[3vw] w-[30vw] h-[8vw] flex flex-col items-center justify-center lg:text-[0.8vw] text-[2vw] bg-zinc-700 hover:bg-zinc-500 duration-300 lg:rounded-[0.3vw] rounded-[0.8vw]'>
                 <h1>{props.name}</h1>
                 <h3>Chapter {props.number}</h3>
             </div>
@@ -154,18 +165,17 @@ export function Pages(props: any) {
         }
     }
     return (
-        <div className="w-[75%] h-full bg-zinc-800 flex items-center justify-center">
+        <div className="w-full h-full flex items-start justify-between">
             <h1 className='absolute top-[4%] right-[4%] text-[2vw]'>{index + 1} / {max}</h1>
-            <div className={`w-[65vh] h-[90vh] relative`}>
-                <Image fill={true} alt={`${selectedChapter?.images[index].source}`} src={`${selectedChapter?.images[index].source}`} sizes='100vw, 100vw' key={`${selectedChapter?.images[index].source}`} />
-
-            </div>
-            <div className='w-[75vw] h-[8vw] absolute bottom-0 right-0 flex items-center justify-between px-[5vw]'>
-                <div className='w-[6vw] h-[6vw] flex items-center justify-center opacity-0 hover:opacity-100 duration-300' onClick={Prev}>
+            <div className='w-[20vw] h-full bg-red-500'></div>
+            <Image width={700} height={1050} alt={`${selectedChapter?.images[index].source}`} src={`${selectedChapter?.images[index].source}`} key={`${selectedChapter?.images[index].source}`} sizes='100vw, 100vw' />
+            <div className='w-[20vw] h-full bg-red-500'></div>
+            <div className='w-full h-[8vw] fixed bottom-0 right-0 flex items-center justify-between px-[5vw]'>
+                <div className='w-[6vw] h-[6vw] flex items-center justify-center opacity-20 hover:opacity-100 duration-300' onClick={Prev}>
                     <ArrowBackIosIcon fontSize='large' />
                 </div>
 
-                <div className='w-[6vw] h-[6vw] flex items-center justify-center opacity-0 hover:opacity-100 duration-300 rotate-180' onClick={Next}>
+                <div className='w-[6vw] h-[6vw] flex items-center justify-center opacity-20 hover:opacity-100 duration-300 rotate-180' onClick={Next}>
                     <ArrowBackIosIcon fontSize='large' />
                 </div>
             </div>
@@ -173,34 +183,52 @@ export function Pages(props: any) {
     )
 }
 export function Sidebar() {
+    const [divStates, setDivStates] = useState<DivStates>({
+        div1: false,
+        div2: false,
+        div3: false,
+        div4: false,
+        div5: false,
+        div6: false,
+        div7: false,
+    });
+    const toggleDivState = (divKey: keyof DivStates) => {
+        setDivStates((prevState) => {
+            const updatedState: DivStates = Object.keys(prevState).reduce(
+                (acc, key) => ({ ...acc, [key]: key === divKey }),
+                {} as DivStates
+            );
+            return updatedState;
+        });
+    };
     return (
         <div className='w-[20%] h-full px-[0.5vw] pt-[2vw] lg:flex flex-col items-start justify-start gap-[0.5vw] fixed top-0 left-0 hidden' id={themes.sideBar}>
-            <div className='w-full h-[3vw] flex items-center text-[1.5vw] p-[1vw] font-medium gap-[0.5vw]'><WidgetsIcon sx={{fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }}/><h1>Menu</h1></div>
-            <div className='w-full h-[3vw] flex items-center text-[1.2vw] hover:border-r-2 border-red-500'>
-                <div className='hover:bg-zinc-600 p-[1vw] w-[95%] h-full flex items-center justify-start gap-[0.5vw]'><AutoAwesomeOutlinedIcon sx={{fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }}/><h1>Home</h1></div>
+            <div className='w-full h-[3vw] flex items-center text-[1.5vw] p-[1vw] font-medium gap-[0.5vw]'><WidgetsIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} /><h1>Menu</h1></div>
+            <div className='button w-full h-[3vw] flex items-center text-[1.2vw] hover:border-r-2 border-red-500' onClick={() => toggleDivState('div1')} style={{ background: divStates.div1 ? "#52525b" : "" }}>
+                <div className='hover:bg-zinc-600 p-[1vw] w-[95%] h-full flex items-center justify-start gap-[0.5vw]'><AutoAwesomeOutlinedIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} /><h1>Home</h1></div>
             </div>
-            <div className='w-full h-[3vw] flex items-center text-[1.2vw] hover:border-r-2 border-red-500'>
-                <div className='hover:bg-zinc-600 p-[1vw] w-[95%] h-full flex items-center justify-start gap-[0.5vw]'><AutoAwesomeOutlinedIcon sx={{fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }}/><h1>Collection</h1></div>
+            <div className='button w-full h-[3vw] flex items-center text-[1.2vw] hover:border-r-2 border-red-500' onClick={() => toggleDivState('div2')} style={{ background: divStates.div2 ? "#52525b" : "" }}>
+                <div className='hover:bg-zinc-600 p-[1vw] w-[95%] h-full flex items-center justify-start gap-[0.5vw]'><AutoAwesomeOutlinedIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} /><h1>Collection</h1></div>
             </div>
-            <div className='w-full h-[3vw] flex items-center text-[1.2vw] hover:border-r-2 border-red-500'>
-                <div className='hover:bg-zinc-600 p-[1vw] w-[95%] h-full flex items-center justify-start gap-[0.5vw]'><AutoAwesomeOutlinedIcon sx={{fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }}/><h1>Coming Soon</h1></div>
+            <div className='button w-full h-[3vw] flex items-center text-[1.2vw] hover:border-r-2 border-red-500' onClick={() => toggleDivState('div3')} style={{ background: divStates.div3 ? "#52525b" : "" }}>
+                <div className='hover:bg-zinc-600 p-[1vw] w-[95%] h-full flex items-center justify-start gap-[0.5vw]'><AutoAwesomeOutlinedIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} /><h1>Coming Soon</h1></div>
             </div>
-            <div className='w-full h-[3vw] flex items-center text-[1.2vw] hover:border-r-2 border-red-500'>
-                <div className='hover:bg-zinc-600 p-[1vw] w-[95%] h-full flex items-center justify-start gap-[0.5vw]'><AutoAwesomeOutlinedIcon sx={{fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }}/><h1>Coming Soon</h1></div>
+            <div className='button w-full h-[3vw] flex items-center text-[1.2vw] hover:border-r-2 border-red-500' onClick={() => toggleDivState('div4')} style={{ background: divStates.div4 ? "#52525b" : "" }}>
+                <div className='hover:bg-zinc-600 p-[1vw] w-[95%] h-full flex items-center justify-start gap-[0.5vw]'><AutoAwesomeOutlinedIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} /><h1>Coming Soon</h1></div>
             </div>
-            <div className='w-full h-[3vw] flex items-center text-[1.2vw] hover:border-r-2 border-red-500'>
-                <div className='hover:bg-zinc-600 p-[1vw] w-[95%] h-full flex items-center justify-start gap-[0.5vw]'><AutoAwesomeOutlinedIcon sx={{fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }}/><h1>Coming Soon</h1></div>
+            <div className='button w-full h-[3vw] flex items-center text-[1.2vw] hover:border-r-2 border-red-500' onClick={() => toggleDivState('div5')} style={{ background: divStates.div5 ? "#52525b" : "" }}>
+                <div className='hover:bg-zinc-600 p-[1vw] w-[95%] h-full flex items-center justify-start gap-[0.5vw]'><AutoAwesomeOutlinedIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} /><h1>Coming Soon</h1></div>
             </div>
         </div>
     )
 }
 export function Menu() {
-    return(
+    return (
         <div className='w-full h-[10vw] flex items-center justify-between lg:hidden'>
             <div className='w-[22vw] h-[40%] relative'>
                 <Image fill={true} src={"/images/opscans.png"} alt="" className='object-cover' />
             </div>
-            <MenuIcon sx={{fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }}/>
+            <MenuIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} />
         </div>
     )
 }
