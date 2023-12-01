@@ -39,3 +39,6 @@
     background: linear-gradient(rgba(49, 49, 49, 0.986), rgb(23, 23, 23));
     box-shadow: 4px 0px 8px #000000;
 }
+#outside{
+    background: #292929;
+}
