@@ -1,16 +1,14 @@
 import Link from 'next/link'
 import styles from '../styles/styles.module.css'
-import Image from 'next/image'
 export default function Card(props: any){
     return(
         <Link href={props.href}>
           <div className={styles.card}>
-            <div className={styles.image}>
-              <Image
-                fill={true}
+          <div className={styles.image}>
+              <img
                 src={props.src}
                 alt={props.alt}
-                sizes="10vw, 20vw"
+                loading='lazy'
               />
             </div>
             <div className={styles.info}>

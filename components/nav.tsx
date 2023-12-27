@@ -21,7 +21,7 @@ export default function Nav() {
           <div className={styles.filters}>
             <Filter/>
           </div>
-          <button onClick={HandleClick} className={styles.menuicon}>Menu</button>
+          <button onClick={HandleClick} className="text-[4vw] lg:text-[1.5vw]">Menu</button>
           <div className={styles.menu} style={{display: isActive? 'flex': 'none'}}>
             <ul className={styles.menuItems} style={{display: isActive? 'block': 'none'}}>
                 <li><Link href="/">Home</Link></li>

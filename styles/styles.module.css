@@ -180,7 +180,7 @@
     height: auto;
     display: flex;
     padding: 2vw 0px;
-    gap: 20px;
+    gap: 40px;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
@@ -194,6 +194,7 @@
     justify-content: space-between;
     border-radius: 0.8vw;
     background: #191919;
+    box-shadow: 4px 4px 8px #050505;
     overflow: hidden;
 }
 .card img{

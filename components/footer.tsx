@@ -12,7 +12,7 @@ export default function Footer() {
             <div className="TwitterOpscanCom text-center text-white font-normal  leading-tight" id={styles.small}><Link href="https://twitter.com/OPSCANS">Twitter</Link></div>
             <div className="TwitterOpscanCom text-center text-white font-normal leading-tight" id={styles.small}><Link href="https://instagram.com/opscans1?igshid=OGQ5ZDc2ODk2ZA==">Instagram</Link></div>
           </div>
-          <div className="CopyrightOpscansComAllRightsReserved text-center text-white text-opacity-60 text-[1.5vw] font-normal font-['SF Pro Text'] leading-tight">Copyright © opscans.com. All Rights Reserved</div>
+          <div className="CopyrightOpscansComAllRightsReserved text-center text-white text-opacity-60 text-[1.5vw] font-normal font-['SF Pro Text'] leading-tight"><Link href="/cookie-policy">COOKIE POLICY</Link></div>
         </div>
         <div className={styles.effect}></div>
         <div className={styles.footerImage}>

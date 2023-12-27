@@ -21,9 +21,9 @@ export default function SwiperComponent() {
             loop={true}
             className={styles.swiper}
         >
-            <SwiperSlide><Image fill={true} src='/images/sgojo.Webp' alt='boruto' sizes="30vw, 40vw" priority={true}/></SwiperSlide>
-            <SwiperSlide><Image fill={true} src='/images/borutom.Webp' alt='boruto' sizes="30vw, 40vw" priority={true}/></SwiperSlide>
-            <SwiperSlide><Image fill={true} src='/images/one.Webp' alt='op' sizes="30vw, 40vw" priority={true}/></SwiperSlide>
+            <SwiperSlide><img src='/images/sgojo.Webp' alt='boruto'/></SwiperSlide>
+            <SwiperSlide><img src='/images/borutom.Webp' alt='boruto'/></SwiperSlide>
+            <SwiperSlide><img src='/images/one.Webp' alt='op'/></SwiperSlide>
         </Swiper>
     )
 }
