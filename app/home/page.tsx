@@ -2,6 +2,8 @@ import { Nav, Banner, Card, Footer, Sidebar, Menu } from '@/components/part'
 import themes from '@/style/themes.module.css'
 import FolderIcon from '@mui/icons-material/Folder';
 import Data from '@/public/data/manga.json'
+import {Adsense, Adsense2, Adsense3, BidgearAds} from '@/components/ads';
+
 export default function Home() {
 
     return (
@@ -12,16 +14,21 @@ export default function Home() {
                     <Nav />
                     <div className='w-full lg:px-[3vw] px-[2vw]'><Menu /></div>
                     <div className='w-full lg:px-[3vw] px-[2vw]'><Banner /></div>
+                    <BidgearAds/>
                     <div className='w-full h-[4vw] flex items-center justify-start gap-[0.5vw] lg:px-[3vw] px-[2vw]'>
-                        <FolderIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} />
+                        <FolderIcon sx={{ fontSize: { xs: 14, lg: 20 } }} />
                         <h1 className='lg:text-[1.5vw] text-[2vw]'>Manga List</h1>
                     </div>
+                    
                     <div className='w-full flex flex-wrap items-start justify-start gap-[1vw] lg:px-[3vw] px-[2vw] '>
                         {Data.map((data: any) => (
                             <Card link={data.id} src={data.cover} name={data.name} key={data.id} />
                         ))}
                     </div>
-                    <div className='w-full lg:h-[30vh] h-[15vh]'></div>
+                    
+                    <div className='w-full lg:h-[30vh] h-[15vh]'>
+                       
+                    </div>
                 </div>
                 <Footer />
             </div>

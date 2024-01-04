@@ -4,13 +4,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
-import ZoomInIcon from '@mui/icons-material/ZoomIn';
-import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow } from 'swiper/modules';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Data from '@/public/data/manga.json'
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -19,7 +16,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import themes from '@/style/themes.module.css'
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
+import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import Link from 'next/link'
+import { Adsense, Adsense2, Adsense3, BidgearAds } from '@/components/ads';
 
 type DivStates = {
     div1: boolean;
@@ -35,14 +34,14 @@ const info = "Hey everybody we are glad that you enjoy our scanlations but, don'
 export function Nav() {
     return (
         <div className="w-full h-[3vw] lg:flex items-center justify-between gap-[2vw] hidden lg:px-[3vw] px-[2vw] mt-[2vw]">
-            <div className='w-[22vw] h-[80%] relative'>
-                <Image fill={true} src={"/images/opscans.png"} alt="" className='object-cover' />
-            </div>
+            <Link className='w-[22vw] h-[80%] relative' href={'/home'}>
+                <Image fill={true} src={"/images/opscans.png"} alt="opscans-logo" className='object-cover' sizes='8000px, 8000px' />
+            </Link>
             <div className='flex items-center gap-[4vw]'>
                 <div className='lg:w-[30vw] h-[2.8vw] flex items-center justify-between rounded-full px-[0.2vw]' id={themes.outer}>
-                    <div className='w-[2.4vw] h-[2.4vw] rounded-full flex items-center justify-center'><SearchIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} /></div>
+                    <div className='w-[2.4vw] h-[2.4vw] rounded-full flex items-center justify-center'><SearchIcon sx={{ fontSize: { md: 20, lg: 15 } }} /></div>
                     <input type='text' placeholder='Enter your search' className='lg:w-[25vw] h-full bg-transparent  outline-0 text-[1vw]' />
-                    <div className='w-[2.4vw] h-[2.4vw] rounded-full flex items-center justify-center' id={themes.inner}><CloseIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} /></div>
+                    <div className='w-[2.4vw] h-[2.4vw] rounded-full flex items-center justify-center' id={themes.inner}><CloseIcon sx={{ fontSize: { md: 20, lg: 15 } }} /></div>
                 </div>
                 <div className='h-full gap-[2vw] flex items-center justify-between text-[0.8vw] font-medium'>
                     <div className='flex flex-col items-center justify-between'>
@@ -50,7 +49,7 @@ export function Nav() {
                         <h1 className='text-[0.6vw]'>New Release</h1>
                     </div>
                     <div className='w-[3vw] h-[3vw] rounded-full flex items-center justify-center' id={themes.outer}>
-                        <NotificationsActiveOutlinedIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} />
+                        <NotificationsActiveOutlinedIcon sx={{ fontSize: { md: 20, lg: 15 } }} />
                     </div>
                 </div>
             </div>
@@ -62,7 +61,7 @@ export function Card(props: any) {
         <Link href={`/home/${props.link}`}>
             <div className='lg:w-[12vw] lg:h-[21vw] w-[24vw] h-[39vw] flex flex-col items-start justify-start lg:rounded-[0.5vw] rounded-[0.8vw] overflow-hidden' id={themes.card}>
                 <div className='w-full lg:h-[18vw] h-[36vw] relative'>
-                    <Image fill={true} alt={props.link} src={props.src} />
+                    <Image fill={true} alt={props.link} src={props.src} sizes='200px, 200px' />
                 </div>
                 <div className='w-full lg:h-[3vw] h-[4vw] flex items-center justify-center lg:text-[1vw] text-[2vw]'>
                     <h1>{props.name}</h1>
@@ -98,7 +97,7 @@ export function SwiperCards() {
 export function Banner() {
     return (
         <div className='w-full lg:h-[30vw] h-[50vw] relative'>
-            <Image fill={true} src="/images/one.png" alt="hello" className='object-cover z-10' />
+            <Image fill={true} src="/images/one.png" alt="hello" className='object-cover z-10' sizes='8000px, 8000px' />
             <div className='w-full lg:h-[30vw] h-[50vw] absolute z-20 flex flex-col items-start justify-start px-[5vw]' id={themes.effect}>
                 <div className='lg:w-[50vw] w-[70vw] lg:h-[30vw] h-[50vw] flex flex-col items-start justify-center gap-[1.5vw]'>
                     <h1 className='bg-white text-zinc-800 px-[1vw] py-[0.5vw] lg:text-[1vw] text-[2vw] lg:rounded-[0.2vw] rounded-[0.4vw]'>OPSCANS</h1>
@@ -141,7 +140,7 @@ export function Footer() {
 export function List(props: any) {
     return (
         <Link href={`/home/${props.manga}/${props.chapter}`}>
-            <div className='lg:w-[10vw] lg:h-[3vw] w-[30vw] h-[8vw] flex flex-col items-center justify-center lg:text-[0.8vw] text-[2vw] bg-zinc-700 hover:bg-zinc-500 duration-300 lg:rounded-[0.3vw] rounded-[0.8vw]'>
+            <div className='lg:w-[22vw] lg:h-[4vw] w-[46vw] h-[8vw] flex flex-col items-center justify-center lg:text-[0.8vw] text-[1.5vw] bg-zinc-700 hover:bg-zinc-500 duration-300 lg:rounded-[0.3vw] rounded-[0.8vw]'>
                 <h1>{props.name}</h1>
                 <h3>Chapter {props.number}</h3>
             </div>
@@ -149,78 +148,53 @@ export function List(props: any) {
     )
 }
 export function Pages(props: any) {
-    const [index, setIndex] = useState(0)
-    const [width, setWidth] = useState(700);
-    const [height, setHeight] = useState(1050);
+    const [prev, setPrev] = useState(0)
+    const [next, setNext] = useState(0)
+    const [width, setWidth] = useState('100vw');
+    const [height, setHeight] = useState('auto');
     const selectedManga = Data.find((mangas: any) => mangas.id === props.manga);
     const selectedChapter = selectedManga?.chapters.find((chapters: any) => chapters.id === props.chapter);
-    const max = selectedChapter?.images.length || 0;
-
-    const findNextPrevChapterIds = (currentChapterId: string) => {
-        const chapterIndex = selectedManga?.chapters.findIndex((c) => c.id === currentChapterId);
-
-        if (chapterIndex !== undefined && chapterIndex !== -1) {
-            const nextChapterId = selectedManga?.chapters[chapterIndex + 1]?.id || null;
-            const prevChapterId = selectedManga?.chapters[chapterIndex - 1]?.id || null;
-
-            return { nextChapterId, prevChapterId };
+    const chapterIndex = selectedManga?.chapters.findIndex((data: any) => data.id === props.chapter);
+    const max = selectedManga?.chapters.length
+    useEffect(() => {
+        setPrev(chapterIndex as number - 1);
+        setNext(chapterIndex as number + 1);
+    }, [props.chapter])
+    useEffect(() => {
+        if (window.innerWidth > window.innerHeight) {
+            setWidth('auto');
+            setHeight('100vh')
+        } else if (window.innerWidth < window.innerHeight) {
+            setWidth('100vw');
+            setHeight('auto')
         }
+    }, [])
+    const prevChapter = chapterIndex === 0 ? selectedManga?.chapters[0].id : selectedManga?.chapters[prev].id;
+    const nextChapter = chapterIndex === max as number - 1 ? selectedManga?.chapters[max as number - 1].id : selectedManga?.chapters[next].id;
+    function Height() {
+        setWidth('auto');
+        setHeight('100vh')
 
-        return { nextChapterId: null, prevChapterId: null };
-    };
-    const { nextChapterId, prevChapterId } = findNextPrevChapterIds(props.chapter);
-    function Prev() {
-        if (index === 0) {
-            setIndex(0)
-        } else {
-            setIndex(prev => prev - 1)
-        }
     }
-    function Next() {
-        if (index === max - 1) {
-            setIndex(max - 1)
-        } else {
-            setIndex(prev => prev + 1)
-        }
-    }
-    function Zoom() {
-        setWidth(prev => prev + 350);
-        setHeight(prev => prev + 350);
-        if (width === 1050) {
-            setWidth(1050)
-        }
-        if (height === 1400) {
-            setHeight(1400)
-        }
-    }
-    function Unzoom() {
-        setWidth(prev => prev - 350);
-        setHeight(prev => prev - 350);
-        if (width === 350) {
-            setWidth(350)
-        }
-        if (height === 700) {
-            setHeight(700)
-        }
+    function Width() {
+        setWidth('100vw');
+        setHeight('auto')
     }
     return (
-        <div className="w-full h-full flex items-start justify-between pt-[6vw]">
-            <Rav zoom={Zoom} unzoom={Unzoom} prev={prevChapterId} next={nextChapterId} manga={props.manga} name={selectedChapter?.title} chapter={selectedChapter?.number}/>
-            <div className='w-[20vw] h-full bg-red-500 flex flex-col items-center justify-start'></div>
-            <div className='p-[1vw] flex flex-col items-center justify-start gap-[1vw] bg-zinc-800' style={{ boxShadow: "4px 0px 8px #0b0b0b, -4px 0px 8px #0b0b0b"}}>
+        <div className="w-full h-full flex items-start justify-between lg:pt-[8vw] pt-[14vw]">
+            <Rav fitToHeight={Height} fitToWidth={Width} prev={prevChapter} next={nextChapter} manga={props.manga} name={selectedChapter?.title} chapter={selectedChapter?.number} />
+            <div className='w-[10vw] h-full flex flex-col items-center justify-between'>
+              
+                <BidgearAds />
+                
+            </div>
+            <div className='w-full min-h-[100vh] p-[1vw] flex flex-col items-center justify-start gap-[1vw]'>
                 {selectedChapter?.images.map((images: any) => (
-                    <div className='w-[auto] h-[auto]' key={images.source}><Image width={width} height={height} alt={images.source} src={images.source} sizes='100vw, 100vw' /></div>
+                    <img style={{ width: width, height: height }} alt={images.source} src={images.source} key={images.source} />
                 ))}
             </div>
-            <div className='w-[20vw] h-full bg-red-500 flex flex-col items-center justify-start'></div>
-            <div className='w-full h-[8vw] fixed bottom-0 right-0 flex items-center justify-between px-[5vw]'>
-                <div className='w-[6vw] h-[6vw] flex items-center justify-center opacity-20 hover:opacity-100 duration-300' onClick={Prev}>
-                    <ArrowBackIosIcon fontSize='large' />
-                </div>
-
-                <div className='w-[6vw] h-[6vw] flex items-center justify-center opacity-20 hover:opacity-100 duration-300 rotate-180' onClick={Next}>
-                    <ArrowBackIosIcon fontSize='large' />
-                </div>
+            <div className='w-[10vw] h-full flex flex-col items-center justify-between'>
+                
             </div>
         </div>
     )
@@ -268,58 +242,50 @@ export function Sidebar() {
 export function Menu() {
     return (
         <div className='w-full h-[10vw] flex items-center justify-between lg:hidden'>
-            <div className='w-[22vw] h-[40%] relative'>
-                <Image fill={true} src={"/images/opscans.png"} alt="" className='object-cover' />
-            </div>
+            <Link className='w-[22vw] h-[40%] relative' href="/home">
+                <Image fill={true} src={"/images/opscans.png"} alt="" className='object-cover' sizes='8000px, 8000px' />
+            </Link>
             <MenuIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} />
         </div>
     )
 }
 export function Rav(props: any) {
-    const { zoom, unzoom , menu} = props;
+    const { fitToHeight, fitToWidth, menu } = props;
     const { openChapter, openPage } = props;
-    
+
     return (
-        <div className='w-full h-[4vw] px-5 py-2.5 flex justify-between items-center fixed lg:top-0 left-0 bottom-0 z-50 text-white bg-white' style={{ boxShadow: "0px 4px 8px #0b0b0b"}}>
-            <div className='flex items-center gap-[2vw]'>
-                <div className='w-[150px] h-[35px] flex gap-[30px] items-center justify-center rounded-[3px]' id={themes.outside} onClick={openChapter} >
-                    <h1>Chapter 1</h1>
-                    <div className={`${props.rotate} duration-500`}><KeyboardArrowDownIcon/></div>
-                </div>
-                <div className='px-[1vw] py-[0.5vw] gap-[1vw] flex items-center rounded-[0.2vw]' id={themes.outside} onClick={openPage}>
-                    <h1>Page 1</h1>
-                    <div className={`${props.rotate1} duration-500`}><KeyboardArrowDownIcon/></div>
-                </div>
-                <div className='flex items-center gap-[1vw]'>
+        <div className='w-full lg:h-[4vw] h-[12vw] lg:px-5 px-2 flex justify-between items-center fixed top-0 left-0 z-50 text-white bg-zinc-700'>
+            <div className='flex items-center lg:gap-[2vw] gap-[4vw]'>
+                <div className='flex items-center lg:gap-[1vw] gap-[2vw]'>
                     <Link href={`/home/${props.manga}/${props.prev}`}>
-                    <div className='p-2 rounded-[0.4vw] rotate-90' id={themes.outside}>
-                        <KeyboardArrowDownIcon />
-                    </div>
+                        <div className='lg:w-[3vw] lg:h-[3vw] w-[8vw] h-[8vw] flex items-center justify-center lg:rounded-[0.4vw] rounded-[0.8vw] rotate-90 bg-zinc-800'>
+                            <KeyboardArrowDownIcon sx={{ fontSize: { xs: 14, lg: 20 } }} />
+                        </div>
                     </Link>
                     <Link href={`/home/${props.manga}/${props.next}`}>
-                    <div className='p-2 rounded-[0.4vw] -rotate-90' id={themes.outside}>
-                        <KeyboardArrowDownIcon />
-                    </div>
+                        <div className='lg:w-[3vw] lg:h-[3vw] w-[8vw] h-[8vw] flex items-center justify-center lg:rounded-[0.4vw] rounded-[0.8vw] -rotate-90 bg-zinc-800'>
+                            <KeyboardArrowDownIcon sx={{ fontSize: { xs: 14, lg: 20 } }} />
+                        </div>
                     </Link>
                 </div>
                 <div className='flex items-center gap-[1vw]'>
-                    <div className='p-2 rounded-[0.4vw]' id={themes.outside}>
-                        <ZoomInIcon onClick={zoom} />
+                    <div className='lg:w-[3vw] lg:h-[3vw] w-[8vw] h-[8vw] flex items-center justify-center lg:rounded-[0.4vw] rounded-[0.8vw] bg-zinc-800'>
+                        <OpenInFullIcon onClick={fitToHeight} sx={{ fontSize: { xs: 14, lg: 20 } }} className='-rotate-45' />
                     </div>
-                    <div className='p-2 rounded-[0.4vw]' id={themes.outside}>
-                        <ZoomOutIcon onClick={unzoom} />
+                    <div className='lg:w-[3vw] lg:h-[3vw] w-[8vw] h-[8vw] flex items-center justify-center lg:rounded-[0.4vw] rounded-[0.8vw] bg-zinc-800'>
+                        <OpenInFullIcon onClick={fitToWidth} sx={{ fontSize: { xs: 14, lg: 20 } }} className='rotate-45' />
                     </div>
                 </div>
             </div>
-            <h1 className='text-zinc-800 text-[1.5vw]'>Chapter {props.chapter} {props.name}</h1>
+            <h1 className='text-white lg:text-[1.5vw] text-[0px]'>{props.chapter} {props.name}</h1>
             <div className='flex items-center gap-[1vw]'>
                 <Link href={`/home/${props.manga}`}>
-                <div className='p-2 rounded-[0.4vw] flex items-center justify-end' id={themes.outside}>
-                    <ArrowBackIosIcon/>
-                </div>
+                    <div className='lg:w-[3vw] lg:h-[3vw] w-[8vw] h-[8vw] flex items-center justify-center lg:rounded-[0.4vw] rounded-[0.8vw] bg-zinc-800'>
+                        <ArrowBackIosIcon sx={{ fontSize: { xs: 14, lg: 20 } }} />
+                    </div>
                 </Link>
-                <div className='p-2 rounded-[0.4vw]' id={themes.outside} onClick={menu}>
-                    <MenuIcon />
+                <div className='lg:w-[3vw] lg:h-[3vw] w-[8vw] h-[8vw] flex items-center justify-center lg:rounded-[0.4vw] rounded-[0.8vw] bg-zinc-800' onClick={menu}>
+                    <MenuIcon sx={{ fontSize: { xs: 14, lg: 20 } }} />
                 </div>
             </div>
         </div>

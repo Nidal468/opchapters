@@ -3,76 +3,45 @@ import { join } from 'path';
 import { promises as fs } from 'fs';
 import path from 'path';
 
-const { writeFile } = fs;
+const { writeFile, mkdir } = fs;
 const DATA_FOLDER = 'public/data';
+const IMAGES_FOLDER = 'public/images/content'; // Change this to your desired folder
 const FILE_NAME = 'manga.json';
 
 export async function POST(req: NextRequest, res: NextResponse) {
     try {
         const formData = await req.formData();
-
-        // Extract name and title from formData
-        const title = formData.get('title')?.toString() || '';
         const name = formData.get('name')?.toString() || '';
-        const index = formData.get('index')?.toString() || '';
-        const id = formData.get('id')?.toString() || '';
+        const index = formData.get('manga')?.toString() || '';
+        const id = formData.get('chapter')?.toString() || '';
         const sourcePath = path.join(process.cwd(), DATA_FOLDER, FILE_NAME);
         const existingData = await fs.readFile(sourcePath, 'utf8');
         const mangaList = JSON.parse(existingData);
+        const targetManga = mangaList.find((manga: any) => manga.id === index);
+        const targetChapter = targetManga?.chapters.find((chapter: any) => chapter.id === id);
+        const endPoint = targetChapter?.number;
+        const file = formData.get('file') as File;
 
-        // Get an array of file keys
-        const fileKeys = Array.from(formData.keys()).filter(key => formData.get(key) instanceof File);
-
-        // Check if there are any files
-        if (fileKeys.length === 0) {
-            return NextResponse.json({ error: "No files uploaded" }, { status: 400 });
+        if (!file) {
+            return NextResponse.json({ error: "No file uploaded or incorrect field name" }, { status: 400 });
         }
 
-        // Loop through each file and save it
-        for (let i = 0; i < fileKeys.length; i++) {
-            const key = fileKeys[i];
-            const file: File = formData.get(key) as File;
-            const bytes = await file.arrayBuffer();
-            const buffer = Buffer.from(bytes);
+        const bytes = await file.arrayBuffer();
+        const buffer = Buffer.from(bytes);
+        const fileName = file.name;
+        const ext = path.extname(fileName).toLowerCase();
+        const filePath = join(IMAGES_FOLDER, name, endPoint, fileName);
 
-            // Rename the file to index.jpg
-            const fileName = `${i}.jpg`;
+        // Ensure sequential operations using Promise.all
+        await Promise.all([
+            mkdir(path.dirname(filePath), { recursive: true }),
+            writeFile(filePath, buffer),
+        ]);
 
-            // Append the file index to the field name
-            const filePath = join('public/images/upload', name, title, fileName);
-
-            // Save the file
-            await writeFile(filePath, buffer);
-
-            // Update manga data with the new image source
-            const imageSource = `/images/upload/${name}/${title}/${fileName}`;
-            const targetManga = mangaList.find((manga: any) => manga.id === index);
-
-            if (targetManga) {
-                const targetChapter = targetManga.chapters.find((chapter: any) => chapter.id === id);
-
-                if (targetChapter) {
-                    // Check if the images array exists, and initialize it if not
-                    if (!targetChapter.images) {
-                        targetChapter.images = [];
-                    }
-
-                    targetChapter.images.push({ "source": imageSource });
-                } else {
-                    console.error('Chapter not found:', id);
-                }
-            } else {
-                console.error('Manga not found:', index);
-            }
-        }
-
-        // Save the updated manga data back to the JSON file
-        await fs.writeFile(sourcePath, JSON.stringify(mangaList, null, 2));
+        return NextResponse.json({ message: 'File uploaded successfully' });
 
     } catch (error) {
         console.error('Error uploading file:', error);
         return NextResponse.json({ error: "Internal server error" }, { status: 500 });
     }
-
-    return NextResponse.json({ message: "Files uploaded successfully" });
 }

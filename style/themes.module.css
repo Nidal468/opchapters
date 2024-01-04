@@ -42,3 +42,78 @@
 #outside{
     background: #292929;
 }
+#body{
+    background: #191A1C;
+    color: #fafafa;
+}
+#box{
+    background: linear-gradient(#27272a,#18181b);
+    box-shadow: 4px 4px 8px #0b0b0b;
+}
+#dimtext{
+    color: #d4d4d8;
+    transition: 0.5s;
+    cursor: pointer;
+}
+#dimtext:hover{
+    color: #f4f4f5;
+}
+#button{
+    background: #52525b;
+    color: #e4e4e7;
+    transition: 0.3s;
+    cursor: pointer;
+}
+#button:hover{
+    background: #27272a;
+    color: #fafafa;
+    
+}
+#solid{
+    background: #121212;
+    box-shadow: 4px 4px 8px #0b0b0b, -4px -4px 8px #0b0b0b;
+}
+#outside{
+    background: #27272a;
+    box-shadow: 4px 4px 8px #0b0b0b;
+}
+#opacity{
+    background: #52525b;
+}
+#inner{
+    background: #3f3f46;
+    transform: 0.3s;
+}
+#inner:hover{
+    background: rgb(140, 143, 146);
+    transform: 0.2s;
+}
+#hover{
+    background: #18181b;
+    transition: 0.5s;
+    cursor: pointer;
+}
+#hover:hover{
+    background: #3f3f46;
+    transition: 0.5s;
+}
+
+#arrow{
+    opacity: 0;
+}
+#hover #arrow{
+    transition: 0.5s;
+}
+#hover:hover #arrow{
+    opacity: 1;
+    transition: 0.5s;
+    margin-left: 2vw;
+}
+#gradientcards{
+    opacity: 0;
+    transition: 0.3s;
+}
+#gradientcards:hover{
+    opacity: 1;
+    background: linear-gradient(rgba(10, 10, 10, 50%),rgba(14, 14, 14, 50%),rgba(17, 17, 17, 50%));
+}
