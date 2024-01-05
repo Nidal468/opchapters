@@ -1,13 +1,37 @@
+import { Nav, Banner, Card, Footer, Sidebar, Menu } from '@/components/part'
 import themes from '@/style/themes.module.css'
-import Link from 'next/link'
+import FolderIcon from '@mui/icons-material/Folder';
+import Data from '@/public/data/manga.json'
 import {Adsense, Adsense2, Adsense3, BidgearAds} from '@/components/ads';
 
 export default function Home() {
-  return (
-    <div className='w-full h-[100vh] flex flex-col items-center justify-center text-[5vw] text-white text-center' id={themes.background}>
-      <h1>Welcome to OPSCANS</h1>
-      <h3 className='text-[3vw]'>A new site is being build so untill then use this</h3>
-      <Link href="/home" className='text-[4vw] text-sky-400 hover:text-sky-600'>Go to home</Link>
-    </div>
-  )
+
+    return (
+        <div className='w-full min-h-screen flex items-center justify-start text-white' id={themes.body}>
+            <Sidebar />
+            <div className='lg:w-[80%] w-full min-h-screen flex flex-col items-start justify-between gap-[2vw] absolute top-0 right-0'>
+                <div className='w-full flex flex-col items-start justify-start lg:gap-[1.5vw] gap-[3vw]'>
+                    <Nav />
+                    <div className='w-full lg:px-[3vw] px-[2vw]'><Menu /></div>
+                    <div className='w-full lg:px-[3vw] px-[2vw]'><Banner /></div>
+                    <BidgearAds/>
+                    <div className='w-full h-[4vw] flex items-center justify-start gap-[0.5vw] lg:px-[3vw] px-[2vw]'>
+                        <FolderIcon sx={{ fontSize: { xs: 14, lg: 20 } }} />
+                        <h1 className='lg:text-[1.5vw] text-[2vw]'>Manga List</h1>
+                    </div>
+                    
+                    <div className='w-full flex flex-wrap items-start justify-start gap-[1vw] lg:px-[3vw] px-[2vw] '>
+                        {Data.map((data: any) => (
+                            <Card link={data.id} src={data.cover} name={data.name} key={data.id} />
+                        ))}
+                    </div>
+                    
+                    <div className='w-full lg:h-[30vh] h-[15vh]'>
+                       
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        </div>
+    )
 }

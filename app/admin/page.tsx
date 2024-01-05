@@ -193,37 +193,37 @@ export default function Upload() {
         }
     }
 
-    return (key === "y0DrBAtQCak34cXhq9H9OOyj83SwyQ99ztpU0Wal2B8YSAVhVpQ8bXl706fBFMrm1zv9iWwrGbDptvA8zHFOUvKxOcwqJZQSwPowuhcj3P7sb43oYvZjoW6J" ? <div className="xl:w-[1280px] w-full min-h-[100vh] font-light flex items-start justify-start gap-[4vw] lg:gap-[10px] text-white" id={themes.body}>
-        <div className="w-[20%] h-full flex flex-col items-start justify-start" id={themes.box}>
-            <div className="w-full h-[40px] bg-zinc-900 flex items-center justify-between px-[10px] text-[10px]">
+    return (key === "y0DrBAtQCak34cXhq9H9OOyj83SwyQ99ztpU0Wal2B8YSAVhVpQ8bXl706fBFMrm1zv9iWwrGbDptvA8zHFOUvKxOcwqJZQSwPowuhcj3P7sb43oYvZjoW6J" ? <div className="xl:w-[1280px] w-full h-[100vh] font-light flex items-start justify-start gap-[4vw] lg:gap-[10px] text-white bg-white">
+        <div className="w-[20%] h-full flex flex-col items-start justify-start bg-white shadow-md">
+            <div className="w-full h-[40px] bg-sky-400 flex items-center justify-between px-[10px] text-[10px]">
                 <h1>Add new manga here</h1>
-                <button className="w-[60px] h-[20px] flex items-center justify-center rounded-[2px] font-medium text-[8px]" onClick={reloadManga} id={themes.button}>Reload</button>
-                <button className="w-[60px] h-[20px] flex items-center justify-center rounded-[2px] font-medium text-[8px]" onClick={() => setActive('manga')} id={themes.button}>Add Manga</button>
+                <button className="w-[60px] h-[20px] flex items-center justify-center rounded-[2px] font-medium text-[8px]" onClick={reloadManga}>Reload</button>
+                <button className="w-[60px] h-[20px] flex items-center justify-center rounded-[2px] font-medium text-[8px]" onClick={() => setActive('manga')}>Add Manga</button>
             </div>
             <div className="w-full h-full overflow-y-auto">
                 {Data.map((data: any) => (
-                    <div className="w-full h-[100px] bg-zinc-900 flex items-start justify-start gap-[10px] hover:bg-opacity-60 duration-300 shadow-md my-[5px]" key={data.id} onClick={() => setSelectedId(data.id)}>
+                    <div className="w-full h-[100px] bg-sky-300 flex items-start justify-start gap-[10px] hover:bg-opacity-60 duration-300 shadow-md my-[5px]" key={data.id} onClick={() => setSelectedId(data.id)}>
                         <img className="w-[70px] h-full" src={data.cover} />
                         <div className="flex flex-col gap-[10px] text-white text-[10px] py-[10px]">
-                            <div className="flex gap-[10px]"><h1>{data.name}</h1><EditIcon sx={{ fontSize: "15px" }} onClick={() => setActive('edit')} /></div>
+                            <div className="flex gap-[10px]"><h1>{data.name}</h1></div>
                         </div>
                     </div>
                 ))}
             </div>
         </div>
-        <div className="w-[20%] h-full flex flex-col items-start justify-start gap-[10px]" id={themes.box}>
-            <div className="w-full h-[40px] bg-zinc-900 flex items-center justify-between px-[10px] text-[10px]">
+        <div className="w-[20%] h-full flex flex-col items-start justify-start gap-[10px] bg-white shadow-md">
+            <div className="w-full h-[40px] bg-sky-400 flex items-center justify-between px-[10px] text-[10px]">
                 <h1>Add new chapter here</h1>
-                <button className="w-[60px] h-[20px] flex items-center justify-center rounded-[2px] font-medium text-[8px]" onClick={reloadChapter} id={themes.button}>Reload</button>
-                <button className="w-[60px] h-[20px] flex items-center justify-center rounded-[2px] font-medium text-[8px]" onClick={() => setActive('chapter')} id={themes.button}>Add Chapter</button>
+                <button className="w-[60px] h-[20px] flex items-center justify-center rounded-[2px] font-medium text-[8px]" onClick={reloadChapter}>Reload</button>
+                <button className="w-[60px] h-[20px] flex items-center justify-center rounded-[2px] font-medium text-[8px]" onClick={() => setActive('chapter')}>Add Chapter</button>
             </div>
-            <div className="w-full flex items-center justify-between px-[10px] py-[10px] text-[10px] bg-zinc-900">
+            <div className="w-full flex items-center justify-between px-[10px] py-[10px] text-[10px] bg-sky-400">
                 <h1>Chapter/Volumes of</h1>
                 <h1>{selectedManga?.name}</h1>
             </div>
             <div className="w-full h-full overflow-y-auto">
                 {selectedManga && selectedManga?.chapters.map((data: any) => (
-                    <div className="w-full h-[35px] bg-zinc-600 flex items-center justify-between px-[10px] text-[8px] mb-[5px] hover:bg-opacity-60 duration-300 shadow-md" key={data.id} onClick={() => { setSelectedChapter(data.id), setActive('page') }}>
+                    <div className="w-full h-[35px] bg-sky-300 flex items-center justify-between px-[10px] text-[8px] mb-[5px] hover:bg-opacity-60 duration-300 shadow-md" key={data.id} onClick={() => { setSelectedChapter(data.id), setActive('page') }}>
                         <h1>{data.number}</h1>
                         <h1>{data.title}</h1>
                         <div onClick={() => handleDeleteChapter({ chapter: data.id }, { manga: selectedManga?.id })}><DeleteIcon sx={{ fontSize: "15px" }} /></div>
@@ -231,7 +231,7 @@ export default function Upload() {
                 ))}
             </div>
         </div>
-        <div className="w-[58%] h-full" id={themes.box}>
+        <div className="w-[58%] h-full">
             {active === 'manga' && <form className="w-full h-full flex items-start justify-start gap-[10px]" onSubmit={addManga}>
                 <div className="w-[60%] h-full flex flex-col gap-[10px] text-[10px] items-center justify-start">
                     <div className='w-full bg-zinc-700 p-[1vw] flex flex-col items-start justify-center gap-[1vw]'>

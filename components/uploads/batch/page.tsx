@@ -67,7 +67,7 @@ export const Batch = (props: any) => {
     };
     const totalSizeInMB = Math.round((totalSize / (1024 * 1024)) * 100) / 100; // Convert to MB and round
     return (
-        <form onSubmit={handleUpload}>
+        <form onSubmit={handleUpload} className='text-zinc-700'>
             <input type="file" multiple onChange={handleFileChange} />
             <button type='submit'>Upload Images</button>
             <h1>{counter}/{totalFiles}</h1>

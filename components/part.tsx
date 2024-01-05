@@ -34,7 +34,7 @@ const info = "Hey everybody we are glad that you enjoy our scanlations but, don'
 export function Nav() {
     return (
         <div className="w-full h-[3vw] lg:flex items-center justify-between gap-[2vw] hidden lg:px-[3vw] px-[2vw] mt-[2vw]">
-            <Link className='w-[22vw] h-[80%] relative' href={'/home'}>
+            <Link className='w-[22vw] h-[80%] relative' href={'/'}>
                 <Image fill={true} src={"/images/opscans.png"} alt="opscans-logo" className='object-cover' sizes='8000px, 8000px' />
             </Link>
             <div className='flex items-center gap-[4vw]'>
@@ -58,7 +58,7 @@ export function Nav() {
 }
 export function Card(props: any) {
     return (
-        <Link href={`/home/${props.link}`}>
+        <Link href={`/${props.link}`}>
             <div className='lg:w-[12vw] lg:h-[21vw] w-[24vw] h-[39vw] flex flex-col items-start justify-start lg:rounded-[0.5vw] rounded-[0.8vw] overflow-hidden' id={themes.card}>
                 <div className='w-full lg:h-[18vw] h-[36vw] relative'>
                     <Image fill={true} alt={props.link} src={props.src} sizes='200px, 200px' />
@@ -139,7 +139,7 @@ export function Footer() {
 }
 export function List(props: any) {
     return (
-        <Link href={`/home/${props.manga}/${props.chapter}`}>
+        <Link href={`/${props.manga}/${props.chapter}`}>
             <div className='lg:w-[22vw] lg:h-[4vw] w-[46vw] h-[8vw] flex flex-col items-center justify-center lg:text-[0.8vw] text-[1.5vw] bg-zinc-700 hover:bg-zinc-500 duration-300 lg:rounded-[0.3vw] rounded-[0.8vw]'>
                 <h1>{props.name}</h1>
                 <h3>Chapter {props.number}</h3>
@@ -242,7 +242,7 @@ export function Sidebar() {
 export function Menu() {
     return (
         <div className='w-full h-[10vw] flex items-center justify-between lg:hidden'>
-            <Link className='w-[22vw] h-[40%] relative' href="/home">
+            <Link className='w-[22vw] h-[40%] relative' href="/">
                 <Image fill={true} src={"/images/opscans.png"} alt="" className='object-cover' sizes='8000px, 8000px' />
             </Link>
             <MenuIcon sx={{ fontSize: { xs: 12, sm: 16, md: 25, lg: 20, xl: 40 } }} />
@@ -257,12 +257,12 @@ export function Rav(props: any) {
         <div className='w-full lg:h-[4vw] h-[12vw] lg:px-5 px-2 flex justify-between items-center fixed top-0 left-0 z-50 text-white bg-zinc-700'>
             <div className='flex items-center lg:gap-[2vw] gap-[4vw]'>
                 <div className='flex items-center lg:gap-[1vw] gap-[2vw]'>
-                    <Link href={`/home/${props.manga}/${props.prev}`}>
+                    <Link href={`/${props.manga}/${props.prev}`}>
                         <div className='lg:w-[3vw] lg:h-[3vw] w-[8vw] h-[8vw] flex items-center justify-center lg:rounded-[0.4vw] rounded-[0.8vw] rotate-90 bg-zinc-800'>
                             <KeyboardArrowDownIcon sx={{ fontSize: { xs: 14, lg: 20 } }} />
                         </div>
                     </Link>
-                    <Link href={`/home/${props.manga}/${props.next}`}>
+                    <Link href={`/${props.manga}/${props.next}`}>
                         <div className='lg:w-[3vw] lg:h-[3vw] w-[8vw] h-[8vw] flex items-center justify-center lg:rounded-[0.4vw] rounded-[0.8vw] -rotate-90 bg-zinc-800'>
                             <KeyboardArrowDownIcon sx={{ fontSize: { xs: 14, lg: 20 } }} />
                         </div>
@@ -279,7 +279,7 @@ export function Rav(props: any) {
             </div>
             <h1 className='text-white lg:text-[1.5vw] text-[0px]'>{props.chapter} {props.name}</h1>
             <div className='flex items-center gap-[1vw]'>
-                <Link href={`/home/${props.manga}`}>
+                <Link href={`/${props.manga}`}>
                     <div className='lg:w-[3vw] lg:h-[3vw] w-[8vw] h-[8vw] flex items-center justify-center lg:rounded-[0.4vw] rounded-[0.8vw] bg-zinc-800'>
                         <ArrowBackIosIcon sx={{ fontSize: { xs: 14, lg: 20 } }} />
                     </div>

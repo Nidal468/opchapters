@@ -33,27 +33,15 @@ export default function Scanner(props: any) {
             method: 'POST',
             body: formData
         })
-        if(response.ok){
+        if (response.ok) {
             alert(`${selectedChapter?.number} - ${selectedChapter?.title || 'no title'} publised`);
         }
     }
     return (
-        <div className="w-full min-h-[200px] bg-zinc-600 flex flex-col">
-            <div className="w-full bg-zinc-900 p-[10px] flex items-center justify-between"><h1>Uploaded Files</h1>
-                <button onClick={handleLoad}>Save as draft</button>
+            <div className="w-full bg-sky-300 p-[10px] flex items-center justify-between">
+                <h1>Publish {selectedChapter?.number} - {selectedChapter?.title || 'no title'}</h1>
+                <button onClick={handleLoad}>Reload</button>
+                <button onClick={handlePublish}>Upload</button>
             </div>
-            <div className="w-full h-[300px] overflow-y-auto">
-                <div className="w-full flex flex-wrap gap-[10px] p-[10px]">
-                    {draftChapter?.images.map((data: any, index: number) => {
-                        return (
-                            <div className="w-[90px] h-[140px] relative" key={data.source}><Image fill={true} src={data.source} alt={data.source} sizes='200px, 200px'/></div>
-                        )
-                    })}
-                </div>
-            </div>
-            <div className="w-full bg-zinc-900 p-[10px] flex items-center justify-between"><h1>Publish {selectedChapter?.number} - {selectedChapter?.title || 'no title'}</h1>
-                <button onClick={handlePublish}>Publish</button>
-            </div>
-        </div>
     )
 }

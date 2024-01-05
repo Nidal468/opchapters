@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import Data from '@/public/data/manga.json'
 import { Pages } from '@/components/part';
 
 
