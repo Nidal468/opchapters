@@ -3,23 +3,16 @@ import { join } from 'path';
 import { promises as fs } from 'fs';
 import path from 'path';
 
-const { writeFile, mkdir } = fs;
-const DATA_FOLDER = 'public/data';
-const IMAGES_FOLDER = 'public/images/content'; // Change this to your desired folder
-const FILE_NAME = 'manga.json';
+const { writeFile, mkdir, readdir } = fs;
+
+const UPLOAD_FOLDER = 'public/images/content';
 
 export async function POST(req: NextRequest, res: NextResponse) {
     try {
         const formData = await req.formData();
-        const name = formData.get('name')?.toString() || '';
-        const index = formData.get('manga')?.toString() || '';
-        const id = formData.get('chapter')?.toString() || '';
-        const sourcePath = path.join(process.cwd(), DATA_FOLDER, FILE_NAME);
-        const existingData = await fs.readFile(sourcePath, 'utf8');
-        const mangaList = JSON.parse(existingData);
-        const targetManga = mangaList.find((manga: any) => manga.id === index);
-        const targetChapter = targetManga?.chapters.find((chapter: any) => chapter.id === id);
-        const endPoint = targetChapter?.number;
+        const name = formData.get('name')?.toString();
+        const endPoint = formData.get('endPoint')?.toString();
+        const title = formData.get('title')?.toString();
         const file = formData.get('file') as File;
 
         if (!file) {
@@ -28,14 +21,20 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
-        const fileName = file.name;
-        const ext = path.extname(fileName).toLowerCase();
-        const filePath = join(IMAGES_FOLDER, name, endPoint, fileName);
+        const fileName = formData.get('filename')?.toString();;
+
+        let folderPath = '';
+
+        if (!title) {
+            folderPath = path.join(process.cwd(), UPLOAD_FOLDER, name as string, `${endPoint as string}`, fileName as string);
+        } else {
+            folderPath = path.join(process.cwd(), UPLOAD_FOLDER, name as string, `${endPoint as string} - ${title as string}`, fileName as string);
+        }
 
         // Ensure sequential operations using Promise.all
         await Promise.all([
-            mkdir(path.dirname(filePath), { recursive: true }),
-            writeFile(filePath, buffer),
+            mkdir(path.dirname(folderPath), { recursive: true }),
+            writeFile(folderPath, buffer),
         ]);
 
         return NextResponse.json({ message: 'File uploaded successfully' });

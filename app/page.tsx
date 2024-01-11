@@ -1,13 +1,15 @@
+'use client'
+
 import { Nav, Banner, Card, Footer, Sidebar, Menu } from '@/components/part'
 import themes from '@/style/themes.module.css'
 import FolderIcon from '@mui/icons-material/Folder';
-import Data from '@/public/data/manga.json'
-import {Adsense, Adsense2, Adsense3, BidgearAds} from '@/components/ads';
+import { Fetch } from '@/components/fetch/page';
+import { Adsense6, Adsense5, BidgearAds } from '@/components/ads';
 
 export default function Home() {
-
+    const Data = Fetch();
     return (
-        <div className='w-full min-h-screen flex items-center justify-start text-white' id={themes.body}>
+        <div className='w-full min-h-[200vh] flex items-center justify-start text-white' id={themes.body}>
             <Sidebar />
             <div className='lg:w-[80%] w-full min-h-screen flex flex-col items-start justify-between gap-[2vw] absolute top-0 right-0'>
                 <div className='w-full flex flex-col items-start justify-start lg:gap-[1.5vw] gap-[3vw]'>
@@ -19,15 +21,16 @@ export default function Home() {
                         <FolderIcon sx={{ fontSize: { xs: 14, lg: 20 } }} />
                         <h1 className='lg:text-[1.5vw] text-[2vw]'>Manga List</h1>
                     </div>
-                    
                     <div className='w-full flex flex-wrap items-start justify-start gap-[1vw] lg:px-[3vw] px-[2vw] '>
-                        {Data.map((data: any) => (
-                            <Card link={data.id} src={data.cover} name={data.name} key={data.id} />
+                        {Data?.map((data: any) => (
+                            <div className='flex items-center justify-center gap-[1vw]' key={data.id} >
+                                <Card link={data.id} src={data.cover} name={data.name} />
+                                <Adsense5 />
+                            </div>
                         ))}
                     </div>
-                    
                     <div className='w-full lg:h-[30vh] h-[15vh]'>
-                       
+                        <Adsense6/>
                     </div>
                 </div>
                 <Footer />

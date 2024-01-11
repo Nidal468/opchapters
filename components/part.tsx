@@ -8,7 +8,6 @@ import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow } from 'swiper/modules';
 import { useEffect, useState } from 'react'
-import Data from '@/public/data/manga.json'
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import Image from 'next/image'
@@ -19,6 +18,7 @@ import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsAc
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import Link from 'next/link'
 import { Adsense, Adsense2, Adsense3, BidgearAds } from '@/components/ads';
+import { Fetch } from './fetch/page';
 
 type DivStates = {
     div1: boolean;
@@ -29,6 +29,33 @@ type DivStates = {
     div6: boolean;
     div7: boolean;
 };
+interface Manga {
+    id: string;
+    name: string;
+    author: string;
+    date: string;
+    info: string;
+    genre1: string;
+    genre2: string;
+    genre3: string;
+    cover: string;
+    synopsis: string;
+    chapters: Chapter[];
+    totalViews: number;
+}
+
+interface Chapter {
+    id: string;
+    title: string;
+    date: string;
+    number: string;
+    viewed: string[];
+    images: Image[];
+}
+
+interface Image {
+    source: string;
+}
 
 const info = "Hey everybody we are glad that you enjoy our scanlations but, don't forget to support the official version of our chapters or any other official publishing site! We value your suggestions so feel free to join our Discord server and give us feedback! for now just sit back, relax and enjoy some quality manga";
 export function Nav() {
@@ -142,17 +169,18 @@ export function List(props: any) {
         <Link href={`/${props.manga}/${props.chapter}`}>
             <div className='lg:w-[22vw] lg:h-[4vw] w-[46vw] h-[8vw] flex flex-col items-center justify-center lg:text-[0.8vw] text-[1.5vw] bg-zinc-700 hover:bg-zinc-500 duration-300 lg:rounded-[0.3vw] rounded-[0.8vw]'>
                 <h1>{props.name}</h1>
-                <h3>Chapter {props.number}</h3>
+                <h3>{props.number}</h3>
             </div>
         </Link>
     )
 }
 export function Pages(props: any) {
-    const [prev, setPrev] = useState(0)
-    const [next, setNext] = useState(0)
+    const Data = Fetch();
+    const [prev, setPrev] = useState(0);
+    const [next, setNext] = useState(0);
     const [width, setWidth] = useState('100vw');
     const [height, setHeight] = useState('auto');
-    const selectedManga = Data.find((mangas: any) => mangas.id === props.manga);
+    const selectedManga = Data?.find((mangas: any) => mangas.id === props.manga);
     const selectedChapter = selectedManga?.chapters.find((chapters: any) => chapters.id === props.chapter);
     const chapterIndex = selectedManga?.chapters.findIndex((data: any) => data.id === props.chapter);
     const max = selectedManga?.chapters.length
@@ -180,13 +208,16 @@ export function Pages(props: any) {
         setWidth('100vw');
         setHeight('auto')
     }
+    
+    if (!selectedChapter?.images) return null
+
     return (
         <div className="w-full h-full flex items-start justify-between lg:pt-[8vw] pt-[14vw]">
             <Rav fitToHeight={Height} fitToWidth={Width} prev={prevChapter} next={nextChapter} manga={props.manga} name={selectedChapter?.title} chapter={selectedChapter?.number} />
             <div className='w-[10vw] h-full flex flex-col items-center justify-between'>
-              
+
                 <BidgearAds />
-                
+
             </div>
             <div className='w-full min-h-[100vh] p-[1vw] flex flex-col items-center justify-start gap-[1vw]'>
                 {selectedChapter?.images.map((images: any) => (
@@ -194,7 +225,7 @@ export function Pages(props: any) {
                 ))}
             </div>
             <div className='w-[10vw] h-full flex flex-col items-center justify-between'>
-                
+
             </div>
         </div>
     )

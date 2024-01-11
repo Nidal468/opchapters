@@ -76,3 +76,37 @@ export const Adsense3 = () => {
     ></ins>
   );
 };
+
+// grid ad
+export const Adsense4 = () => {
+  return (
+    <ins className="adsbygoogle"
+      style={{ display: "block" }}
+      data-ad-format="autorelaxed"
+      data-ad-client="ca-pub-4800250949422145"
+      data-ad-slot="6915778004"></ins>
+  );
+};
+
+// min-height container
+export const Adsense5 = () => {
+  return (
+    <ins className="adsbygoogle"
+      style={{ display: "block" }}
+      data-ad-format="fluid"
+      data-ad-layout-key="+1j+rx+1+2-3"
+      data-ad-client="ca-pub-4800250949422145"
+      data-ad-slot="4596736425"></ins>
+  );
+};
+// basic
+export const Adsense6 = () => {
+  return (
+    <ins className="adsbygoogle"
+      style={{ display: "block" }}
+      data-ad-client="ca-pub-4800250949422145"
+      data-ad-slot="9477264684"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+  );
+};

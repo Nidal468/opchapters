@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4800250949422145" crossOrigin="anonymous"></Script>
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4800250949422145" crossOrigin="anonymous" data-cfasync="false"></Script>
       </head>
       <body className={inter.className}>{children}</body>
     </html>

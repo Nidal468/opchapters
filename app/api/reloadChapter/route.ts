@@ -1,75 +1,64 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { join } from 'path';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { generateToken } from '@/components/token/page';
 
-const { writeFile, readFile } = fs;
-
 const UPLOAD_FOLDER = 'public/images/content';
-const DATA_FOLDER = 'public/data';
-const FILE_NAME = 'manga.json';
 
 export async function POST(req: NextRequest, res: NextResponse) {
     try {
         const formData = await req.formData();
         const mangaId = formData.get('manga')?.toString();
-        
-        
-        
-        const filePath = path.join(DATA_FOLDER, FILE_NAME);
-        const existingData = await readFile(filePath, 'utf8');
-        const data = JSON.parse(existingData);
-        const selectedManga = data.find((data: any) => data.id === mangaId);
-        const folderPath = path.join(process.cwd(), UPLOAD_FOLDER, selectedManga.name);
-        const fileNames = await readFolderContents(folderPath);
-        const existingMangaIndex = data.findIndex((m: any) => m.id === mangaId);
+        const dataString = formData.get('data');
+        const data = JSON.parse(dataString as string);
 
-        if (existingMangaIndex !== -1) {
-            const existingManga = data[existingMangaIndex];
-            
-            fileNames.forEach(async (file: any) => {
-                const parts = file.split('-').map((part: any) => part.trim());
-                const number = parts[0]; // Use the second part as the 'number'
-                const title = parts[1];  // Use the first part as the 'title'
-            
-                const existingChapter = existingManga.chapters.find((c: any) => c.number === number);
-                
-                if (!existingChapter) {
-                    const currentDate = new Date();
-                    const formattedDate = new Intl.DateTimeFormat('en-US', {
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric',
-                    }).format(currentDate);
-            
-                    const newChapter = {
-                        id: generateToken(30),
-                        title: title,
-                        date: formattedDate,
-                        number: number,
-                        viewed: []
-                    };
-            
-                    existingManga.chapters.push(newChapter);
+        const selectedManga = data.find((item: any) => item.id === mangaId);
+        const newChapters = []; // Array to store newly added chapters
+
+        if (selectedManga) {
+            const folderPath = path.join(process.cwd(), UPLOAD_FOLDER, selectedManga.name);
+            const fileNames = await readFolderContents(folderPath);
+            const existingMangaIndex = data.findIndex((item: any) => item.id === mangaId);
+
+            if (existingMangaIndex !== -1) {
+                const existingManga = data[existingMangaIndex];
+
+                for (const file of fileNames) {
+                    const parts = file.split('-').map((part: any) => part.trim());
+                    const number = parts[0];
+                    const title = parts[1];
+
+                    const existingChapter = existingManga.chapters.find((c: any) => c.number === number);
+
+                    if (!existingChapter) {
+                        const currentDate = new Date();
+                        const formattedDate = new Intl.DateTimeFormat('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                        }).format(currentDate);
+
+                        const newChapter = {
+                            id: generateToken(30),
+                            title: title,
+                            date: formattedDate,
+                            number: number,
+                            viewed: []
+                        };
+
+                        existingManga.chapters.push(newChapter);
+                        newChapters.push(newChapter); // Add the new chapter to the array
+                    }
                 }
-            });
-            
+            }
         }
 
-        // Check if any names in the JSON file are not in the array
-        data.forEach(async (m: any) => {
-            if (!fileNames.includes(m.name)) {
-                // Do something with the manga data that is not in the array
-            }
-        });
-
-        await writeFile(filePath, JSON.stringify(data), 'utf8');
+        return NextResponse.json(newChapters);
     } catch (error) {
         console.error('Error:', error);
         // Handle the error appropriately
+        return NextResponse.json('Internal Server Error');
     }
-    return NextResponse.json('we good');
 }
 
 async function readFolderContents(folderPath: string): Promise<string[]> {
